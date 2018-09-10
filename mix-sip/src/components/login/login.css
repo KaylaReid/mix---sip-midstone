@@ -1,3 +1,10 @@
+
+.login-logo {
+    width: 20em;
+    padding-right: 9em;
+}
+
+
 @import 'https://fonts.googleapis.com/css?family=Dosis|Roboto:300,400';
 * {
     margin: 0;

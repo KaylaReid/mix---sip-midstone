@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./login.css";
 import DataManager from "../../modules/DataManager";
+import Logo from "../images/logo.png"
 
 export default class Login extends Component {
     state = {
@@ -96,9 +97,10 @@ export default class Login extends Component {
                 <div className="login-page">
                 <div className="login-container">
                     <form className="login-form signIn active-dx">
-                        <h3 className="login-h3">Welcome<br />Back !</h3>
-                        <button className="login-button fb" type="button">Logo Here?</button>
-                        <p className="login-p">- space for logo -</p>
+                        <h3 className="login-h3">Welcome<br /> to</h3>
+                        <img src={Logo} alt="mix&amp;siplogo" className="login-logo"/>
+                        {/* <button className="login-button fb" type="button">Logo Here?</button>
+                        <p className="login-p">- space for logo -</p> */}
                         <input className="login-input" type="text" id="loginUsername" placeholder="Username" onChange={this.handleFieldChange} />
                         <input className="login-input" type="password" id="loginPassword" placeholder="Password" onChange={this.handleFieldChange} />
                         <button className="login-button form-btn sx back" type="button"  onClick={this.switchToSignUp}>Sign Up</button>
