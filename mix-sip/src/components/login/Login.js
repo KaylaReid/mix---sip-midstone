@@ -38,10 +38,41 @@ export default class Login extends Component {
         }
     }
 
+    handleFirstLogin = (e) => {
+        e.preventDefault()
+        DataManager.getUser(this.state.registerUsername, this.state.registerPassword)
+        .then(user => {
+            sessionStorage.setItem("user", JSON.stringify(user))
+            this.props.history.push("/userhome")
+        })
+    }
 
-
-
-
+    handleRegister = (e) => {
+        e.preventDefault()
+        if(!this.state.fullName || !this.state.username || 
+        !this.state.password){
+            alert("Please fill out all fields")
+        } else {
+            DataManager.checkUser(this.state.username)
+            .then(user => {
+                if(user.length !== 0){
+                    alert("This Username is already taken")
+                } else {
+                    let newUser = {
+                        username: this.state.username,
+                        password: this.state.password,
+                        fullName: this.state.fullName
+                    }
+                    DataManager.add("users", newUser)
+                    .then(() => this.setState({
+                        isRegistered: true,
+                        registerUsername: this.state.username,
+                        registerPassword: this.state.password
+                    }))
+                }
+            }) 
+        }
+    }
 
     switchToLogin = (e) => {
         e.preventDefault()
@@ -67,7 +98,7 @@ export default class Login extends Component {
                     <form className="login-form signIn active-dx">
                         <h3 className="login-h3">Welcome<br />Back !</h3>
                         <button className="login-button fb" type="button">Logo Here?</button>
-                        <p className="login-p">- or -</p>
+                        <p className="login-p">- space for logo -</p>
                         <input className="login-input" type="text" id="loginUsername" placeholder="Username" onChange={this.handleFieldChange} />
                         <input className="login-input" type="password" id="loginPassword" placeholder="Password" onChange={this.handleFieldChange} />
                         <button className="login-button form-btn sx back" type="button"  onClick={this.switchToSignUp}>Sign Up</button>
@@ -75,8 +106,8 @@ export default class Login extends Component {
                     </form>
                     <form className="login-form signUp inactive-sx">
                         <h3 className="login-h3">Create Your Account</h3>
-                        <p className="login-p">Just enter your email address<br />
-                            and your password for join.
+                        <p className="login-p">Fill out your info!<br />
+                            and click sign up
                         </p>
                         <input className="login-input" type="text" id="fullName" placeholder="First &amp; Last Name" onChange={this.handleFieldChange} />
                         <input className="login-input" type="text" id="username" placeholder="Username" onChange={this.handleFieldChange} />
