@@ -11,7 +11,7 @@ You are able to add new recipes as you discover them, as well as edit the ones y
 >  To keep you from forgetting mix amounts or about drinks all together. I like most people like to drink but also like to save money and making drinks at home is way cheeper than going out,  that being said I have a ever growing note on my phone with my favorite drink recipes. The more I collected the more I knew I wanted to build and app that gave me a forum in which to create, store, edit, and delete recipes! 
 
 ## My ERD for this project 
-![picture](images/mix-sip/mix-sip-ERD.png)
+![picture](mix-sip/images/mix-sip-ERD.png)
 
 ---
 
