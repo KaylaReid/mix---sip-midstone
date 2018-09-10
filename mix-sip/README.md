@@ -16,20 +16,12 @@ You are able to add new recipes as you discover them, as well as edit the ones y
 ---
 
 ## How to use my app 
-1. Write markdown text in this textarea.
-2. Click 'HTML Preview' button.
-
+1. fork  then git clone repository 
+2. Run this code in terminal 
+---
+    npm install
+  
 ----
-
-
-
-
-    code (4 spaces indent)
-[links](http://wikipedia.org)
-
-----
-## changelog
-* 17-Feb-2013 re-design
 
 ----
 ## Thanks for checkouting out MIX & SIP
