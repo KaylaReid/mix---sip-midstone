@@ -25,7 +25,7 @@
       "id": 4
     }
   ],
-  "drinkMixes": [
+  "drinks": [
     {
       "id": 1,
       "title": "Gin and Tonic",
@@ -55,7 +55,7 @@
       "userId": 2
     }
   ],
-  "drinkIngrRels": [
+  "drinkIngredients": [
     {
       "id": 1,
       "drinkId": 1,

@@ -2,12 +2,13 @@ import React, { Component } from "react";
 // import { Redirect, Route} from "react-router-dom";
 import Navbar from "./nav/Navbar";
 import DataManager from "../modules/DataManager";
+import DrinkList from "./drinks/DrinkList"
 
 export default class UserPage extends Component {
     state = {
         user: {},
-        drinkMixes: [],
-        drinkIngrRels: [],
+        drinks: [],
+        drinkIngredients: [],
         ingredients: [],
         types: [],
     }
@@ -16,10 +17,10 @@ export default class UserPage extends Component {
         let newState = {}
         let user = JSON.parse(sessionStorage.getItem("user"))[0]
         newState.user = user 
-        DataManager.getUserData("drinkMixes", newState.user.id)
-        .then(drinkMixes => newState.drinkMixes = drinkMixes)
-        .then(() => DataManager.getUserData("drinkIngrRels", newState.user.id))
-        .then(drinkIngrRels => newState.drinkIngrRels = drinkIngrRels)
+        DataManager.getUserData("drinks", newState.user.id)
+        .then(drinks => newState.drinks = drinks)
+        .then(() => DataManager.getUserData("drinkIngredients", newState.user.id))
+        .then(drinkIngredients => newState.drinkIngredients = drinkIngredients)
         .then(() => DataManager.getUserData("ingredients", newState.user.id))
         .then(ingredients => newState.ingredients = ingredients)
         .then(() => DataManager.getUserData("types", newState.user.id))
@@ -31,7 +32,12 @@ export default class UserPage extends Component {
         return (
             <div>
                 <Navbar {...this.props}/>
-                {/* <DrinkList  */}
+                <DrinkList
+                    drinks={this.state.drinks}
+                    drinkIngredients={this.state.drinkIngredients}
+                    ingredients={this.state.ingredients}
+                    types={this.state.types} />
+                
             </div>
         )
     }
