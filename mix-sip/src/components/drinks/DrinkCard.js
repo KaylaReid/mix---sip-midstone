@@ -44,7 +44,6 @@ export default class DrinkCard extends Component {
                                 return (
                                     <h5>{drinkIngredient.name} {drinkIngredient.amount}</h5>
                                 )
-
                             }
                         })
 

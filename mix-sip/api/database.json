@@ -79,8 +79,8 @@
     },
     {
       "id": 4,
-      "drinkId": 2,
-      "ingredientId": 2,
+      "drinkId": 4,
+      "ingredientId": 5,
       "amount": "2oz.",
       "userId": 2
     }
@@ -106,6 +106,12 @@
     },
     {
       "id": 4,
+      "name": "Vodka",
+      "typeId": 1,
+      "userId": 1
+    },
+    {
+      "id": 5,
       "name": "Vodka",
       "typeId": 1,
       "userId": 2
