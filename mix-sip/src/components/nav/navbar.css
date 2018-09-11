@@ -1,0 +1,17 @@
+.navbar {
+    background-color: dimgray;
+    height: 5em;
+}
+.navbar-logo {
+    height: 15em;
+    padding: 1em;
+}
+
+.logout-button {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 7px;
+    margin-right: 9px;
+    padding: .5em;
+}
