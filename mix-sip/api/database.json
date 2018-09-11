@@ -17,6 +17,12 @@
       "password": "123",
       "fullName": "Shannon Reid",
       "id": 3
+    },
+    {
+      "username": "sampops",
+      "password": "123",
+      "fullName": "Sam Pope",
+      "id": 4
     }
   ],
   "drinkMixes": [
@@ -24,115 +30,99 @@
       "id": 1,
       "title": "Gin and Tonic",
       "description": "test, its a good drank",
+      "directions": "shake then strain over ice",
       "userId": 1
     },
     {
       "id": 2,
       "title": "Skittles",
       "description": "test, its a good drank that tastes like skittles",
+      "directions": "shake then strain over ice",
       "userId": 1
     },
     {
       "id": 3,
       "title": "Creamsicle Dream",
       "description": "test, its a good drank that tastes like orange cream soda!",
+      "directions": "shake then strain over ice",
       "userId": 1
     },
     {
       "id": 4,
       "title": "test drink for user 2",
       "description": "test, its a good drank hopefully",
+      "directions": "shake then strain over ice",
       "userId": 2
     }
   ],
-  "bases": [
+  "drinkIngrRels": [
+    {
+      "id": 1,
+      "drinkId": 1,
+      "ingredientId": 1,
+      "amount": "2oz.",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "drinkId": 1,
+      "ingredientId": 2,
+      "amount": "3oz.",
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "drinkId": 3,
+      "ingredientId": 1,
+      "amount": "2oz.",
+      "userId": 1
+    },
+    {
+      "id": 4,
+      "drinkId": 2,
+      "ingredientId": 2,
+      "amount": "2oz.",
+      "userId": 2
+    }
+  ],
+  "ingredients": [
     {
       "id": 1,
       "name": "Gin",
-      "drinkId": 1,
+      "typeId": 1,
       "userId": 1
     },
     {
       "id": 2,
-      "name": "Bicardi DragonBerry Rum",
-      "drinkId": 2,
-      "userId": 1
-    },
-    {
-      "id": 3,
-      "name": "Pinnacle Whipped Vodka",
-      "drinkId": 3,
-      "userId": 1
-    },
-    {
-      "id": 4,
-      "name": "test drink",
-      "drinkId": 4,
-      "userId": 2
-    }
-  ],
-  "mixers": [
-    {
-      "id": 1,
       "name": "Tonic",
-      "drinkId": 1,
-      "userId": 1
-    },
-    {
-      "id": 2,
-      "name": "Sprite",
-      "drinkId": 2,
+      "typeId": 2,
       "userId": 1
     },
     {
       "id": 3,
-      "name": "Orange Crush",
-      "drinkId": 3,
+      "name": "Lime",
+      "typeId": 3,
       "userId": 1
     },
     {
       "id": 4,
-      "name": "Test",
-      "drinkId": 4,
+      "name": "Vodka",
+      "typeId": 1,
       "userId": 2
-    },
-    {
-      "id": 5,
-      "name": "Test mixer 1",
-      "drinkId": 5,
-      "userId": 1
     }
   ],
-  "garnishes": [
+  "types": [
     {
       "id": 1,
-      "name": "Lime",
-      "drinkId": 1,
-      "userId": 1
+      "name": "Base"
     },
     {
       "id": 2,
-      "name": "ice cubes",
-      "drinkId": 2,
-      "userId": 1
+      "name": "Mixer"
     },
     {
-      "id": 3,
-      "name": "ice cubes",
-      "drinkId": 3,
-      "userId": 1
-    },
-    {
-      "id": 4,
-      "name": "test garnish",
-      "drinkId": 1,
-      "userId": 1
-    },
-    {
-      "id": 5,
-      "name": "test garnish 1",
-      "drinkId": 5,
-      "userId": 1
+      "id": 1,
+      "name": "Garnish"
     }
   ]
 }
