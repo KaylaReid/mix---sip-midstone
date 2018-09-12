@@ -1,4 +1,5 @@
 import React, { Component } from "react"; 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class DrinkCard extends Component {
     
@@ -32,8 +33,10 @@ export default class DrinkCard extends Component {
                         this.state.drinkIngredients.map(drinkIngredient => {
                             if(drinkIngredient.type === "Base"){
                                 return (
-                                    <h5>{drinkIngredient.name} {drinkIngredient.amount}</h5>
+                                    <h5 key={drinkIngredient.id}>{drinkIngredient.name} {drinkIngredient.amount}</h5>
                                 )
+                            } else {
+                                return null
                             }
                         })
                     }
@@ -42,8 +45,10 @@ export default class DrinkCard extends Component {
                         this.state.drinkIngredients.map(drinkIngredient => {
                             if(drinkIngredient.type === "Mixer"){
                                 return (
-                                    <h5>{drinkIngredient.name} {drinkIngredient.amount}</h5>
+                                    <h5 key={drinkIngredient.id}>{drinkIngredient.name} {drinkIngredient.amount}</h5>
                                 )
+                            } else {
+                                return null
                             }
                         })
 
@@ -53,9 +58,11 @@ export default class DrinkCard extends Component {
                         this.state.drinkIngredients.map(drinkIngredient => {
                             if(drinkIngredient.type === "Garnish"){
                                 return(
-                                    <h5>{drinkIngredient.name} 
+                                    <h5 key={drinkIngredient.id}>{drinkIngredient.name} 
                                     {drinkIngredient.amount}</h5>
                                 )
+                            } else {
+                                return null
                             }
                         })
 
@@ -65,9 +72,6 @@ export default class DrinkCard extends Component {
                         <p>{this.props.drink.directions}</p>
                     </div>
                 </div>
-
-
-
             </React.Fragment>
         )
     }

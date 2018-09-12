@@ -28,15 +28,21 @@ export default class UserPage extends Component {
         .then(() => this.setState(newState))
     }
 
+    addDrink = (object) => {
+        return DataManager.add("drinkMixes", object)
+    }
+
     render() {
         return (
             <div>
                 <Navbar {...this.props}/>
                 <DrinkList
+                    user={this.state.user}
                     drinks={this.state.drinks}
                     drinkIngredients={this.state.drinkIngredients}
                     ingredients={this.state.ingredients}
-                    types={this.state.types} />
+                    types={this.state.types}
+                    addDrink={this.addDrink} />
                 
             </div>
         )
