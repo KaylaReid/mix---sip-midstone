@@ -28,8 +28,10 @@ export default class UserPage extends Component {
         .then(() => this.setState(newState))
     }
 
-    addObject = (resource, object) => {
+    addIngredient = (resource, object) => {
         return DataManager.add(resource, object)
+        .then(() => DataManager.getUserData("ingredients", this.state.user.id))
+        .then(ingredients => this.setState({ingredients: ingredients}))
     }
 
     reSetState = () => {
@@ -55,7 +57,7 @@ export default class UserPage extends Component {
                     drinkIngredients={this.state.drinkIngredients}
                     ingredients={this.state.ingredients}
                     types={this.state.types}
-                    addObject={this.addObject}
+                    addIngredient={this.addIngredient}
                     reSetState={this.reSetState} />
                 
             </div>

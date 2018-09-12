@@ -9,9 +9,7 @@ class ModalExample extends React.Component {
             nestedModal: false,
             closeAll: false,
             selectType: false,
-            addNewIngredient: false,
-            newIngredientName: "",
-            newIngredientType: ""
+            addNewIngredient: false
         };
 
         this.toggle = this.toggle.bind(this);
@@ -56,7 +54,7 @@ class ModalExample extends React.Component {
             closeAll: false
           });
         console.log(newIngredient, "it works!!!!!")
-        this.props.addObject("ingredients", newIngredient)
+        this.props.addIngredient("ingredients", newIngredient)
     }
 
 
@@ -96,12 +94,11 @@ class ModalExample extends React.Component {
                         <Label>Don't see the ingredient your looking for? Add a New one!</Label><br/>
                         <Button color="success" onClick={this.toggleNested}>Add a New Ingredient</Button>
                         <Modal isOpen={this.state.nestedModal} toggle={this.toggleNested} onClosed={this.state.closeAll ? this.toggle : undefined}>
-                            <ModalHeader>Add your ingredient here!</ModalHeader>
+                            <ModalHeader>Add your ingredient here, and it will be added to your collection of ingredients to choose from</ModalHeader>
                             <div>
                                 <Label htmlFor="newIngredientType">Type of Ingredient:</Label>
                                 <Input id="newIngredientType" type="select" defaultValue="Select Type" onChange={this.handleFieldChange}>
-                            
-                                    <option>Select Type</option>
+                                        <option>Select Type</option>
                                     {
                                         this.props.types.map(type => {
                                             return <option key={type.id}>{type.name}</option>
@@ -116,8 +113,9 @@ class ModalExample extends React.Component {
                                 <Input id="newIngredientName" type="text" placeholder="Name of ingredient" onChange={this.handleFieldChange}/>
                             </div>
                                 <ModalFooter>
-                                    <Button color="primary" onClick={this.saveNewIngredient}>Save</Button>{' '}
-                                    <Button corol="info" onClick={this.toggleNested}>Cancel</Button>   </ModalFooter>
+                                <Button color="primary" onClick={this.saveNewIngredient}>Save</Button>{' '}
+                                <Button corol="info" onClick={this.toggleNested}>Cancel</Button>   
+                                </ModalFooter>
                         </Modal>
                         </div>
                     </div>

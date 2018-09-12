@@ -9,7 +9,7 @@ export default class DrinkList extends Component {
             <React.Fragment>
                 <div className="drink-list">
                     <AddDrink user={this.props.user}
-                            addObject={this.props.addObject}
+                            addIngredient={this.props.addIngredient}
                             ingredients={this.props.ingredients} 
                             types={this.props.types}
                             reSetState={this.props.reSetState} />

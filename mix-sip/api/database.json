@@ -123,10 +123,10 @@
       "id": 6
     },
     {
-      "name": "hello",
-      "typeId": 1,
+      "name": "Orange Peal",
+      "typeId": 3,
       "userId": 1,
-      "id": 7
+      "id": 8
     }
   ],
   "types": [
