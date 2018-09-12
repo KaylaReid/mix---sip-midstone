@@ -28,8 +28,21 @@ export default class UserPage extends Component {
         .then(() => this.setState(newState))
     }
 
-    addDrink = (object) => {
-        return DataManager.add("drinkMixes", object)
+    addObject = (resource, object) => {
+        return DataManager.add(resource, object)
+    }
+
+    reSetState = () => {
+        let newState = {}
+        return DataManager.getUserData("drinks", newState.user.id)
+        .then(drinks => newState.drinks = drinks)
+        .then(() => DataManager.getUserData("drinkIngredients", newState.user.id))
+        .then(drinkIngredients => newState.drinkIngredients = drinkIngredients)
+        .then(() => DataManager.getUserData("ingredients", newState.user.id))
+        .then(ingredients => newState.ingredients = ingredients)
+        .then(() => DataManager.getUserData("types", newState.user.id))
+        .then(types => newState.types = types)
+        .then(() => this.setState(newState))
     }
 
     render() {
@@ -42,7 +55,8 @@ export default class UserPage extends Component {
                     drinkIngredients={this.state.drinkIngredients}
                     ingredients={this.state.ingredients}
                     types={this.state.types}
-                    addDrink={this.addDrink} />
+                    addObject={this.addObject}
+                    reSetState={this.reSetState} />
                 
             </div>
         )

@@ -115,6 +115,18 @@
       "name": "Vodka",
       "typeId": 1,
       "userId": 2
+    },
+    {
+      "name": "Deep Eddie Lemon Vodka",
+      "typeId": 1,
+      "userId": 1,
+      "id": 6
+    },
+    {
+      "name": "hello",
+      "typeId": 1,
+      "userId": 1,
+      "id": 7
     }
   ],
   "types": [
@@ -127,7 +139,7 @@
       "name": "Mixer"
     },
     {
-      "id": 1,
+      "id": 3,
       "name": "Garnish"
     }
   ]

@@ -1,16 +1,22 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, FormText, Label } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label } from 'reactstrap';
 
 class ModalExample extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-        modal: false,
-        selectType: false,
-        addNewIngredient: false
+            modal: false,
+            nestedModal: false,
+            closeAll: false,
+            selectType: false,
+            addNewIngredient: false,
+            newIngredientName: "",
+            newIngredientType: ""
         };
 
         this.toggle = this.toggle.bind(this);
+        this.toggleNested = this.toggleNested.bind(this);
+        this.toggleAll = this.toggleAll.bind(this);
     }
 
     toggle() {
@@ -19,27 +25,40 @@ class ModalExample extends React.Component {
         });
     }
 
-    // addIngredient = () => {
-
-    // }
-
+    toggleNested() {
+        this.setState({
+          nestedModal: !this.state.nestedModal,
+          closeAll: false
+        });
+      }
+    
+      toggleAll() {
+        this.setState({
+          nestedModal: !this.state.nestedModal,
+          closeAll: true
+        });
+      }
+    
     handleFieldChange = evt => {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
     }
 
-    addNewIngredient = () => {
-        this.setState({addNewIngredient: true})
-    }
-
     saveNewIngredient = () => {
         let newIngredient = {
-            name: "Gin",
-            typeId: 1,
+            name: this.state.newIngredientName,
+            typeId: this.props.types.find(type => type.name === this.state.newIngredientType).id,
             userId: this.props.user.id
         }
+        this.setState({
+            nestedModal: !this.state.nestedModal,
+            closeAll: false
+          });
+        console.log(newIngredient, "it works!!!!!")
+        this.props.addObject("ingredients", newIngredient)
     }
+
 
     render() {
         const externalCloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={this.toggle}>&times;</button>;
@@ -60,7 +79,7 @@ class ModalExample extends React.Component {
                             <option>Select a Ingredient</option>
                             {
                                 this.props.ingredients.map(ing => {
-                                    return <option>{ing.name}</option>
+                                    return <option key={ing.id}>{ing.name}</option>
                                 })
                             }
                             
@@ -70,21 +89,22 @@ class ModalExample extends React.Component {
                         1/2 wedge, 1 squeeze" onChange={this.handleFieldChange}/>
                     </div>
                     <div>
-                        <Button color="info" onClick={this.addIngredient}>Add Ingredient</Button>
+                        <Button color="info" onClick={this.addIngredient}>Add Ingredient to Drink</Button>
                         <div>
 
+
                         <Label>Don't see the ingredient your looking for? Add a New one!</Label><br/>
-                        <Button color="warning" onClick={this.addNewIngredient}>Add New Ingredient</Button>
-                        {
-                            this.state.addNewIngredient === true &&
+                        <Button color="success" onClick={this.toggleNested}>Add a New Ingredient</Button>
+                        <Modal isOpen={this.state.nestedModal} toggle={this.toggleNested} onClosed={this.state.closeAll ? this.toggle : undefined}>
+                            <ModalHeader>Add your ingredient here!</ModalHeader>
                             <div>
-                                <Label htmlFor="ingredientType">Type of Ingredient:</Label>
-                                <Input id="ingredientType" type="select" defaultValue="Select Type" onChange={this.handleFieldChange}>
+                                <Label htmlFor="newIngredientType">Type of Ingredient:</Label>
+                                <Input id="newIngredientType" type="select" defaultValue="Select Type" onChange={this.handleFieldChange}>
                             
                                     <option>Select Type</option>
                                     {
                                         this.props.types.map(type => {
-                                            return <option>{type.name}</option>
+                                            return <option key={type.id}>{type.name}</option>
                                         })
                                     }
                                 </Input>
@@ -92,17 +112,15 @@ class ModalExample extends React.Component {
                                         this.state.selectType &&
                                         <span className="select-type-error">** Please Select a Type **</span>
                                     }
-                                <Label htmlFor="newIngredient">Add new ingredient:</Label>
-                                <Input id="newIngredient" type="text" placeholder="Name of ingredient" onChange={this.handleFieldChange}/>
-                                <Label htmlFor="amount">Amount:</Label>
-                                <Input id="amount" type="text" placeholder="Ex. 1oz.
-                                1/2 wedge, 1 squeeze" onChange={this.handleFieldChange}/>
-                                <Button onClick={this.saveNewIngredient}>Save New Ingredient</Button>
+                                <Label htmlFor="newIngredientName">Add new ingredient:</Label>
+                                <Input id="newIngredientName" type="text" placeholder="Name of ingredient" onChange={this.handleFieldChange}/>
                             </div>
-                        }
+                                <ModalFooter>
+                                    <Button color="primary" onClick={this.saveNewIngredient}>Save</Button>{' '}
+                                    <Button corol="info" onClick={this.toggleNested}>Cancel</Button>   </ModalFooter>
+                        </Modal>
                         </div>
                     </div>
-
                 <Label for="drinkDirections">Directions:</Label>
                 <Input id="drinkDirections" type="textarea" defaultValue={this.state.drinkDirections} placeholder="Directions to mix the drink!" onChange={this.handleFieldChange} />
             </ModalBody>

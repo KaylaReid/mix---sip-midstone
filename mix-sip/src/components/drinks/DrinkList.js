@@ -9,9 +9,10 @@ export default class DrinkList extends Component {
             <React.Fragment>
                 <div className="drink-list">
                     <AddDrink user={this.props.user}
-                            addDrink={this.props.addDrink}
+                            addObject={this.props.addObject}
                             ingredients={this.props.ingredients} 
-                            types={this.props.types} />
+                            types={this.props.types}
+                            reSetState={this.props.reSetState} />
                         {
                             this.props.drinks.map(drink => 
                             <DrinkCard key={drink.id} drink={drink} drinkIngredients={this.props.drinkIngredients}
