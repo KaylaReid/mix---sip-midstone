@@ -14,7 +14,9 @@ class ModalExample extends React.Component {
             amount: "",
             inputIngredients: [],
             isEmpty: false,
-            allReadyHave: false
+            allReadyHave: false,
+            amountIsBlank: false,
+            selectIng: false
         };
 
         this.toggle = this.toggle.bind(this);
@@ -60,26 +62,32 @@ class ModalExample extends React.Component {
             this.toggleNested()
             this.props.addIngredient("ingredients", newIngredient)
         }
-
     }
 
     addIngredient = () => {
-        let inputIngredients = this.state.inputIngredients
-        let ingAdded = {
-            name: this.state.ingredient,
-            amount: this.state.amount,
-            ingredienetId: this.props.ingredients.find(ing => ing.name === this.state.ingredient).id,
-            userId: this.props.user.id
+        this.setState({selectIng: false})
+        this.setState({amountIsBlank: false})
+        if(this.state.amount === "") {
+            this.setState({amountIsBlank: true})
+        } if(this.state.ingredient === "") {
+            this.setState({selectIng: true})
+        } else {
+            let inputIngredients = this.state.inputIngredients
+            let ingAdded = {
+                name: this.state.ingredient,
+                amount: this.state.amount,
+                ingredienetId: this.props.ingredients.find(ing => ing.name === this.state.ingredient).id,
+                userId: this.props.user.id
+            }
+            inputIngredients.push(ingAdded)
+            document.querySelector("#ingredient").value = "Select a Ingredient";
+            document.querySelector("#amount").value = "";
+            this.setState({
+                inputIngredients: inputIngredients,
+                ingredient: "",
+                amount: ""
+            })
         }
-        console.log(ingAdded, "here")
-        inputIngredients.push(ingAdded)
-        document.querySelector("#ingredient").value = "Select a Ingredient";
-        document.querySelector("#amount").value = "";
-        this.setState({
-            inputIngredients: inputIngredients,
-            ingredient: "",
-            amount: ""
-        })
     }
 
     saveDrink = () => {
@@ -92,8 +100,6 @@ class ModalExample extends React.Component {
                 directions: this.state.drinkDirections,
                 userId: this.props.user.id
             }
-            console.log(newDrink)
-            console.log(this.state.inputIngredients) 
             DataManager.add("drinks", newDrink)
             .then((drink) => {
                 let builtIngredients = []
@@ -142,8 +148,15 @@ class ModalExample extends React.Component {
 
                 <Label>Add ingredients:</Label>
                     <div className="ingredient-declare">
+                        {
+                            this.state.selectIng &&
+                            <Alert color="danger">
+                            Please select a ingredienet!
+                            </Alert>
+                            // <span className="select-type-error">** Please Select a Ingredient **</span>
+                        }
                         <Input id="ingredient" type="select" defaultValue="Select Type" onChange={this.handleFieldChange}>
-                            <option>Select a Ingredient</option>
+                            <option id="selectIngredient">Select a Ingredient</option>
                             {
                                 this.props.ingredients.map(ing => {
                                     return <option key={ing.id}>{ing.name}</option>
@@ -151,6 +164,12 @@ class ModalExample extends React.Component {
                             }
                             
                         </Input>
+                        {
+                            this.state.amountIsBlank && 
+                            <Alert color="warning">
+                            Please give this ingredienet an amount!
+                            </Alert>
+                        }
                         <Label>Amount:</Label>
                         <Input id="amount" type="text" placeholder="Ex. 1oz.
                         1/2 wedge, 1 squeeze" defaultValue={this.state.amount} onChange={this.handleFieldChange}/>
@@ -179,10 +198,6 @@ class ModalExample extends React.Component {
                                         })
                                     }
                                 </Input>
-                                    {
-                                        this.state.selectType &&
-                                        <span className="select-type-error">** Please Select a Type **</span>
-                                    }
                                 <Label htmlFor="newIngredientName">Add new ingredient:</Label>
                                 <Input id="newIngredientName" type="text" placeholder="Name of ingredient" onChange={this.handleFieldChange}/>
                             </div>

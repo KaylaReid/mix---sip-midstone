@@ -46,6 +46,13 @@
       "directions": "Shake all Gin with one lime wedge squeezed in, pour over ice top with Tonic then garnish with last lime wedge",
       "userId": 1,
       "id": 8
+    },
+    {
+      "name": "Oh the sweet taste ",
+      "description": "It is  a refreshing treat perfect for any occasion!",
+      "directions": "Place ice cubes in cup and pour the DC over top swirl and enjoy!",
+      "userId": 2,
+      "id": 9
     }
   ],
   "drinkIngredients": [
@@ -104,6 +111,20 @@
       "amount": "2 wedges",
       "userId": 1,
       "id": 14
+    },
+    {
+      "drinkId": 9,
+      "ingredientId": 17,
+      "amount": "7 oz.",
+      "userId": 2,
+      "id": 15
+    },
+    {
+      "drinkId": 9,
+      "ingredientId": 18,
+      "amount": "At least 5",
+      "userId": 2,
+      "id": 16
     }
   ],
   "ingredients": [
@@ -184,6 +205,24 @@
       "typeId": 2,
       "userId": 1,
       "id": 16
+    },
+    {
+      "name": "Coke",
+      "typeId": 2,
+      "userId": 2,
+      "id": 17
+    },
+    {
+      "name": "Ice Cubes",
+      "typeId": 3,
+      "userId": 2,
+      "id": 18
+    },
+    {
+      "name": "Diet Coke",
+      "typeId": 2,
+      "userId": 2,
+      "id": 19
     }
   ],
   "types": [
