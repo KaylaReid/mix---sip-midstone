@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Alert } from 'reactstrap';
 import DataManager from "../../modules/DataManager"
+import "./drinks.css"
 
 class ModalExample extends React.Component {
     constructor(props) {
@@ -98,7 +99,7 @@ class ModalExample extends React.Component {
            this.setState({isEmpty: true})
         } else {
             let newDrink = {
-                name: this.state.drinkName,
+                name: this.state.drinkName.toLowerCase(),
                 description: this.state.drinkDescription,
                 directions: this.state.drinkDirections,
                 userId: this.props.user.id
