@@ -1,5 +1,7 @@
 import React, { Component } from "react"; 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'reactstrap';
+import DataManager from "../../modules/DataManager";
 
 export default class DrinkCard extends Component {
     
@@ -19,9 +21,31 @@ export default class DrinkCard extends Component {
             }
             return drinkIngredients.push(ingredient)
         })
-        this.setState({drinkIngredients: drinkIngredients})
-        
+        this.setState({drinkIngredients: drinkIngredients}) 
     }
+
+    handleFieldChange = evt => {
+        const stateToChange = {}
+        stateToChange[evt.target.id] = evt.target.value
+        this.setState(stateToChange)
+    }
+
+    deleteDrink = () => {
+        
+           
+        let joinerTable = this.props.drinkIngredients.filter(joiner => joiner.drinkId === this.props.drink.id)
+        joinerTable.forEach(j => {
+        DataManager.delete("drinkIngredients", j.id)   
+        })
+         DataManager.delete("drinks", this.props.drink.id)
+         .then(() => this.props.resetData())
+            
+    }
+
+    // deleteArticle = () => {
+    //     this.props.delete("news", this.props.news.id)
+    // }
+
     
     render(){
         return(
@@ -29,24 +53,24 @@ export default class DrinkCard extends Component {
                 <div className="drink-card">
                     <h2>{this.props.drink.name}</h2>
                     <p>{this.props.drink.description}</p>
-                    <h4>Bases:</h4>
+                    <h5>Bases:</h5>
                     {
                         this.state.drinkIngredients.map(drinkIngredient => {
                             if(drinkIngredient.type === "Base"){
                                 return (
-                                    <h5 key={drinkIngredient.id}>{drinkIngredient.name} {drinkIngredient.amount}</h5>
+                                    <p key={drinkIngredient.id}>{drinkIngredient.name} {drinkIngredient.amount}</p>
                                 )
                             } else {
                                 return null
                             }
                         })
                     }
-                    <h4>Mixers:</h4>
+                    <h5>Mixers:</h5>
                     {
                         this.state.drinkIngredients.map(drinkIngredient => {
                             if(drinkIngredient.type === "Mixer"){
                                 return (
-                                    <h5 key={drinkIngredient.id}>{drinkIngredient.name} {drinkIngredient.amount}</h5>
+                                    <p key={drinkIngredient.id}>{drinkIngredient.name} {drinkIngredient.amount}</p>
                                 )
                             } else {
                                 return null
@@ -54,13 +78,13 @@ export default class DrinkCard extends Component {
                         })
 
                     }
-                    <h4>Garnishes:</h4>
+                    <h5>Garnishes:</h5>
                     {
                         this.state.drinkIngredients.map(drinkIngredient => {
                             if(drinkIngredient.type === "Garnish"){
                                 return(
-                                    <h5 key={drinkIngredient.id}>{drinkIngredient.name} 
-                                    {drinkIngredient.amount}</h5>
+                                    <p key={drinkIngredient.id}>{drinkIngredient.name} 
+                                    {drinkIngredient.amount}</p>
                                 )
                             } else {
                                 return null
@@ -69,9 +93,10 @@ export default class DrinkCard extends Component {
 
                     }
                     <div>
-                        <h4>Directions:</h4>
+                        <h5>Directions:</h5>
                         <p>{this.props.drink.directions}</p>
                     </div>
+                    <Button color="dark" onClick={this.deleteDrink}>Delete</Button>
                 </div>
             </React.Fragment>
         )
