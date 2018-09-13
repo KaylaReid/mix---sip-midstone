@@ -21,13 +21,13 @@ class ModalExample extends React.Component {
 
         this.toggle = this.toggle.bind(this);
         this.toggleNested = this.toggleNested.bind(this);
-        this.toggleAll = this.toggleAll.bind(this);
     }
 
     toggle() {
         this.setState({
         modal: !this.state.modal
         });
+        this.resetForm()
     }
 
     toggleNested() {
@@ -37,17 +37,20 @@ class ModalExample extends React.Component {
         });
       }
     
-      toggleAll() {
-        this.setState({
-          nestedModal: !this.state.nestedModal,
-          closeAll: true
-        });
-      }
-    
     handleFieldChange = evt => {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
+    }
+
+    resetForm = () => {
+        this.setState({
+            amount: "",
+            inputIngredients: [],
+            drinkName: "",
+            drinkDescription: "",
+            drinkDirections: ""
+        })
     }
 
     saveNewIngredient = () => {
@@ -118,6 +121,7 @@ class ModalExample extends React.Component {
                 builtIngredients.map(joiner => DataManager.add("drinkIngredients", joiner))
             })
             .then(() => this.props.resetData())
+            .then(() => this.resetForm())
             .then(() => this.toggle())
         }
     }
