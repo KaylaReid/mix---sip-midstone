@@ -28,31 +28,73 @@
   "drinks": [
     {
       "id": 1,
-      "title": "Gin and Tonic",
+      "name": "Gin and Tonic",
       "description": "test, its a good drank",
       "directions": "shake then strain over ice",
       "userId": 1
     },
     {
       "id": 2,
-      "title": "Skittles",
+      "name": "Skittles",
       "description": "test, its a good drank that tastes like skittles",
       "directions": "shake then strain over ice",
       "userId": 1
     },
     {
       "id": 3,
-      "title": "Creamsicle Dream",
+      "name": "Creamsicle Dream",
       "description": "test, its a good drank that tastes like orange cream soda!",
       "directions": "shake then strain over ice",
       "userId": 1
     },
     {
       "id": 4,
-      "title": "test drink for user 2",
+      "name": "test drink for user 2",
       "description": "test, its a good drank hopefully",
       "directions": "shake then strain over ice",
       "userId": 2
+    },
+    {
+      "name": "Sangria",
+      "description": "yummy",
+      "directions": "sasdfasdfasdf",
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "name": "Old fashioned",
+      "description": "what!!!!",
+      "directions": "fgdgfsdfgs",
+      "userId": 1,
+      "id": 6
+    },
+    {
+      "name": "Mojito",
+      "description": "dfsdf",
+      "directions": "adsfasdfads",
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "name": "test drink for ricky",
+      "description": "its delicious",
+      "directions": "feed to a non alcoholic",
+      "userId": 1,
+      "id": 8
+    },
+    {
+      "name": "stuff",
+      "description": ",jfhmggmjmgj",
+      "directions": ",jhv",
+      "userId": 1,
+      "id": 9
+    },
+    {
+      "name": "hello",
+      "description": "asddsafasdf",
+      "directions": "asdfasdf",
+      "userId": 1,
+      "id": 10
     }
   ],
   "drinkIngredients": [
@@ -83,6 +125,83 @@
       "ingredientId": 5,
       "amount": "2oz.",
       "userId": 2
+    },
+    {
+      "drinkId": 5,
+      "ingredientId": 4,
+      "amount": "2 oz.",
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "drinkId": 5,
+      "ingredientId": 3,
+      "amount": "1 slice",
+      "userId": 1,
+      "id": 6
+    },
+    {
+      "drinkId": 6,
+      "ingredientId": 3,
+      "amount": "12 oz.",
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "drinkId": 6,
+      "ingredientId": 6,
+      "amount": "12 oz.",
+      "userId": 1,
+      "id": 8
+    },
+    {
+      "drinkId": 7,
+      "ingredientId": 2,
+      "amount": "sdf",
+      "userId": 1,
+      "id": 9
+    },
+    {
+      "drinkId": 7,
+      "ingredientId": 8,
+      "amount": "sdafasdf",
+      "userId": 1,
+      "id": 12
+    },
+    {
+      "drinkId": 7,
+      "ingredientId": 10,
+      "amount": "asdfasd",
+      "userId": 1,
+      "id": 13
+    },
+    {
+      "drinkId": 8,
+      "ingredientId": 9,
+      "amount": "1 drink",
+      "userId": 1,
+      "id": 14
+    },
+    {
+      "drinkId": 8,
+      "ingredientId": 15,
+      "amount": "a metric shit ton",
+      "userId": 1,
+      "id": 15
+    },
+    {
+      "drinkId": 10,
+      "ingredientId": 2,
+      "amount": "asdfsadf",
+      "userId": 1,
+      "id": 16
+    },
+    {
+      "drinkId": 10,
+      "ingredientId": 8,
+      "amount": "asdfasdf",
+      "userId": 1,
+      "id": 17
     }
   ],
   "ingredients": [
@@ -127,6 +246,36 @@
       "typeId": 3,
       "userId": 1,
       "id": 8
+    },
+    {
+      "name": "Coke",
+      "typeId": 2,
+      "userId": 1,
+      "id": 9
+    },
+    {
+      "name": "Club Soda",
+      "typeId": 2,
+      "userId": 1,
+      "id": 10
+    },
+    {
+      "name": "pop",
+      "typeId": 1,
+      "userId": 1,
+      "id": 11
+    },
+    {
+      "name": "Sprite",
+      "typeId": 2,
+      "userId": 1,
+      "id": 14
+    },
+    {
+      "name": "ice cubes",
+      "typeId": 3,
+      "userId": 1,
+      "id": 15
     }
   ],
   "types": [

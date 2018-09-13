@@ -1,15 +1,20 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Alert } from 'reactstrap';
+import DataManager from "../../modules/DataManager"
 
 class ModalExample extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            modal: false,
+            modal: false, 
             nestedModal: false,
             closeAll: false,
             selectType: false,
-            addNewIngredient: false
+            ingredient: "",
+            amount: "",
+            inputIngredients: [],
+            isEmpty: false,
+            allReadyHave: false
         };
 
         this.toggle = this.toggle.bind(this);
@@ -44,19 +49,72 @@ class ModalExample extends React.Component {
     }
 
     saveNewIngredient = () => {
-        let newIngredient = {
-            name: this.state.newIngredientName,
-            typeId: this.props.types.find(type => type.name === this.state.newIngredientType).id,
-            userId: this.props.user.id
+        if(this.props.ingredients.find(ing => ing.name.toLowerCase() === this.state.newIngredientName.toLowerCase())){
+            this.setState({allReadyHave: true})
+        } else {
+            let newIngredient = {
+                name: this.state.newIngredientName,
+                typeId: this.props.types.find(type => type.name === this.state.newIngredientType).id,
+                userId: this.props.user.id
+            }
+            this.toggleNested()
+            this.props.addIngredient("ingredients", newIngredient)
         }
-        this.setState({
-            nestedModal: !this.state.nestedModal,
-            closeAll: false
-          });
-        console.log(newIngredient, "it works!!!!!")
-        this.props.addIngredient("ingredients", newIngredient)
+
     }
 
+    addIngredient = () => {
+        let inputIngredients = this.state.inputIngredients
+        let ingAdded = {
+            name: this.state.ingredient,
+            amount: this.state.amount,
+            ingredienetId: this.props.ingredients.find(ing => ing.name === this.state.ingredient).id,
+            userId: this.props.user.id
+        }
+        console.log(ingAdded, "here")
+        inputIngredients.push(ingAdded)
+        document.querySelector("#ingredient").value = "Select a Ingredient";
+        document.querySelector("#amount").value = "";
+        this.setState({
+            inputIngredients: inputIngredients,
+            ingredient: "",
+            amount: ""
+        })
+    }
+
+    saveDrink = () => {
+        if(!this.state.drinkName || !this.state.drinkDescription || !this.state.drinkDirections){
+           this.setState({isEmpty: true})
+        } else {
+            let newDrink = {
+                name: this.state.drinkName,
+                description: this.state.drinkDescription,
+                directions: this.state.drinkDirections,
+                userId: this.props.user.id
+            }
+            console.log(newDrink)
+            console.log(this.state.inputIngredients) 
+            DataManager.add("drinks", newDrink)
+            .then((drink) => {
+                let builtIngredients = []
+                this.state.inputIngredients.map(ing => {
+                    let newIng = {
+                        drinkId: drink.id,
+                        ingredientId: ing.ingredienetId,
+                        amount: ing.amount,
+                        userId: ing.userId
+                    }
+                    return builtIngredients.push(newIng)
+                })
+                return builtIngredients
+            })
+            .then((builtIngredients) => {
+                builtIngredients.map(joiner => DataManager.add("drinkIngredients", joiner))
+            })
+            .then(() => this.props.resetData())
+            .then(() => this.toggle())
+        }
+    }
 
     render() {
         const externalCloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={this.toggle}>&times;</button>;
@@ -66,10 +124,21 @@ class ModalExample extends React.Component {
             <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} external={externalCloseBtn}>
             <ModalHeader>Add a new drink to your collection!</ModalHeader>
             <ModalBody>
+                {
+                    this.state.isEmpty &&
+                    <Alert color="danger">Please fill out all the fields</Alert>
+                }
                 <Label for="drinkName">Name:</Label>
                 <Input id="drinkName" type="text" defaultValue={this.state.drinkName} placeholder="What's it called?" onChange={this.handleFieldChange} />
                 <Label for="drinkDescription">Description:</Label>
                 <Input id="drinkDescription" type="textarea" defaultValue={this.state.drinkDescription} placeholder="Describe your new drink!" onChange={this.handleFieldChange} />
+                <div>
+                    {
+                        this.state.inputIngredients.map(ing => {
+                            return <p key={`drink-${ing.id}`}>{ing.name} {ing.amount}</p>
+                        })
+                    }
+                </div>
 
                 <Label>Add ingredients:</Label>
                     <div className="ingredient-declare">
@@ -84,7 +153,7 @@ class ModalExample extends React.Component {
                         </Input>
                         <Label>Amount:</Label>
                         <Input id="amount" type="text" placeholder="Ex. 1oz.
-                        1/2 wedge, 1 squeeze" onChange={this.handleFieldChange}/>
+                        1/2 wedge, 1 squeeze" defaultValue={this.state.amount} onChange={this.handleFieldChange}/>
                     </div>
                     <div>
                         <Button color="info" onClick={this.addIngredient}>Add Ingredient to Drink</Button>
@@ -95,6 +164,11 @@ class ModalExample extends React.Component {
                         <Button color="success" onClick={this.toggleNested}>Add a New Ingredient</Button>
                         <Modal isOpen={this.state.nestedModal} toggle={this.toggleNested} onClosed={this.state.closeAll ? this.toggle : undefined}>
                             <ModalHeader>Add your ingredient here, and it will be added to your collection of ingredients to choose from</ModalHeader>
+                            {
+                                this.state.allReadyHave &&
+                                <Alert color="danger">This ingredienet is aleady in your collection. Please select it from the drop down</Alert>
+
+                            }
                             <div>
                                 <Label htmlFor="newIngredientType">Type of Ingredient:</Label>
                                 <Input id="newIngredientType" type="select" defaultValue="Select Type" onChange={this.handleFieldChange}>
@@ -123,7 +197,7 @@ class ModalExample extends React.Component {
                 <Input id="drinkDirections" type="textarea" defaultValue={this.state.drinkDirections} placeholder="Directions to mix the drink!" onChange={this.handleFieldChange} />
             </ModalBody>
             <ModalFooter>
-                <Button color="primary" onClick={this.toggle}>Save Drink</Button>{' '}
+                <Button color="primary" onClick={this.saveDrink}>Save Drink</Button>{' '}
                 <Button color="secondary" onClick={this.toggle}>Cancel</Button>
             </ModalFooter>
             </Modal>

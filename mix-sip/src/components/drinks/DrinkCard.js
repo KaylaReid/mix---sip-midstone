@@ -27,7 +27,7 @@ export default class DrinkCard extends Component {
         return(
             <React.Fragment>
                 <div className="drink-card">
-                    <h2>{this.props.drink.title}</h2>
+                    <h2>{this.props.drink.name}</h2>
                     <p>{this.props.drink.description}</p>
                     <h4>Bases:</h4>
                     {

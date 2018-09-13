@@ -34,8 +34,10 @@ export default class UserPage extends Component {
         .then(ingredients => this.setState({ingredients: ingredients}))
     }
 
-    reSetState = () => {
+    resetData = () => {
         let newState = {}
+        let user = JSON.parse(sessionStorage.getItem("user"))[0]
+        newState.user = user 
         return DataManager.getUserData("drinks", newState.user.id)
         .then(drinks => newState.drinks = drinks)
         .then(() => DataManager.getUserData("drinkIngredients", newState.user.id))
@@ -58,8 +60,7 @@ export default class UserPage extends Component {
                     ingredients={this.state.ingredients}
                     types={this.state.types}
                     addIngredient={this.addIngredient}
-                    reSetState={this.reSetState} />
-                
+                    resetData={this.resetData} />
             </div>
         )
     }
