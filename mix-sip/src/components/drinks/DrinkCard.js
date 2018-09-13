@@ -48,7 +48,7 @@ export default class DrinkCard extends Component {
     render(){
         return(
             <React.Fragment>
-                <div className="drink-card">
+                <div className="drink-card capitalize">
                     <h2>{this.props.drink.name}</h2>
                     <p>{this.props.drink.description}</p>
                     <h5>Bases:</h5>

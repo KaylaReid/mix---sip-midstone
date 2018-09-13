@@ -59,66 +59,60 @@
   "ingredients": [
     {
       "id": 1,
-      "name": "Gin",
+      "name": "gin",
       "typeId": 1,
       "userId": 1
     },
     {
       "id": 2,
-      "name": "Tonic",
+      "name": "tonic",
       "typeId": 2,
       "userId": 1
     },
     {
       "id": 3,
-      "name": "Lime",
+      "name": "lime",
       "typeId": 3,
       "userId": 1
     },
     {
       "id": 4,
-      "name": "Vodka",
+      "name": "vodka",
       "typeId": 1,
       "userId": 1
     },
     {
       "id": 5,
-      "name": "Vodka",
+      "name": "vodka",
       "typeId": 1,
       "userId": 2
     },
     {
-      "name": "Deep Eddie Lemon Vodka",
-      "typeId": 1,
-      "userId": 1,
-      "id": 6
-    },
-    {
-      "name": "Orange Peal",
+      "name": "orange peal",
       "typeId": 3,
       "userId": 1,
       "id": 8
     },
     {
-      "name": "Coke",
+      "name": "coke",
       "typeId": 2,
       "userId": 1,
       "id": 9
     },
     {
-      "name": "Club Soda",
+      "name": "club soda",
       "typeId": 2,
       "userId": 1,
       "id": 10
     },
     {
-      "name": "Pop",
+      "name": "pop",
       "typeId": 1,
       "userId": 1,
       "id": 11
     },
     {
-      "name": "Sprite",
+      "name": "sprite",
       "typeId": 2,
       "userId": 1,
       "id": 14
@@ -130,28 +124,34 @@
       "id": 15
     },
     {
-      "name": "Soda Water",
+      "name": "soda water",
       "typeId": 2,
       "userId": 1,
       "id": 16
     },
     {
-      "name": "Coke",
+      "name": "coke",
       "typeId": 2,
       "userId": 2,
       "id": 17
     },
     {
-      "name": "Ice Cubes",
+      "name": "ice cubes",
       "typeId": 3,
       "userId": 2,
       "id": 18
     },
     {
-      "name": "Diet Coke",
+      "name": "diet coke",
       "typeId": 2,
       "userId": 2,
       "id": 19
+    },
+    {
+      "name": "red",
+      "typeId": 1,
+      "userId": 1,
+      "id": 20
     }
   ],
   "types": [

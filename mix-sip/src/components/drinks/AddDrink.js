@@ -59,7 +59,7 @@ class ModalExample extends React.Component {
             this.setState({allReadyHave: true})
         } else {
             let newIngredient = {
-                name: this.state.newIngredientName,
+                name: this.state.newIngredientName.toLowerCase(),
                 typeId: this.props.types.find(type => type.name === this.state.newIngredientType).id,
                 userId: this.props.user.id
             }
@@ -156,11 +156,11 @@ class ModalExample extends React.Component {
                         {
                             this.state.selectIng &&
                             <Alert color="danger">
-                            Please select a ingredienet!
+                            Please select a ingredient!
                             </Alert>
                             // <span className="select-type-error">** Please Select a Ingredient **</span>
                         }
-                        <Input id="ingredient" type="select" defaultValue="Select Type" onChange={this.handleFieldChange}>
+                        <Input id="ingredient" type="select" className="capitalize" defaultValue="Select Type" onChange={this.handleFieldChange}>
                             <option id="selectIngredient">Select a Ingredient</option>
                             {
                                 this.props.ingredients.map(ing => {
@@ -172,7 +172,7 @@ class ModalExample extends React.Component {
                         {
                             this.state.amountIsBlank && 
                             <Alert color="warning">
-                            Please give this ingredienet an amount!
+                            Please give this ingredient an amount!
                             </Alert>
                         }
                         <Label>Amount:</Label>
