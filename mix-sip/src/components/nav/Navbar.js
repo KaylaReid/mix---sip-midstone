@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-// import Logo from "../images/smaller-logo.png";
+import Logo from "../images/smaller-logo.png";
+import { Button } from "reactstrap"
 import "./navbar.css";
 
 
@@ -13,8 +14,8 @@ import "./navbar.css";
      render(){
          return(
              <div className="navbar">
-                {/* <img src={Logo} alt="mix&amp;siplogo" className="navbar-logo"/> */}
-                <button className="logout-button" onClick={this.handleLogout}>Logout</button>
+                <img src={Logo} alt="mix&amp;siplogo" className="navbar-logo"/>
+                <Button className="logout-button" onClick={this.handleLogout}>Logout</Button>
              </div>
          )
      }

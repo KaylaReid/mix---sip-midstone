@@ -1,9 +1,9 @@
 .navbar {
-    background-color: rgb(231, 211, 213);
-    height: 5em;
+    background-color: rgb(0, 134, 153);
+    height: 11em;
 }
 .navbar-logo {
-    height: 15em;
+    height: 12em;
     padding: 1em;
 }
 
@@ -11,7 +11,7 @@
     display: block;
     position: absolute;
     right: 0;
-    top: 7px;
+    /* top: 7px; */
     margin-right: 9px;
-    padding: .5em;
+    /* padding: .5em; */
 }

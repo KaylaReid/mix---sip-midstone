@@ -1,4 +1,5 @@
 import React, { Component } from "react"; 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class DrinkCard extends Component {
     
@@ -11,11 +12,12 @@ export default class DrinkCard extends Component {
         this.props.drinkIngredients.filter(drinkIng => drinkIng.drinkId === this.props.drink.id).map(drinkIng => {
             let mainIng = this.props.ingredients.find(ing => ing.id === drinkIng.ingredientId)
             let ingredient = {
+                id: mainIng.id,
                 name: mainIng.name,
                 amount: drinkIng.amount,
                 type: this.props.types.find(type => type.id === mainIng.typeId).name
             }
-            drinkIngredients.push(ingredient)
+            return drinkIngredients.push(ingredient)
         })
         this.setState({drinkIngredients: drinkIngredients})
         
@@ -25,15 +27,17 @@ export default class DrinkCard extends Component {
         return(
             <React.Fragment>
                 <div className="drink-card">
-                    <h2>{this.props.drink.title}</h2>
+                    <h2>{this.props.drink.name}</h2>
                     <p>{this.props.drink.description}</p>
                     <h4>Bases:</h4>
                     {
                         this.state.drinkIngredients.map(drinkIngredient => {
                             if(drinkIngredient.type === "Base"){
                                 return (
-                                    <h5>{drinkIngredient.name} {drinkIngredient.amount}</h5>
+                                    <h5 key={drinkIngredient.id}>{drinkIngredient.name} {drinkIngredient.amount}</h5>
                                 )
+                            } else {
+                                return null
                             }
                         })
                     }
@@ -42,8 +46,10 @@ export default class DrinkCard extends Component {
                         this.state.drinkIngredients.map(drinkIngredient => {
                             if(drinkIngredient.type === "Mixer"){
                                 return (
-                                    <h5>{drinkIngredient.name} {drinkIngredient.amount}</h5>
+                                    <h5 key={drinkIngredient.id}>{drinkIngredient.name} {drinkIngredient.amount}</h5>
                                 )
+                            } else {
+                                return null
                             }
                         })
 
@@ -53,9 +59,11 @@ export default class DrinkCard extends Component {
                         this.state.drinkIngredients.map(drinkIngredient => {
                             if(drinkIngredient.type === "Garnish"){
                                 return(
-                                    <h5>{drinkIngredient.name} 
+                                    <h5 key={drinkIngredient.id}>{drinkIngredient.name} 
                                     {drinkIngredient.amount}</h5>
                                 )
+                            } else {
+                                return null
                             }
                         })
 
@@ -65,9 +73,6 @@ export default class DrinkCard extends Component {
                         <p>{this.props.drink.directions}</p>
                     </div>
                 </div>
-
-
-
             </React.Fragment>
         )
     }
