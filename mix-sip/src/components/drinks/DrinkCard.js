@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'reactstrap';
 import DataManager from "../../modules/DataManager";
+import EditModal from "./EditModal"
 
 export default class DrinkCard extends Component {
     
     state = {
-        drinkIngredients: []
+        drinkIngredients: [],
+        editMode: false
     }
 
     componentDidMount() {
@@ -30,22 +32,18 @@ export default class DrinkCard extends Component {
         this.setState(stateToChange)
     }
 
-    deleteDrink = () => {
-        
-           
+    deleteDrink = () => {   
         let joinerTable = this.props.drinkIngredients.filter(joiner => joiner.drinkId === this.props.drink.id)
         joinerTable.forEach(j => {
         DataManager.delete("drinkIngredients", j.id)   
         })
          DataManager.delete("drinks", this.props.drink.id)
-         .then(() => this.props.resetData())
-            
+         .then(() => this.props.resetData())       
     }
 
-    // deleteArticle = () => {
-    //     this.props.delete("news", this.props.news.id)
-    // }
-
+    editDrink = () => {
+        console.log("edit was clicked")
+    }
     
     render(){
         return(
@@ -76,7 +74,6 @@ export default class DrinkCard extends Component {
                                 return null
                             }
                         })
-
                     }
                     <h5>Garnishes:</h5>
                     {
@@ -90,16 +87,16 @@ export default class DrinkCard extends Component {
                                 return null
                             }
                         })
-
                     }
                     <div>
                         <h5>Directions:</h5>
                         <p>{this.props.drink.directions}</p>
                     </div>
-                    <Button color="dark" onClick={this.deleteDrink}>Delete</Button>
+                    <Button outline color="dark" onClick={this.deleteDrink}>Delete</Button>
+                    <EditModal />
+                    {/* <Button outline color="info" onClick={this.editDrink}>Edit</Button> */}
                 </div>
             </React.Fragment>
         )
     }
-
 }
