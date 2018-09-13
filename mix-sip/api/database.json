@@ -27,34 +27,6 @@
   ],
   "drinks": [
     {
-      "id": 1,
-      "name": "Gin and Tonic",
-      "description": "test, its a good drank",
-      "directions": "shake then strain over ice",
-      "userId": 1
-    },
-    {
-      "id": 2,
-      "name": "Skittles",
-      "description": "test, its a good drank that tastes like skittles",
-      "directions": "shake then strain over ice",
-      "userId": 1
-    },
-    {
-      "id": 3,
-      "name": "Creamsicle Dream",
-      "description": "test, its a good drank that tastes like orange cream soda!",
-      "directions": "shake then strain over ice",
-      "userId": 1
-    },
-    {
-      "id": 4,
-      "name": "test drink for user 2",
-      "description": "test, its a good drank hopefully",
-      "directions": "shake then strain over ice",
-      "userId": 2
-    },
-    {
       "name": "Sangria",
       "description": "yummy",
       "directions": "sasdfasdfasdf",
@@ -62,70 +34,28 @@
       "id": 5
     },
     {
-      "name": "Old fashioned",
-      "description": "what!!!!",
-      "directions": "fgdgfsdfgs",
-      "userId": 1,
-      "id": 6
-    },
-    {
       "name": "Mojito",
-      "description": "dfsdf",
-      "directions": "adsfasdfads",
+      "description": "Its sooo yummy!",
+      "directions": "Shake and pour over ice",
       "userId": 1,
       "id": 7
     },
     {
-      "name": "test drink for ricky",
-      "description": "its delicious",
-      "directions": "feed to a non alcoholic",
+      "name": "Gin and Tonice",
+      "description": "A light a refreshing drink perfect for all occasions! ",
+      "directions": "Shake all Gin with one lime wedge squeezed in, pour over ice top with Tonic then garnish with last lime wedge",
       "userId": 1,
       "id": 8
     },
     {
-      "name": "stuff",
-      "description": ",jfhmggmjmgj",
-      "directions": ",jhv",
-      "userId": 1,
+      "name": "Oh the sweet taste ",
+      "description": "It is  a refreshing treat perfect for any occasion!",
+      "directions": "Place ice cubes in cup and pour the DC over top swirl and enjoy!",
+      "userId": 2,
       "id": 9
-    },
-    {
-      "name": "hello",
-      "description": "asddsafasdf",
-      "directions": "asdfasdf",
-      "userId": 1,
-      "id": 10
     }
   ],
   "drinkIngredients": [
-    {
-      "id": 1,
-      "drinkId": 1,
-      "ingredientId": 1,
-      "amount": "2oz.",
-      "userId": 1
-    },
-    {
-      "id": 2,
-      "drinkId": 1,
-      "ingredientId": 2,
-      "amount": "3oz.",
-      "userId": 1
-    },
-    {
-      "id": 3,
-      "drinkId": 3,
-      "ingredientId": 1,
-      "amount": "2oz.",
-      "userId": 1
-    },
-    {
-      "id": 4,
-      "drinkId": 4,
-      "ingredientId": 5,
-      "amount": "2oz.",
-      "userId": 2
-    },
     {
       "drinkId": 5,
       "ingredientId": 4,
@@ -141,67 +71,60 @@
       "id": 6
     },
     {
-      "drinkId": 6,
-      "ingredientId": 3,
-      "amount": "12 oz.",
-      "userId": 1,
-      "id": 7
-    },
-    {
-      "drinkId": 6,
-      "ingredientId": 6,
-      "amount": "12 oz.",
-      "userId": 1,
-      "id": 8
-    },
-    {
       "drinkId": 7,
-      "ingredientId": 2,
-      "amount": "sdf",
+      "ingredientId": 1,
+      "amount": "2 oz.",
       "userId": 1,
       "id": 9
     },
     {
       "drinkId": 7,
-      "ingredientId": 8,
-      "amount": "sdafasdf",
+      "ingredientId": 3,
+      "amount": "2 wedges",
+      "userId": 1,
+      "id": 10
+    },
+    {
+      "drinkId": 7,
+      "ingredientId": 16,
+      "amount": "6 oz.",
+      "userId": 1,
+      "id": 11
+    },
+    {
+      "drinkId": 8,
+      "ingredientId": 1,
+      "amount": "2 oz.",
       "userId": 1,
       "id": 12
     },
     {
-      "drinkId": 7,
-      "ingredientId": 10,
-      "amount": "asdfasd",
+      "drinkId": 8,
+      "ingredientId": 2,
+      "amount": "4 oz.",
       "userId": 1,
       "id": 13
     },
     {
       "drinkId": 8,
-      "ingredientId": 9,
-      "amount": "1 drink",
+      "ingredientId": 3,
+      "amount": "2 wedges",
       "userId": 1,
       "id": 14
     },
     {
-      "drinkId": 8,
-      "ingredientId": 15,
-      "amount": "a metric shit ton",
-      "userId": 1,
+      "drinkId": 9,
+      "ingredientId": 17,
+      "amount": "7 oz.",
+      "userId": 2,
       "id": 15
     },
     {
-      "drinkId": 10,
-      "ingredientId": 2,
-      "amount": "asdfsadf",
-      "userId": 1,
+      "drinkId": 9,
+      "ingredientId": 18,
+      "amount": "At least 5",
+      "userId": 2,
       "id": 16
-    },
-    {
-      "drinkId": 10,
-      "ingredientId": 8,
-      "amount": "asdfasdf",
-      "userId": 1,
-      "id": 17
     }
   ],
   "ingredients": [
@@ -260,7 +183,7 @@
       "id": 10
     },
     {
-      "name": "pop",
+      "name": "Pop",
       "typeId": 1,
       "userId": 1,
       "id": 11
@@ -276,6 +199,30 @@
       "typeId": 3,
       "userId": 1,
       "id": 15
+    },
+    {
+      "name": "Soda Water",
+      "typeId": 2,
+      "userId": 1,
+      "id": 16
+    },
+    {
+      "name": "Coke",
+      "typeId": 2,
+      "userId": 2,
+      "id": 17
+    },
+    {
+      "name": "Ice Cubes",
+      "typeId": 3,
+      "userId": 2,
+      "id": 18
+    },
+    {
+      "name": "Diet Coke",
+      "typeId": 2,
+      "userId": 2,
+      "id": 19
     }
   ],
   "types": [
