@@ -53,6 +53,13 @@
       "directions": "Place ice cubes in cup and pour the DC over top swirl and enjoy!",
       "userId": 2,
       "id": 9
+    },
+    {
+      "name": "Apples",
+      "description": "sdfgd",
+      "directions": "dsfg",
+      "userId": 1,
+      "id": 12
     }
   ],
   "drinkIngredients": [

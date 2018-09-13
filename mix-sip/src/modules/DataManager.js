@@ -15,7 +15,7 @@ export default Object.create(null, {
     },
     getUserData: {
         value: (resource, userId) => {
-            return fetch(`${remoteURL}/${resource}?userId=${userId}`)
+            return fetch(`${remoteURL}/users/${userId}/${resource}?_sort=name&_order=asc`)
             .then(res => res.json())
         }
     },
