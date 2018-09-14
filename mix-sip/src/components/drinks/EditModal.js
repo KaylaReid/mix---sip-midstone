@@ -33,23 +33,26 @@ class EditModal extends React.Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} external={externalCloseBtn}>
             <div>
                     <label htmlFor="name">Drink Name:</label>
-                    <input type="text" required="true" className="form-control" onChange={this.handleFieldChange} id="name" defaultValue={this.props.drink.name} />
+                    <input type="text" className="form-control" onChange={this.handleFieldChange} id="name" defaultValue={this.props.drink.name} />
 
                     <label htmlFor="description">Drink Description:</label>
-                    <input type="text" required="true" className="form-control" onChange={this.handleFieldChange} id="description" defaultValue={this.props.drink.description} />
+                    <input type="text" className="form-control" onChange={this.handleFieldChange} id="description" defaultValue={this.props.drink.description} />
             </div>
             <div>
                 {
-                    this.props.drinkIngredients.map(di => )
-
-                    console.log("dope")
+                    this.props.drinkIngredients.filter(di => di.drinkId === this.props.drink.id).map(di => {
+                        return ( 
+                            <div>
+                                <label htmlFor="ingName">this will hold the drink name that goes with this amount</label>
+                                <input type="text" className="form-control" onChange={this.handleFieldChange} id="description" defaultValue={di.amount} />
+                                <Button color="info" onClick="yo">Delete whole ingredient</Button>
+                            </div>)
+                    })
                 }
-                {/* map ingredients with editable amounts here */}
-
             </div>
             <div>
                 <label htmlFor="directions">Mixing Directions:</label>
-                <input type="text" required="true" className="form-control" onChange={this.handleFieldChange} id="directions" defaultValue={this.props.drink.directions} />
+                <input type="text" className="form-control" onChange={this.handleFieldChange} id="directions" defaultValue={this.props.drink.directions} />
             </div>
       
           <ModalFooter>
