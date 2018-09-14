@@ -19,13 +19,10 @@ class EditModal extends React.Component {
 
   buildEditFrom = (e) => {
       this.toggle()
-
-      console.log(e, "dope dope dope")
   }
 
 
   render() {
-    //   console.log(this.props.drinks, "all drinks from user page")
     const externalCloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={this.toggle}>&times;</button>;
     return (
       <div>
@@ -41,11 +38,12 @@ class EditModal extends React.Component {
             <div>
                 {
                     this.props.drinkIngredients.filter(di => di.drinkId === this.props.drink.id).map(di => {
+                        let name = this.props.ingredients.find(ing => ing.id === di.ingredientId).name
                         return ( 
-                            <div>
-                                <label htmlFor="ingName">this will hold the drink name that goes with this amount</label>
-                                <input type="text" className="form-control" onChange={this.handleFieldChange} id="description" defaultValue={di.amount} />
-                                <Button color="info" onClick="yo">Delete whole ingredient</Button>
+                            <div key={di.amount}>
+                                <label htmlFor="ingName" key={name} className="capitalize">{name} amount:</label>
+                                <input type="text" key={di.id} className="form-control" onChange={this.handleFieldChange} id={di.id} defaultValue={di.amount} />
+                                <Button color="info">Delete whole ingredient</Button>
                             </div>)
                     })
                 }
@@ -54,7 +52,6 @@ class EditModal extends React.Component {
                 <label htmlFor="directions">Mixing Directions:</label>
                 <input type="text" className="form-control" onChange={this.handleFieldChange} id="directions" defaultValue={this.props.drink.directions} />
             </div>
-      
           <ModalFooter>
             <Button color="primary" onClick={this.toggle}>Save Changes</Button>{' '}
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
