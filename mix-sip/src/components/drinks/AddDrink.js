@@ -19,7 +19,7 @@ class ModalExample extends React.Component {
             amountIsBlank: false,
             selectIng: false
         };
-        
+
         this.toggle = this.toggle.bind(this);
         this.toggleNested = this.toggleNested.bind(this);
     }
@@ -147,7 +147,7 @@ class ModalExample extends React.Component {
                 <div>
                     {
                         this.state.inputIngredients.map(ing => {
-                            return <p key={`drink-${ing.id}`}>{ing.name} {ing.amount}</p>
+                            return <p key={`drink-${ing.id}`}><span className="capitalize">{ing.name}</span> {ing.amount}</p>
                         })
                     }
                 </div>

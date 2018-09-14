@@ -27,35 +27,64 @@
   ],
   "drinks": [
     {
-      "name": "green",
-      "description": "asdfasd",
-      "directions": "asdfasdf",
+      "name": "gin and tonic",
+      "description": "its yummy",
+      "directions": "shake, shake, shake it",
       "userId": 1,
       "id": 1
     },
     {
-      "name": "bees",
-      "description": "asdfasdf",
-      "directions": "asdfadsf",
+      "name": "skittles",
+      "description": "soooooo yummy",
+      "directions": "stir and pour over ice ",
+      "userId": 1,
+      "id": 2
+    }
+  ],
+  "drinkIngredients": [
+    {
+      "drinkId": 1,
+      "ingredientId": 1,
+      "amount": "2 oz.",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "drinkId": 1,
+      "ingredientId": 2,
+      "amount": "6 oz.",
       "userId": 1,
       "id": 2
     },
     {
-      "name": "love",
-      "description": "asdfads",
-      "directions": "asdfasdf",
+      "drinkId": 1,
+      "ingredientId": 3,
+      "amount": " 2 wedges",
       "userId": 1,
       "id": 3
     },
     {
-      "name": "apples",
-      "description": "asdfads",
-      "directions": "asdf",
+      "drinkId": 2,
+      "ingredientId": 14,
+      "amount": "2 oz.",
       "userId": 1,
       "id": 4
+    },
+    {
+      "drinkId": 2,
+      "ingredientId": 21,
+      "amount": "2 oz.",
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "drinkId": 2,
+      "ingredientId": 15,
+      "amount": "5 ",
+      "userId": 1,
+      "id": 6
     }
   ],
-  "drinkIngredients": [],
   "ingredients": [
     {
       "id": 1,
@@ -152,6 +181,12 @@
       "typeId": 1,
       "userId": 1,
       "id": 20
+    },
+    {
+      "name": "bacardi dragon berry run",
+      "typeId": 1,
+      "userId": 1,
+      "id": 21
     }
   ],
   "types": [

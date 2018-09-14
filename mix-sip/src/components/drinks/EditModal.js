@@ -5,7 +5,7 @@ class EditModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
     };
 
     this.toggle = this.toggle.bind(this);
@@ -17,17 +17,41 @@ class EditModal extends React.Component {
     });
   }
 
+  buildEditFrom = (e) => {
+      this.toggle()
+
+      console.log(e, "dope dope dope")
+  }
+
+
   render() {
+    //   console.log(this.props.drinks, "all drinks from user page")
     const externalCloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={this.toggle}>&times;</button>;
     return (
       <div>
-        <Button outline color="info" onClick={this.toggle}>Edit</Button>
+        <Button outline color="info" onClick={this.buildEditFrom} id={this.props.drink.id}>Edit</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} external={externalCloseBtn}>
-          <ModalHeader>Modal title</ModalHeader>
-          <ModalBody>
-            <b>Look at the top right of the page/viewport!</b><br />
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </ModalBody>
+            <div>
+                    <label htmlFor="name">Drink Name:</label>
+                    <input type="text" required="true" className="form-control" onChange={this.handleFieldChange} id="name" defaultValue={this.props.drink.name} />
+
+                    <label htmlFor="description">Drink Description:</label>
+                    <input type="text" required="true" className="form-control" onChange={this.handleFieldChange} id="description" defaultValue={this.props.drink.description} />
+            </div>
+            <div>
+                {
+                    this.props.drinkIngredients.map(di => )
+
+                    console.log("dope")
+                }
+                {/* map ingredients with editable amounts here */}
+
+            </div>
+            <div>
+                <label htmlFor="directions">Mixing Directions:</label>
+                <input type="text" required="true" className="form-control" onChange={this.handleFieldChange} id="directions" defaultValue={this.props.drink.directions} />
+            </div>
+      
           <ModalFooter>
             <Button color="primary" onClick={this.toggle}>Save Changes</Button>{' '}
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>

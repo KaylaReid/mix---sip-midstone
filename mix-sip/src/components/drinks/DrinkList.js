@@ -16,6 +16,7 @@ export default class DrinkList extends Component {
                         {
                             this.props.drinks.map(drink => 
                             <DrinkCard key={drink.id} drink={drink} 
+                            drinks={this.props.drinks}
                             drinkIngredients={this.props.drinkIngredients}
                             ingredients={this.props.ingredients}
                             types={this.props.types}

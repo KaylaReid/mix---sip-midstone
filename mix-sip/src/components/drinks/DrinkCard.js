@@ -40,23 +40,19 @@ export default class DrinkCard extends Component {
          DataManager.delete("drinks", this.props.drink.id)
          .then(() => this.props.resetData())       
     }
-
-    editDrink = () => {
-        console.log("edit was clicked")
-    }
     
     render(){
         return(
             <React.Fragment>
-                <div className="drink-card capitalize">
-                    <h2>{this.props.drink.name}</h2>
+                <div>
+                    <h2 className="drink-card capitalize">{this.props.drink.name}</h2>
                     <p>{this.props.drink.description}</p>
                     <h5>Bases:</h5>
                     {
                         this.state.drinkIngredients.map(drinkIngredient => {
                             if(drinkIngredient.type === "Base"){
                                 return (
-                                    <p key={drinkIngredient.id}>{drinkIngredient.name} {drinkIngredient.amount}</p>
+                                    <p key={drinkIngredient.id}><span className="drink-card capitalize">{drinkIngredient.name}</span> {drinkIngredient.amount}</p>
                                 )
                             } else {
                                 return null
@@ -68,7 +64,7 @@ export default class DrinkCard extends Component {
                         this.state.drinkIngredients.map(drinkIngredient => {
                             if(drinkIngredient.type === "Mixer"){
                                 return (
-                                    <p key={drinkIngredient.id}>{drinkIngredient.name} {drinkIngredient.amount}</p>
+                                    <p key={drinkIngredient.id}><span className="drink-card capitalize">{drinkIngredient.name}</span> {drinkIngredient.amount}</p>
                                 )
                             } else {
                                 return null
@@ -80,7 +76,7 @@ export default class DrinkCard extends Component {
                         this.state.drinkIngredients.map(drinkIngredient => {
                             if(drinkIngredient.type === "Garnish"){
                                 return(
-                                    <p key={drinkIngredient.id}>{drinkIngredient.name} 
+                                    <p key={drinkIngredient.id}><span className="drink-card capitalize">{drinkIngredient.name} </span>
                                     {drinkIngredient.amount}</p>
                                 )
                             } else {
@@ -89,12 +85,15 @@ export default class DrinkCard extends Component {
                         })
                     }
                     <div>
-                        <h5>Directions:</h5>
+                        <h5>Mixing Directions:</h5>
                         <p>{this.props.drink.directions}</p>
                     </div>
                     <Button outline color="dark" onClick={this.deleteDrink}>Delete</Button>
-                    <EditModal />
-                    {/* <Button outline color="info" onClick={this.editDrink}>Edit</Button> */}
+                    <EditModal drink={this.props.drink} drinks={this.props.drinks}
+                            drinkIngredients={this.props.drinkIngredients}
+                            ingredients={this.props.ingredients}
+                            types={this.props.types}
+                            resetData={this.props.resetData} />
                 </div>
             </React.Fragment>
         )
