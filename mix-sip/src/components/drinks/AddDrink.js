@@ -19,7 +19,7 @@ class ModalExample extends React.Component {
             amountIsBlank: false,
             selectIng: false
         };
-
+        
         this.toggle = this.toggle.bind(this);
         this.toggleNested = this.toggleNested.bind(this);
     }
@@ -34,7 +34,8 @@ class ModalExample extends React.Component {
     toggleNested() {
         this.setState({
           nestedModal: !this.state.nestedModal,
-          closeAll: false
+          closeAll: false,
+          allReadyHave: false
         });
       }
     
