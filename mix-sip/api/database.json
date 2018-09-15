@@ -29,7 +29,7 @@
     {
       "name": "gin and tonic",
       "description": "its yummy",
-      "directions": "shake, shake, shake it",
+      "directions": "shake, shake, shake ",
       "userId": 1,
       "id": 1
     },
@@ -52,7 +52,7 @@
     {
       "drinkId": 1,
       "ingredientId": 2,
-      "amount": "6 oz.",
+      "amount": "4 oz.",
       "userId": 1,
       "id": 2
     },

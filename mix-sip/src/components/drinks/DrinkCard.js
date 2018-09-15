@@ -11,20 +11,20 @@ export default class DrinkCard extends Component {
         editMode: false
     }
 
-    componentDidMount() {
-        let drinkIngredients = []
-        this.props.drinkIngredients.filter(drinkIng => drinkIng.drinkId === this.props.drink.id).map(drinkIng => {
-            let mainIng = this.props.ingredients.find(ing => ing.id === drinkIng.ingredientId)
-            let ingredient = {
-                id: mainIng.id,
-                name: mainIng.name,
-                amount: drinkIng.amount,
-                type: this.props.types.find(type => type.id === mainIng.typeId).name
-            }
-            return drinkIngredients.push(ingredient)
-        })
-        this.setState({drinkIngredients: drinkIngredients}) 
-    }
+    // componentDidMount() {
+    //     let drinkIngredients = []
+    //     this.props.drinkIngredients.filter(drinkIng => drinkIng.drinkId === this.props.drink.id).map(drinkIng => {
+    //         let mainIng = this.props.ingredients.find(ing => ing.id === drinkIng.ingredientId)
+    //         let ingredient = {
+    //             id: mainIng.id,
+    //             name: mainIng.name,
+    //             amount: drinkIng.amount,
+    //             type: this.props.types.find(type => type.id === mainIng.typeId).name
+    //         }
+    //         return drinkIngredients.push(ingredient)
+    //     })
+    //     this.setState({drinkIngredients: drinkIngredients}) 
+    // }
 
     handleFieldChange = evt => {
         const stateToChange = {}
@@ -40,8 +40,9 @@ export default class DrinkCard extends Component {
          DataManager.delete("drinks", this.props.drink.id)
          .then(() => this.props.resetData())       
     }
-    
+
     render(){
+        const drinkIngredients = this.props.drinkIngredients.filter(drinkIng => drinkIng.drinkId === this.props.drink.id);
         return(
             <React.Fragment>
                 <div>
@@ -49,22 +50,37 @@ export default class DrinkCard extends Component {
                     <p>{this.props.drink.description}</p>
                     <h5>Bases:</h5>
                     {
-                        this.state.drinkIngredients.map(drinkIngredient => {
-                            if(drinkIngredient.type === "Base"){
+                        drinkIngredients.map(drinkIng => {
+                            let mainIng = this.props.ingredients.find(ing => ing.id === drinkIng.ingredientId)
+                            let ingredient = {
+                                id: mainIng.id,
+                                name: mainIng.name,
+                                amount: drinkIng.amount,
+                                type: this.props.types.find(type => type.id === mainIng.typeId).name
+                            }
+                            if(ingredient.type === "Base"){
                                 return (
-                                    <p key={drinkIngredient.id}><span className="drink-card capitalize">{drinkIngredient.name}</span> {drinkIngredient.amount}</p>
+                                    <p key={ingredient.id}><span className="drink-card capitalize">{ingredient.name}</span> {ingredient.amount}</p>
                                 )
                             } else {
                                 return null
                             }
                         })
+    
                     }
                     <h5>Mixers:</h5>
                     {
-                        this.state.drinkIngredients.map(drinkIngredient => {
-                            if(drinkIngredient.type === "Mixer"){
+                        drinkIngredients.map(drinkIng => {
+                            let mainIng = this.props.ingredients.find(ing => ing.id === drinkIng.ingredientId)
+                            let ingredient = {
+                                id: mainIng.id,
+                                name: mainIng.name,
+                                amount: drinkIng.amount,
+                                type: this.props.types.find(type => type.id === mainIng.typeId).name
+                            }
+                            if(ingredient.type === "Mixer"){
                                 return (
-                                    <p key={drinkIngredient.id}><span className="drink-card capitalize">{drinkIngredient.name}</span> {drinkIngredient.amount}</p>
+                                    <p key={ingredient.id}><span className="drink-card capitalize">{ingredient.name}</span> {ingredient.amount}</p>
                                 )
                             } else {
                                 return null
@@ -73,11 +89,17 @@ export default class DrinkCard extends Component {
                     }
                     <h5>Garnishes:</h5>
                     {
-                        this.state.drinkIngredients.map(drinkIngredient => {
-                            if(drinkIngredient.type === "Garnish"){
-                                return(
-                                    <p key={drinkIngredient.id}><span className="drink-card capitalize">{drinkIngredient.name} </span>
-                                    {drinkIngredient.amount}</p>
+                        drinkIngredients.map(drinkIng => {
+                            let mainIng = this.props.ingredients.find(ing => ing.id === drinkIng.ingredientId)
+                            let ingredient = {
+                                id: mainIng.id,
+                                name: mainIng.name,
+                                amount: drinkIng.amount,
+                                type: this.props.types.find(type => type.id === mainIng.typeId).name
+                            }
+                            if(ingredient.type === "Garnish"){
+                                return (
+                                    <p key={ingredient.id}><span className="drink-card capitalize">{ingredient.name}</span> {ingredient.amount}</p>
                                 )
                             } else {
                                 return null
