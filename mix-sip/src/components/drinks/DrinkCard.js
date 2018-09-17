@@ -115,7 +115,9 @@ export default class DrinkCard extends Component {
                             drinkIngredients={this.props.drinkIngredients}
                             ingredients={this.props.ingredients}
                             types={this.props.types}
-                            resetData={this.props.resetData} />
+                            resetData={this.props.resetData}
+                            user={this.props.user}
+                            addIngredient={this.props.addIngredient} />
                 </div>
             </React.Fragment>
         )

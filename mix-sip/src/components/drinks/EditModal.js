@@ -67,7 +67,10 @@ class EditModal extends React.Component {
                     <input type="text" className="form-control" onChange={this.handleFieldChange} id="directions" defaultValue={this.props.drink.directions} />
             </div>
             <div>
-              <AddIngEdit />
+              <AddIngEdit ingredients={this.props.ingredients}
+                  types={this.props.types}
+                  user={this.props.user}
+                  addIngredient={this.props.addIngredient}/>
             </div>
             <div>
                 {

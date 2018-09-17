@@ -193,6 +193,12 @@
       "typeId": 1,
       "userId": 1,
       "id": 22
+    },
+    {
+      "name": "mint",
+      "typeId": 3,
+      "userId": 1,
+      "id": 23
     }
   ],
   "types": [
