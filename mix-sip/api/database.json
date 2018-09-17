@@ -79,38 +79,17 @@
     },
     {
       "drinkId": 1,
-      "ingredientId": 3,
-      "amount": "12 slices",
-      "userId": 1,
-      "id": 8
-    },
-    {
-      "drinkId": 1,
-      "ingredientId": 15,
-      "amount": "6",
+      "ingredientId": 21,
+      "amount": "asdfa",
       "userId": 1,
       "id": 9
     },
     {
       "drinkId": 1,
-      "ingredientId": 9,
-      "amount": "asdfa",
+      "ingredientId": 3,
+      "amount": "2",
       "userId": 1,
-      "id": 11
-    },
-    {
-      "drinkId": 1,
-      "ingredientId": 10,
-      "amount": "12",
-      "userId": 1,
-      "id": 12
-    },
-    {
-      "drinkId": 1,
-      "ingredientId": 22,
-      "amount": "3 wedges",
-      "userId": 1,
-      "id": 13
+      "id": 14
     }
   ],
   "ingredients": [

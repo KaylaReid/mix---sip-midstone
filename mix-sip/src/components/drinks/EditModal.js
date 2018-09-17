@@ -51,11 +51,11 @@ class EditModal extends React.Component {
 
 
   render() {
-    const externalCloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={this.toggle}>&times;</button>;
+
     return (
       <div>
         <Button outline color="info" onClick={this.toggle} id={this.props.drink.id}>Edit</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} external={externalCloseBtn}>
+        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
             <div>
                     <label htmlFor="name">Drink Name:</label>
                     <input type="text" className="form-control" onChange={this.handleFieldChange} id="name" defaultValue={this.props.drink.name} />

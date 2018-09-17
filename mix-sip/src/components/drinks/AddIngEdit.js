@@ -106,7 +106,9 @@ export default class AddIngEdit extends Component {
         })
         Promise.all(addedIngredients.map(joiner => DataManager.add("drinkIngredients", joiner)))
         .then(() => this.props.resetData())
-        .then(() => this.setState({hideAddIngBtn: false}))
+        .then(() => this.setState({
+                    hideAddIngBtn: false, 
+                    showAddIng: false,}))
     }
     
 
@@ -115,7 +117,6 @@ export default class AddIngEdit extends Component {
             showAddIng: true,
             hideAddIngBtn: true
         })
-
     }
 
     render(){

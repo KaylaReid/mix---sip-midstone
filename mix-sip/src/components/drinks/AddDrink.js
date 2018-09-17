@@ -129,11 +129,10 @@ class ModalExample extends React.Component {
     }
 
     render() {
-        const externalCloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={this.toggle}>&times;</button>;
         return (
         <div>
             <Button color="info" onClick={this.toggle}>Add a New Drink!</Button>
-            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} external={externalCloseBtn}>
+            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
             <ModalHeader>Add a new drink to your collection!</ModalHeader>
             <ModalBody>
                 {
