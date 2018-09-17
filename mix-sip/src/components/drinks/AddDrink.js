@@ -152,7 +152,7 @@ class ModalExample extends React.Component {
                 <div>
                     {
                         this.state.inputIngredients.map(ing => {
-                            return <p key={`drink-${ing.id}`}><span className="capitalize">{ing.name}</span> {ing.amount}</p>
+                            return <p key={`drink-${ing.name}`}><span className="capitalize">{ing.name}</span> {ing.amount}</p>
                         })
                     }
                 </div>
