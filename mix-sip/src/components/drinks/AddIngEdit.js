@@ -15,12 +15,13 @@ export default class AddIngEdit extends Component {
             amount: "",
             inputIngredients: [],
             isEmpty: false,
-            allReadyHave: false,
+            alreadyHave: false,
             amountIsBlank: false,
             selectIng: false,
             showAddIng: false,
             hideAddIngBtn: false,
-            alreadyInDrink: false
+            alreadyInDrink: false,
+            alreadyQueued: false
         };
 
         this.toggle = this.toggle.bind(this);
@@ -38,7 +39,7 @@ export default class AddIngEdit extends Component {
         this.setState({
           nestedModal: !this.state.nestedModal,
           closeAll: false,
-          allReadyHave: false
+          alreadyHave: false
         });
     }
 
@@ -56,7 +57,7 @@ export default class AddIngEdit extends Component {
 
     saveNewIngredient = () => {
         if(this.props.ingredients.find(ing => ing.name.toLowerCase() === this.state.newIngredientName.toLowerCase())){
-            this.setState({allReadyHave: true})
+            this.setState({alreadyHave: true})
         } else {
             let newIngredient = {
                 name: this.state.newIngredientName.toLowerCase(),
@@ -84,11 +85,17 @@ export default class AddIngEdit extends Component {
         } else if(this.state.ingredient === "") {
             this.setState({selectIng: true})
         } else if(betterIngs.find(ing => ing.name === this.state.ingredient)){
-            this.setState({alreadyInDrink: true})
+            this.setState({
+                alreadyInDrink: true,
+                alreadyQueued: false
+            })
         } else if(this.state.inputIngredients.find(ing => ing.name.toLowerCase() === this.state.ingredient.toLowerCase())){
-            this.setState({alreadyInDrink: true})
+            this.setState({
+                alreadyQueued: true,
+                alreadyInDrink: false
+            })
         } else {
-            let inputIngredients = this.state.inputIngredients
+            let inputIngredients = this.state.inputIngredients  
             let ingAdded = {
                 name: this.state.ingredient,
                 amount: this.state.amount,
@@ -101,7 +108,9 @@ export default class AddIngEdit extends Component {
             this.setState({
                 inputIngredients: inputIngredients,
                 ingredient: "",
-                amount: ""
+                amount: "",
+                alreadyQueued: false,
+                alreadyInDrink: false   
             })
         }
     }
@@ -154,7 +163,12 @@ export default class AddIngEdit extends Component {
                             this.state.alreadyInDrink &&
                             <Alert color="danger">This ingredienet is aleady in this drink mix. Try editing the amount instead!</Alert>
 
-                         }
+                        }
+                        {
+                            this.state.alreadyQueued &&
+                            <Alert color="danger">This ingredienet is aleady queued to be added to this drink mix.</Alert>
+
+                        }
                         <div className="ingredient-declare">
                             {
                                 this.state.selectIng &&
@@ -189,7 +203,7 @@ export default class AddIngEdit extends Component {
                                 <Modal isOpen={this.state.nestedModal} toggle={this.toggleNested} onClosed={this.state.closeAll ? this.toggle : undefined}>
                                 <ModalHeader>Add your ingredient here, and it will be added to your collection of ingredients to choose from</ModalHeader>
                                 {
-                                    this.state.allReadyHave &&
+                                    this.state.alreadyHave &&
                                     <Alert color="danger">This ingredienet is aleady in your collection. Please select it from the drop down</Alert>
                                 }
                                 <div>

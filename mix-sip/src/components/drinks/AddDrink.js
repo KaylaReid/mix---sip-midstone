@@ -17,7 +17,8 @@ class ModalExample extends React.Component {
             isEmpty: false,
             allReadyHave: false,
             amountIsBlank: false,
-            selectIng: false
+            selectIng: false,
+            alreadyInDrink: false
         };
 
         this.toggle = this.toggle.bind(this);
@@ -74,9 +75,9 @@ class ModalExample extends React.Component {
         this.setState({amountIsBlank: false})
         if(this.state.amount === "") {
             this.setState({amountIsBlank: true})
-        } if(this.state.ingredient === "") {
+        } else if(this.state.ingredient === "") {
             this.setState({selectIng: true})
-        } else {
+        }  else {
             let inputIngredients = this.state.inputIngredients
             let ingAdded = {
                 name: this.state.ingredient,
@@ -152,6 +153,11 @@ class ModalExample extends React.Component {
                 </div>
 
                 <Label>Add ingredients:</Label>
+                    {
+                        this.state.alreadyInDrink &&
+                        <Alert color="danger">This ingredienet is aleady in this drink mix. Try editing the amount instead!</Alert>
+
+                    }
                     <div className="ingredient-declare">
                         {
                             this.state.selectIng &&

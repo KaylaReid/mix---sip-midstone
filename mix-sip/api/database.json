@@ -39,6 +39,13 @@
       "directions": "stir and pour over ice ",
       "userId": 1,
       "id": 2
+    },
+    {
+      "name": "sd",
+      "description": "dfgsd",
+      "directions": "sdfgd",
+      "userId": 1,
+      "id": 4
     }
   ],
   "drinkIngredients": [
@@ -97,6 +104,27 @@
       "amount": "njkb",
       "userId": 1,
       "id": 15
+    },
+    {
+      "drinkId": 4,
+      "ingredientId": 10,
+      "amount": "1212",
+      "userId": 1,
+      "id": 18
+    },
+    {
+      "drinkId": 4,
+      "ingredientId": 15,
+      "amount": "221",
+      "userId": 1,
+      "id": 19
+    },
+    {
+      "drinkId": 4,
+      "ingredientId": 25,
+      "amount": "sfad",
+      "userId": 1,
+      "id": 20
     }
   ],
   "ingredients": [
@@ -219,6 +247,12 @@
       "typeId": 2,
       "userId": 1,
       "id": 24
+    },
+    {
+      "name": "blue",
+      "typeId": 3,
+      "userId": 1,
+      "id": 25
     }
   ],
   "types": [
