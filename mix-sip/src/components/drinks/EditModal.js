@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalFooter } from 'reactstrap';
 import DrinkIngredientCard from './DrinkIngredientCard';
 import DataManager from "../../modules/DataManager";
 import AddIngEdit from "./AddIngEdit";

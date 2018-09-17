@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button } from 'reactstrap';
 import DataManager from "../../modules/DataManager"
 
 
