@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-class EditIngredient extends React.Component {
+class EditIngredients extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,8 +29,8 @@ class EditIngredient extends React.Component {
                 this.props.ingredients.map(ingredient => {
                     if(ingredient.typeId === 1){
                         return (
-                            <div>
-                                <p key={`base-${ingredient.id}`} className="capitalize">{ingredient.name}</p> 
+                            <div  key={`base-${ingredient.id}`}>
+                                <p className="capitalize">{ingredient.name}</p> 
                                 <Button color="success">Edit?</Button>
                             </div>
                                 )
@@ -44,8 +44,8 @@ class EditIngredient extends React.Component {
                 this.props.ingredients.map(ingredient => {
                     if(ingredient.typeId === 2){
                         return (
-                            <div>
-                                <p key={`mixer-${ingredient.id}`} className="capitalize">{ingredient.name}</p> 
+                            <div key={`mixer-${ingredient.id}`} >
+                                <p className="capitalize">{ingredient.name}</p> 
                                 <Button color="success">Edit?</Button>
                             </div>
                                 )
@@ -59,8 +59,8 @@ class EditIngredient extends React.Component {
                 this.props.ingredients.map(ingredient => {
                     if(ingredient.typeId === 3){
                         return (
-                            <div>
-                                <p key={`garnish-${ingredient.id}`} className="capitalize">{ingredient.name}</p> 
+                            <div key={`garnish-${ingredient.id}`}>
+                                <p className="capitalize">{ingredient.name}</p> 
                                 <Button color="success">Edit?</Button>
                             </div>
                                 )
@@ -80,4 +80,4 @@ class EditIngredient extends React.Component {
   }
 }
 
-export default EditIngredient;
+export default EditIngredients;

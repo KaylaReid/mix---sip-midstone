@@ -20,6 +20,7 @@ export default class AddIngEdit extends Component {
             selectIng: false,
             showAddIng: false,
             hideAddIngBtn: false,
+            alreadyInDrink: false
         };
 
         this.toggle = this.toggle.bind(this);
@@ -70,10 +71,22 @@ export default class AddIngEdit extends Component {
     addIngredient = () => {
         this.setState({selectIng: false})
         this.setState({amountIsBlank: false})
+        let drinkIngredients = this.props.drinkIngredients.filter(ing => ing.drinkId === this.props.drinkId)
+        let betterIngs = [];
+        drinkIngredients.map(ing => {
+            let betterIng = {
+                name: this.props.ingredients.find(i => ing.ingredientId === i.id).name
+            }
+            return betterIngs.push(betterIng)
+        })
         if(this.state.amount === "") {
             this.setState({amountIsBlank: true})
-        } if(this.state.ingredient === "") {
+        } else if(this.state.ingredient === "") {
             this.setState({selectIng: true})
+        } else if(betterIngs.find(ing => ing.name === this.state.ingredient)){
+            this.setState({alreadyInDrink: true})
+        } else if(this.state.inputIngredients.find(ing => ing.name.toLowerCase() === this.state.ingredient.toLowerCase())){
+            this.setState({alreadyInDrink: true})
         } else {
             let inputIngredients = this.state.inputIngredients
             let ingAdded = {
@@ -110,7 +123,6 @@ export default class AddIngEdit extends Component {
                     hideAddIngBtn: false, 
                     showAddIng: false,}))
     }
-    
 
     changeState = () => {
         this.setState({
@@ -138,6 +150,11 @@ export default class AddIngEdit extends Component {
                             })
                         }
                         <Label>Add ingredients:</Label>
+                        {
+                            this.state.alreadyInDrink &&
+                            <Alert color="danger">This ingredienet is aleady in this drink mix. Try editing the amount instead!</Alert>
+
+                         }
                         <div className="ingredient-declare">
                             {
                                 this.state.selectIng &&

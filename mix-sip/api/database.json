@@ -90,6 +90,13 @@
       "amount": "2",
       "userId": 1,
       "id": 14
+    },
+    {
+      "drinkId": 1,
+      "ingredientId": 10,
+      "amount": "njkb",
+      "userId": 1,
+      "id": 15
     }
   ],
   "ingredients": [
@@ -206,6 +213,12 @@
       "typeId": 3,
       "userId": 1,
       "id": 23
+    },
+    {
+      "name": "green",
+      "typeId": 2,
+      "userId": 1,
+      "id": 24
     }
   ],
   "types": [

@@ -70,6 +70,7 @@ class EditModal extends React.Component {
               <AddIngEdit ingredients={this.props.ingredients}
                   types={this.props.types}
                   user={this.props.user}
+                  drinkIngredients={this.props.drinkIngredients}
                   addIngredient={this.props.addIngredient}
                   drinkId={this.props.drink.id}
                   resetData={this.props.resetData}
