@@ -18,7 +18,7 @@ class ModalExample extends React.Component {
             allReadyHave: false,
             amountIsBlank: false,
             selectIng: false,
-            alreadyInDrink: false
+            alreadyQueued: false
         };
 
         this.toggle = this.toggle.bind(this);
@@ -77,7 +77,11 @@ class ModalExample extends React.Component {
             this.setState({amountIsBlank: true})
         } else if(this.state.ingredient === "") {
             this.setState({selectIng: true})
-        }  else {
+        } else if(this.state.inputIngredients.find(ing => ing.name.toLowerCase() === this.state.ingredient.toLowerCase())){
+            this.setState({
+                alreadyQueued: true,
+            })
+        }else {
             let inputIngredients = this.state.inputIngredients
             let ingAdded = {
                 name: this.state.ingredient,
@@ -91,7 +95,8 @@ class ModalExample extends React.Component {
             this.setState({
                 inputIngredients: inputIngredients,
                 ingredient: "",
-                amount: ""
+                amount: "",
+                alreadyQueued: false
             })
         }
     }
@@ -154,8 +159,8 @@ class ModalExample extends React.Component {
 
                 <Label>Add ingredients:</Label>
                     {
-                        this.state.alreadyInDrink &&
-                        <Alert color="danger">This ingredienet is aleady in this drink mix. Try editing the amount instead!</Alert>
+                        this.state.alreadyQueued &&
+                        <Alert color="danger">This ingredienet is aleady queued to be added to this drink mix.</Alert>
 
                     }
                     <div className="ingredient-declare">

@@ -46,6 +46,13 @@
       "directions": "sdfgd",
       "userId": 1,
       "id": 4
+    },
+    {
+      "name": "ice and diet coke",
+      "description": "its soo yummy!",
+      "directions": "pour over ice",
+      "userId": 2,
+      "id": 5
     }
   ],
   "drinkIngredients": [
@@ -125,6 +132,20 @@
       "amount": "sfad",
       "userId": 1,
       "id": 20
+    },
+    {
+      "drinkId": 5,
+      "ingredientId": 17,
+      "amount": "6 oz.",
+      "userId": 2,
+      "id": 21
+    },
+    {
+      "drinkId": 5,
+      "ingredientId": 18,
+      "amount": "at least 5",
+      "userId": 2,
+      "id": 22
     }
   ],
   "ingredients": [
