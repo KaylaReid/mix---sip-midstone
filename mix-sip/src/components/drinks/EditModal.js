@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import DrinkIngredientCard from './DrinkIngredientCard';
-import DataManager from "../../modules/DataManager"
+import DataManager from "../../modules/DataManager";
+import AddIngEdit from "./AddIngEdit";
 
 class EditModal extends React.Component {
   constructor(props) {
@@ -64,6 +65,9 @@ class EditModal extends React.Component {
                     
                     <label htmlFor="directions">Mixing Directions:</label>
                     <input type="text" className="form-control" onChange={this.handleFieldChange} id="directions" defaultValue={this.props.drink.directions} />
+            </div>
+            <div>
+              <AddIngEdit />
             </div>
             <div>
                 {

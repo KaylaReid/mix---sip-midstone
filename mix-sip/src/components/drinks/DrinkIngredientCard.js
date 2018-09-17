@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import { Button } from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import DataManager from "../../modules/DataManager"
+
 
 export default class DrinkIngredientCard extends Component {
     state = {
         amount: ""
     }
-
+    
     componentDidMount(){
         this.setState({amount: this.props.drinkIngredient.amount})
     }
@@ -39,6 +40,7 @@ export default class DrinkIngredientCard extends Component {
                     <Button color="success" onClick={this.saveChanges}>Update Amount</Button>
                 </div>
             </div>
+            
         )
     }
 }
