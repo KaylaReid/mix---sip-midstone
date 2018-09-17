@@ -27,169 +27,184 @@
   ],
   "drinks": [
     {
-      "name": "Sangria",
-      "description": "yummy",
-      "directions": "sasdfasdfasdf",
+      "name": "gin and tonicssssss",
+      "description": "its yummy",
+      "directions": "shake, shake, shake ",
       "userId": 1,
-      "id": 5
+      "id": 1
     },
     {
-      "name": "Mojito",
-      "description": "Its sooo yummy!",
-      "directions": "Shake and pour over ice",
+      "name": "skittles",
+      "description": "soooooo yummy",
+      "directions": "stir and pour over ice ",
       "userId": 1,
-      "id": 7
+      "id": 2
     },
     {
-      "name": "Gin and Tonice",
-      "description": "A light a refreshing drink perfect for all occasions! ",
-      "directions": "Shake all Gin with one lime wedge squeezed in, pour over ice top with Tonic then garnish with last lime wedge",
+      "name": "sd",
+      "description": "dfgsd",
+      "directions": "sdfgd",
       "userId": 1,
-      "id": 8
+      "id": 4
     },
     {
-      "name": "Oh the sweet taste ",
-      "description": "It is  a refreshing treat perfect for any occasion!",
-      "directions": "Place ice cubes in cup and pour the DC over top swirl and enjoy!",
+      "name": "ice and diet coke",
+      "description": "its soo yummy!",
+      "directions": "pour over ice",
       "userId": 2,
-      "id": 9
+      "id": 5
     }
   ],
   "drinkIngredients": [
     {
-      "drinkId": 5,
-      "ingredientId": 4,
+      "drinkId": 1,
+      "ingredientId": 1,
+      "amount": "5 oz.",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "drinkId": 1,
+      "ingredientId": 2,
+      "amount": "4 oz.",
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "drinkId": 2,
+      "ingredientId": 14,
+      "amount": "2 oz.",
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "drinkId": 2,
+      "ingredientId": 21,
       "amount": "2 oz.",
       "userId": 1,
       "id": 5
     },
     {
-      "drinkId": 5,
-      "ingredientId": 3,
-      "amount": "1 slice",
+      "drinkId": 2,
+      "ingredientId": 15,
+      "amount": "5 ",
       "userId": 1,
       "id": 6
     },
     {
-      "drinkId": 7,
-      "ingredientId": 1,
-      "amount": "2 oz.",
+      "drinkId": 1,
+      "ingredientId": 21,
+      "amount": "asdfa",
       "userId": 1,
       "id": 9
     },
     {
-      "drinkId": 7,
+      "drinkId": 1,
       "ingredientId": 3,
-      "amount": "2 wedges",
-      "userId": 1,
-      "id": 10
-    },
-    {
-      "drinkId": 7,
-      "ingredientId": 16,
-      "amount": "6 oz.",
-      "userId": 1,
-      "id": 11
-    },
-    {
-      "drinkId": 8,
-      "ingredientId": 1,
-      "amount": "2 oz.",
-      "userId": 1,
-      "id": 12
-    },
-    {
-      "drinkId": 8,
-      "ingredientId": 2,
-      "amount": "4 oz.",
-      "userId": 1,
-      "id": 13
-    },
-    {
-      "drinkId": 8,
-      "ingredientId": 3,
-      "amount": "2 wedges",
+      "amount": "2",
       "userId": 1,
       "id": 14
     },
     {
-      "drinkId": 9,
-      "ingredientId": 17,
-      "amount": "7 oz.",
-      "userId": 2,
+      "drinkId": 1,
+      "ingredientId": 10,
+      "amount": "njkb",
+      "userId": 1,
       "id": 15
     },
     {
-      "drinkId": 9,
-      "ingredientId": 18,
-      "amount": "At least 5",
+      "drinkId": 4,
+      "ingredientId": 10,
+      "amount": "1212",
+      "userId": 1,
+      "id": 18
+    },
+    {
+      "drinkId": 4,
+      "ingredientId": 15,
+      "amount": "221",
+      "userId": 1,
+      "id": 19
+    },
+    {
+      "drinkId": 4,
+      "ingredientId": 25,
+      "amount": "sfad",
+      "userId": 1,
+      "id": 20
+    },
+    {
+      "drinkId": 5,
+      "ingredientId": 17,
+      "amount": "6 oz.",
       "userId": 2,
-      "id": 16
+      "id": 21
+    },
+    {
+      "drinkId": 5,
+      "ingredientId": 18,
+      "amount": "at least 5",
+      "userId": 2,
+      "id": 22
     }
   ],
   "ingredients": [
     {
-      "id": 1,
-      "name": "Gin",
-      "typeId": 1,
-      "userId": 1
-    },
-    {
-      "id": 2,
-      "name": "Tonic",
-      "typeId": 2,
-      "userId": 1
-    },
-    {
-      "id": 3,
-      "name": "Lime",
-      "typeId": 3,
-      "userId": 1
-    },
-    {
-      "id": 4,
-      "name": "Vodka",
-      "typeId": 1,
-      "userId": 1
-    },
-    {
-      "id": 5,
-      "name": "Vodka",
-      "typeId": 1,
-      "userId": 2
-    },
-    {
-      "name": "Deep Eddie Lemon Vodka",
+      "name": "gin",
       "typeId": 1,
       "userId": 1,
-      "id": 6
+      "id": 1
     },
     {
-      "name": "Orange Peal",
+      "name": "tonic",
+      "typeId": 2,
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "name": "lime",
+      "typeId": 3,
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "name": "vodka",
+      "typeId": 1,
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "name": "vodka",
+      "typeId": 1,
+      "userId": 2,
+      "id": 5
+    },
+    {
+      "name": "orange peal",
       "typeId": 3,
       "userId": 1,
       "id": 8
     },
     {
-      "name": "Coke",
+      "name": "coke",
       "typeId": 2,
       "userId": 1,
       "id": 9
     },
     {
-      "name": "Club Soda",
+      "name": "club soda",
       "typeId": 2,
       "userId": 1,
       "id": 10
     },
     {
-      "name": "Pop",
+      "name": "pop",
       "typeId": 1,
       "userId": 1,
       "id": 11
     },
     {
-      "name": "Sprite",
+      "name": "sprite",
       "typeId": 2,
       "userId": 1,
       "id": 14
@@ -201,28 +216,64 @@
       "id": 15
     },
     {
-      "name": "Soda Water",
+      "name": "soda water",
       "typeId": 2,
       "userId": 1,
       "id": 16
     },
     {
-      "name": "Coke",
+      "name": "coke",
       "typeId": 2,
       "userId": 2,
       "id": 17
     },
     {
-      "name": "Ice Cubes",
+      "name": "ice cubes",
       "typeId": 3,
       "userId": 2,
       "id": 18
     },
     {
-      "name": "Diet Coke",
+      "name": "diet coke",
       "typeId": 2,
       "userId": 2,
       "id": 19
+    },
+    {
+      "name": "red",
+      "typeId": 1,
+      "userId": 1,
+      "id": 20
+    },
+    {
+      "name": "bacardi dragon berry run",
+      "typeId": 1,
+      "userId": 1,
+      "id": 21
+    },
+    {
+      "name": "lemon",
+      "typeId": 1,
+      "userId": 1,
+      "id": 22
+    },
+    {
+      "name": "mint",
+      "typeId": 3,
+      "userId": 1,
+      "id": 23
+    },
+    {
+      "name": "green",
+      "typeId": 2,
+      "userId": 1,
+      "id": 24
+    },
+    {
+      "name": "blue",
+      "typeId": 3,
+      "userId": 1,
+      "id": 25
     }
   ],
   "types": [

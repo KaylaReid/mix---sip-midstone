@@ -15,7 +15,7 @@ export default Object.create(null, {
     },
     getUserData: {
         value: (resource, userId) => {
-            return fetch(`${remoteURL}/${resource}?userId=${userId}`)
+            return fetch(`${remoteURL}/users/${userId}/${resource}?_sort=name&_order=asc`)
             .then(res => res.json())
         }
     },
@@ -38,5 +38,16 @@ export default Object.create(null, {
             })
             .then(r => r.json())
         }
-    }
+    },
+    patch: {
+        value: (resource, newObject, id) => {
+            return fetch(`${remoteURL}/${resource}/${id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newObject)
+            }).then(e => e.json())
+        }
+    },
 })

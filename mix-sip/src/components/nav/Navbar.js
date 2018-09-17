@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Logo from "../images/smaller-logo.png";
+import CupLogo from "../images/cupLogo.png";
 import { Button } from "reactstrap"
 import "./navbar.css";
 
@@ -14,7 +14,7 @@ import "./navbar.css";
      render(){
          return(
              <div className="navbar">
-                <img src={Logo} alt="mix&amp;siplogo" className="navbar-logo"/>
+                <img src={CupLogo} alt="mix&amp;siplogo" className="navbar-logo"/>
                 <Button className="logout-button" onClick={this.handleLogout}>Logout</Button>
              </div>
          )

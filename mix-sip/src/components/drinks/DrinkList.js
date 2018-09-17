@@ -1,6 +1,7 @@
 import React, { Component } from "react"; 
 import DrinkCard from "./DrinkCard";
 import AddDrink from "./AddDrink";
+import EditIngredients from "./EditIngredients"
 
 export default class DrinkList extends Component {
     
@@ -10,16 +11,22 @@ export default class DrinkList extends Component {
                 <div className="drink-list">
                     <AddDrink user={this.props.user}
                             addIngredient={this.props.addIngredient}
+                            drinkIngredients={this.props.drinkIngredients}
                             ingredients={this.props.ingredients} 
                             types={this.props.types}
                             resetData={this.props.resetData} />
+                    <EditIngredients ingredients={this.props.ingredients} 
+                            types={this.props.types}/>
                         {
                             this.props.drinks.map(drink => 
                             <DrinkCard key={drink.id} drink={drink} 
+                            drinks={this.props.drinks}
                             drinkIngredients={this.props.drinkIngredients}
                             ingredients={this.props.ingredients}
                             types={this.props.types}
-                            resetData={this.props.resetData} /> )
+                            resetData={this.props.resetData}
+                            user={this.props.user}
+                            addIngredient={this.props.addIngredient} /> )
                         }
                 </div>
             </React.Fragment>

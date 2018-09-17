@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Alert } from 'reactstrap';
 import DataManager from "../../modules/DataManager"
+import "./drinks.css"
 
 class ModalExample extends React.Component {
     constructor(props) {
@@ -16,7 +17,8 @@ class ModalExample extends React.Component {
             isEmpty: false,
             allReadyHave: false,
             amountIsBlank: false,
-            selectIng: false
+            selectIng: false,
+            alreadyQueued: false
         };
 
         this.toggle = this.toggle.bind(this);
@@ -33,7 +35,8 @@ class ModalExample extends React.Component {
     toggleNested() {
         this.setState({
           nestedModal: !this.state.nestedModal,
-          closeAll: false
+          closeAll: false,
+          allReadyHave: false
         });
       }
     
@@ -58,7 +61,7 @@ class ModalExample extends React.Component {
             this.setState({allReadyHave: true})
         } else {
             let newIngredient = {
-                name: this.state.newIngredientName,
+                name: this.state.newIngredientName.toLowerCase(),
                 typeId: this.props.types.find(type => type.name === this.state.newIngredientType).id,
                 userId: this.props.user.id
             }
@@ -72,14 +75,18 @@ class ModalExample extends React.Component {
         this.setState({amountIsBlank: false})
         if(this.state.amount === "") {
             this.setState({amountIsBlank: true})
-        } if(this.state.ingredient === "") {
+        } else if(this.state.ingredient === "") {
             this.setState({selectIng: true})
-        } else {
+        } else if(this.state.inputIngredients.find(ing => ing.name.toLowerCase() === this.state.ingredient.toLowerCase())){
+            this.setState({
+                alreadyQueued: true,
+            })
+        }else {
             let inputIngredients = this.state.inputIngredients
             let ingAdded = {
                 name: this.state.ingredient,
                 amount: this.state.amount,
-                ingredienetId: this.props.ingredients.find(ing => ing.name === this.state.ingredient).id,
+                ingredientId: this.props.ingredients.find(ing => ing.name === this.state.ingredient).id,
                 userId: this.props.user.id
             }
             inputIngredients.push(ingAdded)
@@ -88,7 +95,8 @@ class ModalExample extends React.Component {
             this.setState({
                 inputIngredients: inputIngredients,
                 ingredient: "",
-                amount: ""
+                amount: "",
+                alreadyQueued: false
             })
         }
     }
@@ -98,7 +106,7 @@ class ModalExample extends React.Component {
            this.setState({isEmpty: true})
         } else {
             let newDrink = {
-                name: this.state.drinkName,
+                name: this.state.drinkName.toLowerCase(),
                 description: this.state.drinkDescription,
                 directions: this.state.drinkDirections,
                 userId: this.props.user.id
@@ -109,7 +117,7 @@ class ModalExample extends React.Component {
                 this.state.inputIngredients.map(ing => {
                     let newIng = {
                         drinkId: drink.id,
-                        ingredientId: ing.ingredienetId,
+                        ingredientId: ing.ingredientId,
                         amount: ing.amount,
                         userId: ing.userId
                     }
@@ -127,11 +135,10 @@ class ModalExample extends React.Component {
     }
 
     render() {
-        const externalCloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={this.toggle}>&times;</button>;
         return (
         <div>
             <Button color="info" onClick={this.toggle}>Add a New Drink!</Button>
-            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} external={externalCloseBtn}>
+            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
             <ModalHeader>Add a new drink to your collection!</ModalHeader>
             <ModalBody>
                 {
@@ -145,21 +152,26 @@ class ModalExample extends React.Component {
                 <div>
                     {
                         this.state.inputIngredients.map(ing => {
-                            return <p key={`drink-${ing.id}`}>{ing.name} {ing.amount}</p>
+                            return <p key={`drink-${ing.name}`}><span className="capitalize">{ing.name}</span> {ing.amount}</p>
                         })
                     }
                 </div>
 
                 <Label>Add ingredients:</Label>
+                    {
+                        this.state.alreadyQueued &&
+                        <Alert color="danger">This ingredienet is aleady queued to be added to this drink mix.</Alert>
+
+                    }
                     <div className="ingredient-declare">
                         {
                             this.state.selectIng &&
                             <Alert color="danger">
-                            Please select a ingredienet!
+                            Please select a ingredient!
                             </Alert>
                             // <span className="select-type-error">** Please Select a Ingredient **</span>
                         }
-                        <Input id="ingredient" type="select" defaultValue="Select Type" onChange={this.handleFieldChange}>
+                        <Input id="ingredient" type="select" className="capitalize" defaultValue="Select Type" onChange={this.handleFieldChange}>
                             <option id="selectIngredient">Select a Ingredient</option>
                             {
                                 this.props.ingredients.map(ing => {
@@ -171,7 +183,7 @@ class ModalExample extends React.Component {
                         {
                             this.state.amountIsBlank && 
                             <Alert color="warning">
-                            Please give this ingredienet an amount!
+                            Please give this ingredient an amount!
                             </Alert>
                         }
                         <Label>Amount:</Label>
