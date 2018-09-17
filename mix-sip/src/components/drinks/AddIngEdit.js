@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Modal, ModalHeader, ModalFooter, Label, Alert, Input } from 'reactstrap';
+import DataManager from "../../modules/DataManager"
 
 export default class AddIngEdit extends Component {
  
@@ -29,7 +30,7 @@ export default class AddIngEdit extends Component {
         this.setState({
         modal: !this.state.modal
         });
-        this.resetForm()
+       
     }
 
     toggleNested() {
@@ -78,7 +79,7 @@ export default class AddIngEdit extends Component {
             let ingAdded = {
                 name: this.state.ingredient,
                 amount: this.state.amount,
-                ingredienetId: this.props.ingredients.find(ing => ing.name === this.state.ingredient).id,
+                ingredientId: this.props.ingredients.find(ing => ing.name === this.state.ingredient).id,
                 userId: this.props.user.id
             }
             inputIngredients.push(ingAdded)
@@ -92,10 +93,28 @@ export default class AddIngEdit extends Component {
         }
     }
 
+    saveAdded = () => {
+        let addedIngredients = []
+        this.state.inputIngredients.map(ing => {
+            let newIng = {
+                drinkId: this.props.drinkId,
+                ingredientId: ing.ingredientId,
+                amount: ing.amount,
+                userId: ing.userId
+            }
+            return addedIngredients.push(newIng)
+        })
+        Promise.all(addedIngredients.map(joiner => DataManager.add("drinkIngredients", joiner)))
+        .then(() => this.props.resetData())
+        // .then(() => this.resetForm())
+        .then(() => this.toggle()) 
+    }
+    
+
     changeState = () => {
         this.setState({
             showAddIng: true,
-            // hideAddIngBtn: true
+            hideAddIngBtn: true
         })
 
     }
@@ -115,7 +134,7 @@ export default class AddIngEdit extends Component {
                     <div>
                         {
                             this.state.inputIngredients.map(ing => {
-                                return <p key={`drink-${ing.id}`}><span className="capitalize">{ing.name}</span> {ing.amount}</p>
+                                return <p key={`drink-${ing.ingredientId}`}><span className="capitalize">{ing.name}</span> {ing.amount}</p>
                             })
                         }
                         <Label>Add ingredients:</Label>
@@ -146,6 +165,7 @@ export default class AddIngEdit extends Component {
                         </div>
                         <div>
                             <Button color="info" onClick={this.addIngredient}>Add Ingredient to Drink</Button>
+                            <Button color="success" onClick={this.saveAdded}>Save Added Ingredients</Button>
                             <div>
                                 <Label>Don't see the ingredient your looking for? Add a New one!</Label><br/>
                                 <Button color="success" onClick={this.toggleNested}>Add a New Ingredient</Button>

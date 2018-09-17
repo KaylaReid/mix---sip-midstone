@@ -81,7 +81,7 @@ class ModalExample extends React.Component {
             let ingAdded = {
                 name: this.state.ingredient,
                 amount: this.state.amount,
-                ingredienetId: this.props.ingredients.find(ing => ing.name === this.state.ingredient).id,
+                ingredientId: this.props.ingredients.find(ing => ing.name === this.state.ingredient).id,
                 userId: this.props.user.id
             }
             inputIngredients.push(ingAdded)
@@ -111,7 +111,7 @@ class ModalExample extends React.Component {
                 this.state.inputIngredients.map(ing => {
                     let newIng = {
                         drinkId: drink.id,
-                        ingredientId: ing.ingredienetId,
+                        ingredientId: ing.ingredientId,
                         amount: ing.amount,
                         userId: ing.userId
                     }
@@ -147,6 +147,7 @@ class ModalExample extends React.Component {
                 <div>
                     {
                         this.state.inputIngredients.map(ing => {
+                            console.log(ing)
                             return <p key={`drink-${ing.id}`}><span className="capitalize">{ing.name}</span> {ing.amount}</p>
                         })
                     }

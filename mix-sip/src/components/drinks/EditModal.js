@@ -11,7 +11,7 @@ class EditModal extends React.Component {
       modal: false,
       name: "",
       description: "",
-      directions: ""
+      directions: "",
     };
 
     this.toggle = this.toggle.bind(this);
@@ -70,7 +70,10 @@ class EditModal extends React.Component {
               <AddIngEdit ingredients={this.props.ingredients}
                   types={this.props.types}
                   user={this.props.user}
-                  addIngredient={this.props.addIngredient}/>
+                  addIngredient={this.props.addIngredient}
+                  drinkId={this.props.drink.id}
+                  resetData={this.props.resetData}
+                  />
             </div>
             <div>
                 {

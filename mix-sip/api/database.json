@@ -57,13 +57,6 @@
       "id": 2
     },
     {
-      "drinkId": 1,
-      "ingredientId": 3,
-      "amount": " 2 wedges",
-      "userId": 1,
-      "id": 3
-    },
-    {
       "drinkId": 2,
       "ingredientId": 14,
       "amount": "2 oz.",
@@ -83,38 +76,59 @@
       "amount": "5 ",
       "userId": 1,
       "id": 6
+    },
+    {
+      "drinkId": 1,
+      "ingredientId": 3,
+      "amount": "12 slices",
+      "userId": 1,
+      "id": 8
+    },
+    {
+      "drinkId": 1,
+      "ingredientId": 4,
+      "amount": "3 oz.",
+      "userId": 1,
+      "id": 9
+    },
+    {
+      "drinkId": 1,
+      "ingredientId": 8,
+      "amount": "3 peals",
+      "userId": 1,
+      "id": 10
     }
   ],
   "ingredients": [
     {
-      "id": 1,
       "name": "gin",
       "typeId": 1,
-      "userId": 1
+      "userId": 1,
+      "id": 1
     },
     {
-      "id": 2,
       "name": "tonic",
       "typeId": 2,
-      "userId": 1
+      "userId": 1,
+      "id": 2
     },
     {
-      "id": 3,
       "name": "lime",
       "typeId": 3,
-      "userId": 1
+      "userId": 1,
+      "id": 3
     },
     {
-      "id": 4,
       "name": "vodka",
       "typeId": 1,
-      "userId": 1
+      "userId": 1,
+      "id": 4
     },
     {
-      "id": 5,
       "name": "vodka",
       "typeId": 1,
-      "userId": 2
+      "userId": 2,
+      "id": 5
     },
     {
       "name": "orange peal",
