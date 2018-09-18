@@ -4,6 +4,9 @@ import AddDrink from "./AddDrink";
 import EditIngList from "./EditIngList"
 
 export default class DrinkList extends Component {
+    state = {
+        
+    }
     
     render(){
         return(
@@ -18,6 +21,7 @@ export default class DrinkList extends Component {
                     <EditIngList ingredients={this.props.ingredients} 
                             types={this.props.types}
                             resetData={this.props.resetData}/>
+                    <input onChange={this.state.search}></input>
                         {
                             this.props.drinks.map(drink => 
                             <DrinkCard key={drink.id} drink={drink} 
