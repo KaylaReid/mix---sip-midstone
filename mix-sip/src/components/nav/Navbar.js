@@ -15,7 +15,7 @@ import "./navbar.css";
          return(
              <div className="navbar">
                 <img src={CupLogo} alt="mix&amp;siplogo" className="navbar-logo"/>
-                <Button className="logout-button" onClick={this.handleLogout}>Logout</Button>
+                <Button className="logout-button" size="sm" onClick={this.handleLogout}>Logout</Button>
              </div>
          )
      }

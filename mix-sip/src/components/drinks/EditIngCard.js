@@ -1,11 +1,13 @@
 import React, { Component } from "react"; 
-import { Button, Input } from 'reactstrap';
+import { Button, Input, Alert } from 'reactstrap';
 import DataManger from "../../modules/DataManager"
 
 export default class EditIngCard extends Component {
     state = {
         edit: false,
-        name: ""
+        name: "",
+        alreadyHave: false,
+        isBank: false
     }
 
     handleFieldChange = evt => {
@@ -25,12 +27,33 @@ export default class EditIngCard extends Component {
     }
 
     saveChange = () => {
-       this.setState({edit: false}) 
-       const update = {
-           name: this.state.name
+        // let filtered = this.ingredients.find
+
+       if(this.props.ingredients.find(ing => ing.name === this.state.name.toLowerCase())){
+           this.setState({alreadyHave: true})
+       } else if(this.state.name === "") {
+            this.setState({isBank: true})
+       } else {
+           const update = {
+               name: this.state.name
+           }
+           DataManger.patch("ingredients", update, this.props.ingredient.id)
+           .then(() => {this.props.resetData()})
+           .then(() => this.setState({
+               edit: false,
+               isBank: false,
+               alreadyHave:false
+            }))
        }
-       DataManger.patch("ingredients", update, this.props.ingredient.id)
-       .then(() => {this.props.resetData()})
+    }
+
+    cancel = () => {
+        this.setState({
+            edit: false,
+            name: this.props.ingredient.name,
+            isBank: false,
+            alreadyHave:false
+        })
     }
 
     render(){
@@ -40,14 +63,27 @@ export default class EditIngCard extends Component {
                     !this.state.edit &&
                     <div>
                         <p className="capitalize">{this.state.name}</p> 
-                        <Button color="success" onClick={this.changeToEdit}>Edit?</Button>
+                        <Button color="success" size="sm" onClick={this.changeToEdit}>Edit?</Button>
                     </div>
+                }
+                {
+                    this.state.alreadyHave &&
+                    <Alert color="danger">
+                        This ingredient already exists please pick a difrent name.
+                    </Alert>
+                }
+                {
+                    this.state.isBank &&
+                    <Alert color="danger">
+                        Please fill out imput!
+                    </Alert>
                 }
                 {
                     this.state.edit && 
                     <div>
                         <Input id="name" type="text" defaultValue={this.state.name} onChange=        {this.handleFieldChange}/>
-                        <Button color="success" onClick={this.saveChange}>Save</Button>
+                        <Button color="success" size="sm" onClick={this.saveChange}>Save</Button>
+                        <Button color="success" size="sm" onClick={this.cancel}>Cancel</Button>
                     </div>
                 }
             </div>)
