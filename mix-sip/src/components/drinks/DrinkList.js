@@ -1,9 +1,12 @@
 import React, { Component } from "react"; 
 import DrinkCard from "./DrinkCard";
 import AddDrink from "./AddDrink";
-import EditIngredients from "./EditIngredients"
+import EditIngList from "./EditIngList"
 
 export default class DrinkList extends Component {
+    state = {
+        
+    }
     
     render(){
         return(
@@ -15,18 +18,20 @@ export default class DrinkList extends Component {
                             ingredients={this.props.ingredients} 
                             types={this.props.types}
                             resetData={this.props.resetData} />
-                    <EditIngredients ingredients={this.props.ingredients} 
-                            types={this.props.types}/>
+                    <EditIngList ingredients={this.props.ingredients} 
+                            types={this.props.types}
+                            resetData={this.props.resetData}/>
+                    <input onChange={this.state.search}></input>
                         {
                             this.props.drinks.map(drink => 
                             <DrinkCard key={drink.id} drink={drink} 
-                            drinks={this.props.drinks}
-                            drinkIngredients={this.props.drinkIngredients}
-                            ingredients={this.props.ingredients}
-                            types={this.props.types}
-                            resetData={this.props.resetData}
-                            user={this.props.user}
-                            addIngredient={this.props.addIngredient} /> )
+                                drinks={this.props.drinks}
+                                drinkIngredients={this.props.drinkIngredients}
+                                ingredients={this.props.ingredients}
+                                types={this.props.types}
+                                resetData={this.props.resetData}
+                                user={this.props.user}
+                                addIngredient={this.props.addIngredient} /> )
                         }
                 </div>
             </React.Fragment>

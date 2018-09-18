@@ -146,7 +146,7 @@ export default class AddIngEdit extends Component {
                 <div>
                     {
                         !this.state.hideAddIngBtn &&
-                        <Button onClick={this.changeState}>Add a new ingredient</Button>
+                        <Button size="sm" onClick={this.changeState}>Add a new ingredient</Button>
                     }
                 </div>
                 <div>
@@ -195,11 +195,11 @@ export default class AddIngEdit extends Component {
                             1/2 wedge, 1 squeeze" defaultValue={this.state.amount} onChange={this.handleFieldChange}/>
                         </div>
                         <div>
-                            <Button color="info" onClick={this.addIngredient}>Add Ingredient to Drink</Button>
-                            <Button color="success" onClick={this.saveAdded}>Save Added Ingredients</Button>
+                            <Button color="info" size="sm" onClick={this.addIngredient}>Add Ingredient to Drink</Button>
+                            <Button color="success" size="sm" onClick={this.saveAdded}>Save Added Ingredients</Button>
                             <div>
                                 <Label>Don't see the ingredient your looking for? Add a New one!</Label><br/>
-                                <Button color="success" onClick={this.toggleNested}>Add a New Ingredient</Button>
+                                <Button color="success" size="sm" onClick={this.toggleNested}>Add a New Ingredient</Button>
                                 <Modal isOpen={this.state.nestedModal} toggle={this.toggleNested} onClosed={this.state.closeAll ? this.toggle : undefined}>
                                 <ModalHeader>Add your ingredient here, and it will be added to your collection of ingredients to choose from</ModalHeader>
                                 {
@@ -220,8 +220,8 @@ export default class AddIngEdit extends Component {
                                     <Input id="newIngredientName" type="text" placeholder="Name of ingredient" onChange={this.handleFieldChange}/>
                                 </div>
                                 <ModalFooter>
-                                <Button color="primary" onClick={this.saveNewIngredient}>Save</Button>{' '}
-                                <Button corol="info" onClick={this.toggleNested}>Cancel</Button>   
+                                <Button color="primary" size="sm" onClick={this.saveNewIngredient}>Save</Button>{' '}
+                                <Button corol="info" size="sm" onClick={this.toggleNested}>Cancel</Button>   
                                 </ModalFooter>
                                 </Modal>
                             </div>

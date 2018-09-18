@@ -137,7 +137,7 @@ class ModalExample extends React.Component {
     render() {
         return (
         <div>
-            <Button color="info" onClick={this.toggle}>Add a New Drink!</Button>
+            <Button color="info" size="sm" onClick={this.toggle}>Add a New Drink!</Button>
             <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
             <ModalHeader>Add a new drink to your collection!</ModalHeader>
             <ModalBody>
@@ -191,12 +191,12 @@ class ModalExample extends React.Component {
                         1/2 wedge, 1 squeeze" defaultValue={this.state.amount} onChange={this.handleFieldChange}/>
                     </div>
                     <div>
-                        <Button color="info" onClick={this.addIngredient}>Add Ingredient to Drink</Button>
+                        <Button color="info" size="sm" onClick={this.addIngredient}>Add Ingredient to Drink</Button>
                         <div>
 
 
                         <Label>Don't see the ingredient your looking for? Add a New one!</Label><br/>
-                        <Button color="success" onClick={this.toggleNested}>Add a New Ingredient</Button>
+                        <Button color="success" size="sm" onClick={this.toggleNested}>Add a New Ingredient</Button>
                         <Modal isOpen={this.state.nestedModal} toggle={this.toggleNested} onClosed={this.state.closeAll ? this.toggle : undefined}>
                             <ModalHeader>Add your ingredient here, and it will be added to your collection of ingredients to choose from</ModalHeader>
                             {
@@ -218,8 +218,8 @@ class ModalExample extends React.Component {
                                 <Input id="newIngredientName" type="text" placeholder="Name of ingredient" onChange={this.handleFieldChange}/>
                             </div>
                                 <ModalFooter>
-                                <Button color="primary" onClick={this.saveNewIngredient}>Save</Button>{' '}
-                                <Button corol="info" onClick={this.toggleNested}>Cancel</Button>   
+                                <Button color="primary" size="sm" onClick={this.saveNewIngredient}>Save</Button>{' '}
+                                <Button corol="info" size="sm" onClick={this.toggleNested}>Cancel</Button>   
                                 </ModalFooter>
                         </Modal>
                         </div>
@@ -228,8 +228,8 @@ class ModalExample extends React.Component {
                 <Input id="drinkDirections" type="textarea" defaultValue={this.state.drinkDirections} placeholder="Directions to mix the drink!" onChange={this.handleFieldChange} />
             </ModalBody>
             <ModalFooter>
-                <Button color="primary" onClick={this.saveDrink}>Save Drink</Button>{' '}
-                <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+                <Button color="primary" size="sm" onClick={this.saveDrink}>Save Drink</Button>{' '}
+                <Button color="secondary" size="sm" onClick={this.toggle}>Cancel</Button>
             </ModalFooter>
             </Modal>
         </div>

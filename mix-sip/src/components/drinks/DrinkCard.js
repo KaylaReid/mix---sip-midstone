@@ -110,7 +110,7 @@ export default class DrinkCard extends Component {
                         <h5>Mixing Directions:</h5>
                         <p>{this.props.drink.directions}</p>
                     </div>
-                    <Button outline color="dark" onClick={this.deleteDrink}>Delete</Button>
+                    <Button outline color="dark" size="sm" onClick={this.deleteDrink}>Delete</Button>
                     <EditModal drink={this.props.drink} drinks={this.props.drinks}
                             drinkIngredients={this.props.drinkIngredients}
                             ingredients={this.props.ingredients}

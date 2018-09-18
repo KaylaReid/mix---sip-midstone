@@ -1,13 +1,13 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import EditIngCard from "./EditIngCard"
 
-class EditIngredients extends React.Component {
+class EditIngList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
     };
-
     this.toggle = this.toggle.bind(this);
   }
 
@@ -20,7 +20,7 @@ class EditIngredients extends React.Component {
   render() {
     return (
       <div>
-        <Button color="warning" onClick={this.toggle}>Manage Ingredients</Button>
+        <Button color="warning" size="sm" onClick={this.toggle}>Manage Ingredients</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader>Please note making changes to a ingredient here will update it everywhere the ingrednient is used! This feature is recomended for spelling corections only.</ModalHeader>
           <ModalBody>
@@ -28,12 +28,10 @@ class EditIngredients extends React.Component {
             {
                 this.props.ingredients.map(ingredient => {
                     if(ingredient.typeId === 1){
-                        return (
-                            <div  key={`base-${ingredient.id}`}>
-                                <p className="capitalize">{ingredient.name}</p> 
-                                <Button color="success">Edit?</Button>
-                            </div>
-                                )
+                        return (<EditIngCard key={ingredient.id} 
+                                    ingredient={ingredient}
+                                    resetData={this.props.resetData}
+                                    ingredients={this.props.ingredients}/>)
                     } else {
                         return null
                     }
@@ -43,12 +41,10 @@ class EditIngredients extends React.Component {
             {
                 this.props.ingredients.map(ingredient => {
                     if(ingredient.typeId === 2){
-                        return (
-                            <div key={`mixer-${ingredient.id}`} >
-                                <p className="capitalize">{ingredient.name}</p> 
-                                <Button color="success">Edit?</Button>
-                            </div>
-                                )
+                        return (<EditIngCard key={ingredient.id} 
+                                    ingredient={ingredient}
+                                    resetData={this.props.resetData}
+                                    ingredients={this.props.ingredients}/>)
                     } else {
                         return null
                     }
@@ -58,12 +54,10 @@ class EditIngredients extends React.Component {
             {
                 this.props.ingredients.map(ingredient => {
                     if(ingredient.typeId === 3){
-                        return (
-                            <div key={`garnish-${ingredient.id}`}>
-                                <p className="capitalize">{ingredient.name}</p> 
-                                <Button color="success">Edit?</Button>
-                            </div>
-                                )
+                        return (<EditIngCard key={ingredient.id} 
+                                    ingredient={ingredient}
+                                    resetData={this.props.resetData}
+                                    ingredients={this.props.ingredients}/>)
                     } else {
                         return null
                     }
@@ -71,8 +65,7 @@ class EditIngredients extends React.Component {
             }
           </ModalBody>
           <ModalFooter>
-            {/* <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '} */}
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            <Button color="secondary" size="sm" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
       </div>
@@ -80,4 +73,4 @@ class EditIngredients extends React.Component {
   }
 }
 
-export default EditIngredients;
+export default EditIngList;

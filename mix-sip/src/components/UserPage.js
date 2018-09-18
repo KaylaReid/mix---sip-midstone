@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-// import { Redirect, Route} from "react-router-dom";
 import Navbar from "./nav/Navbar";
 import DataManager from "../modules/DataManager";
-import DrinkList from "./drinks/DrinkList"
+import DrinkList from "./drinks/DrinkList";
+import "./userPage.css"
 
 export default class UserPage extends Component {
     state = {

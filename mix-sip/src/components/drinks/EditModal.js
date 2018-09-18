@@ -54,7 +54,7 @@ class EditModal extends React.Component {
 
     return (
       <div>
-        <Button outline color="info" onClick={this.toggle} id={this.props.drink.id}>Edit</Button>
+        <Button outline color="info" size="sm" onClick={this.toggle} id={this.props.drink.id}>Edit</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
             <div>
                     <label htmlFor="name">Drink Name:</label>
@@ -90,8 +90,8 @@ class EditModal extends React.Component {
                 }
             </div>
           <ModalFooter>
-            <Button color="primary" onClick={this.saveChanges}>Save Changes</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            <Button color="primary" size="sm" onClick={this.saveChanges}>Save Changes</Button>{' '}
+            <Button color="secondary" size="sm" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
       </div>
