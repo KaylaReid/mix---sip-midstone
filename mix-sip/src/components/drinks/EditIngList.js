@@ -1,11 +1,13 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import EditIngCard from "./EditIngCard"
 
-class EditIngredients extends React.Component {
+class EditIngList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
+      edit: false
     };
 
     this.toggle = this.toggle.bind(this);
@@ -16,6 +18,11 @@ class EditIngredients extends React.Component {
       modal: !this.state.modal
     });
   }
+
+  changeToEdit = () => {
+      this.setState({edit: true})
+  }
+
 
   render() {
     return (
@@ -28,12 +35,7 @@ class EditIngredients extends React.Component {
             {
                 this.props.ingredients.map(ingredient => {
                     if(ingredient.typeId === 1){
-                        return (
-                            <div  key={`base-${ingredient.id}`}>
-                                <p className="capitalize">{ingredient.name}</p> 
-                                <Button color="success">Edit?</Button>
-                            </div>
-                                )
+                        return (<EditIngCard key={ingredient.id} ingredient={ingredient}/>)
                     } else {
                         return null
                     }
@@ -43,12 +45,7 @@ class EditIngredients extends React.Component {
             {
                 this.props.ingredients.map(ingredient => {
                     if(ingredient.typeId === 2){
-                        return (
-                            <div key={`mixer-${ingredient.id}`} >
-                                <p className="capitalize">{ingredient.name}</p> 
-                                <Button color="success">Edit?</Button>
-                            </div>
-                                )
+                        return (<EditIngCard key={ingredient.id} ingredient={ingredient}/>)
                     } else {
                         return null
                     }
@@ -58,12 +55,7 @@ class EditIngredients extends React.Component {
             {
                 this.props.ingredients.map(ingredient => {
                     if(ingredient.typeId === 3){
-                        return (
-                            <div key={`garnish-${ingredient.id}`}>
-                                <p className="capitalize">{ingredient.name}</p> 
-                                <Button color="success">Edit?</Button>
-                            </div>
-                                )
+                        return (<EditIngCard key={ingredient.id} ingredient={ingredient}/>)
                     } else {
                         return null
                     }
@@ -80,4 +72,4 @@ class EditIngredients extends React.Component {
   }
 }
 
-export default EditIngredients;
+export default EditIngList;

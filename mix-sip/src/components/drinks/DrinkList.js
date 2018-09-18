@@ -1,7 +1,7 @@
 import React, { Component } from "react"; 
 import DrinkCard from "./DrinkCard";
 import AddDrink from "./AddDrink";
-import EditIngredients from "./EditIngredients"
+import EditIngList from "./EditIngList"
 
 export default class DrinkList extends Component {
     
@@ -15,7 +15,7 @@ export default class DrinkList extends Component {
                             ingredients={this.props.ingredients} 
                             types={this.props.types}
                             resetData={this.props.resetData} />
-                    <EditIngredients ingredients={this.props.ingredients} 
+                    <EditIngList ingredients={this.props.ingredients} 
                             types={this.props.types}/>
                         {
                             this.props.drinks.map(drink => 
