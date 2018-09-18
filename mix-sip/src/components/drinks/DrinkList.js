@@ -1,14 +1,22 @@
 import React, { Component } from "react"; 
+import { Input } from 'reactstrap';
 import DrinkCard from "./DrinkCard";
 import AddDrink from "./AddDrink";
 import EditIngList from "./EditIngList"
 
 export default class DrinkList extends Component {
     state = {
-        
+        search: ""
+    }
+
+    updateSearch(e) {
+        this.setState({search: e.target.value.substr(0, 20)})
     }
     
     render(){
+        let filteredDrinks = this.props.drinks.filter(ing => {
+            return ing.name.indexOf(this.state.search.toLowerCase()) !== -1;
+        })
         return(
             <React.Fragment>
                 <div className="drink-list">
@@ -21,9 +29,11 @@ export default class DrinkList extends Component {
                     <EditIngList ingredients={this.props.ingredients} 
                             types={this.props.types}
                             resetData={this.props.resetData}/>
-                    <input onChange={this.state.search}></input>
+                    <div>
+                        <Input onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" placeholder="Look for drinks"></Input>
+                    </div>
                         {
-                            this.props.drinks.map(drink => 
+                            filteredDrinks.map(drink => 
                             <DrinkCard key={drink.id} drink={drink} 
                                 drinks={this.props.drinks}
                                 drinkIngredients={this.props.drinkIngredients}

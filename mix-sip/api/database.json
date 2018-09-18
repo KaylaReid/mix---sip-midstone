@@ -46,6 +46,27 @@
       "directions": "pour over ice",
       "userId": 2,
       "id": 5
+    },
+    {
+      "name": "apple",
+      "description": "dfasd",
+      "directions": "asdfa",
+      "userId": 1,
+      "id": 6
+    },
+    {
+      "name": "blue",
+      "description": "asdf",
+      "directions": "asdf",
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "name": "upper",
+      "description": "sdfd",
+      "directions": "asdf",
+      "userId": 1,
+      "id": 8
     }
   ],
   "drinkIngredients": [
@@ -104,6 +125,27 @@
       "amount": "2 slices",
       "userId": 1,
       "id": 27
+    },
+    {
+      "drinkId": 6,
+      "ingredientId": 16,
+      "amount": "sf",
+      "userId": 1,
+      "id": 28
+    },
+    {
+      "drinkId": 7,
+      "ingredientId": 21,
+      "amount": "sdf",
+      "userId": 1,
+      "id": 29
+    },
+    {
+      "drinkId": 8,
+      "ingredientId": 1,
+      "amount": "asdf",
+      "userId": 1,
+      "id": 30
     }
   ],
   "ingredients": [
