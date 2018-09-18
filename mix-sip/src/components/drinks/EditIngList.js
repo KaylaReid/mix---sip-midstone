@@ -7,9 +7,7 @@ class EditIngList extends React.Component {
     super(props);
     this.state = {
       modal: false,
-      edit: false
     };
-
     this.toggle = this.toggle.bind(this);
   }
 
@@ -19,10 +17,10 @@ class EditIngList extends React.Component {
     });
   }
 
-  changeToEdit = () => {
-      this.setState({edit: true})
-  }
-
+//   resetList = () => {
+//       this.props.resetData()
+//       this.toggle()
+//   }
 
   render() {
     return (
@@ -35,7 +33,9 @@ class EditIngList extends React.Component {
             {
                 this.props.ingredients.map(ingredient => {
                     if(ingredient.typeId === 1){
-                        return (<EditIngCard key={ingredient.id} ingredient={ingredient}/>)
+                        return (<EditIngCard key={ingredient.id} 
+                                    ingredient={ingredient}
+                                    resetData={this.props.resetData}/>)
                     } else {
                         return null
                     }
@@ -45,7 +45,9 @@ class EditIngList extends React.Component {
             {
                 this.props.ingredients.map(ingredient => {
                     if(ingredient.typeId === 2){
-                        return (<EditIngCard key={ingredient.id} ingredient={ingredient}/>)
+                        return (<EditIngCard key={ingredient.id} 
+                                    ingredient={ingredient}
+                                    resetData={this.props.resetData}/>)
                     } else {
                         return null
                     }
@@ -55,7 +57,9 @@ class EditIngList extends React.Component {
             {
                 this.props.ingredients.map(ingredient => {
                     if(ingredient.typeId === 3){
-                        return (<EditIngCard key={ingredient.id} ingredient={ingredient}/>)
+                        return (<EditIngCard key={ingredient.id} 
+                                    ingredient={ingredient}
+                                    resetData={this.props.resetData}/>)
                     } else {
                         return null
                     }
@@ -63,7 +67,6 @@ class EditIngList extends React.Component {
             }
           </ModalBody>
           <ModalFooter>
-            {/* <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '} */}
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>

@@ -92,20 +92,6 @@
       "id": 9
     },
     {
-      "drinkId": 1,
-      "ingredientId": 3,
-      "amount": "2",
-      "userId": 1,
-      "id": 14
-    },
-    {
-      "drinkId": 1,
-      "ingredientId": 10,
-      "amount": "njkb",
-      "userId": 1,
-      "id": 15
-    },
-    {
       "drinkId": 5,
       "ingredientId": 17,
       "amount": "6 oz.",
@@ -118,13 +104,6 @@
       "amount": "at least 5",
       "userId": 2,
       "id": 22
-    },
-    {
-      "drinkId": 1,
-      "ingredientId": 16,
-      "amount": "2 oz.",
-      "userId": 1,
-      "id": 23
     }
   ],
   "ingredients": [
@@ -219,7 +198,7 @@
       "id": 19
     },
     {
-      "name": "bacardi dragon berry run",
+      "name": "bacardi dragon berry rum",
       "typeId": 1,
       "userId": 1,
       "id": 21
@@ -241,6 +220,18 @@
       "typeId": 3,
       "userId": 1,
       "id": 24
+    },
+    {
+      "name": "asdfa",
+      "typeId": 3,
+      "userId": 1,
+      "id": 25
+    },
+    {
+      "name": "green",
+      "typeId": 3,
+      "userId": 1,
+      "id": 26
     }
   ],
   "types": [

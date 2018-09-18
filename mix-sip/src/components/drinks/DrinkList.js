@@ -16,7 +16,8 @@ export default class DrinkList extends Component {
                             types={this.props.types}
                             resetData={this.props.resetData} />
                     <EditIngList ingredients={this.props.ingredients} 
-                            types={this.props.types}/>
+                            types={this.props.types}
+                            resetData={this.props.resetData}/>
                         {
                             this.props.drinks.map(drink => 
                             <DrinkCard key={drink.id} drink={drink} 
