@@ -65,7 +65,7 @@ class EditIngList extends React.Component {
             }
           </ModalBody>
           <ModalFooter>
-            <Button color="secondary" size="sm" onClick={this.toggle}>Cancel</Button>
+            <Button color="secondary" size="sm" onClick={this.toggle}>Exit</Button>
           </ModalFooter>
         </Modal>
       </div>
