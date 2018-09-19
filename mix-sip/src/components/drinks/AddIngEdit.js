@@ -34,7 +34,6 @@ export default class AddIngEdit extends Component {
         this.setState({
         modal: !this.state.modal
         });
-       
     }
 
     toggleNested() {
@@ -188,7 +187,6 @@ export default class AddIngEdit extends Component {
                         {
                             this.state.alreadyQueued &&
                             <Alert color="danger">This ingredienet is aleady queued to be added to this drink mix.</Alert>
-
                         }
                         <div className="ingredient-declare">
                             {
@@ -198,16 +196,13 @@ export default class AddIngEdit extends Component {
                                 </Alert>
                             }
                             <Input onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" placeholder="Search for ingredient by name"></Input>
-                            {/* <Input id="ingredient" type="select" className="capitalize" defaultValue="Select Type" onChange={this.handleFieldChange}> */}
-                                {/* <option id="selectIngredient">Select a Ingredient</option> */}
-                                {
-                                    this.state.showIngs &&
-                                    filteredIngredients.map(ing => {
-                                        return <option id="ingredient" 
-                                        onClick={this.selcetIngredient} key={ing.id}>{ing.name}</option>
-                                    })
-                                }
-                            {/* </Input> */}
+                            {
+                                this.state.showIngs &&
+                                filteredIngredients.map(ing => {
+                                    return <option id="ingredient" 
+                                    onClick={this.selcetIngredient} key={ing.id}>{ing.name}</option>
+                                })
+                            }
                             {
                                 this.state.amountIsBlank && 
                                 <Alert color="warning">
