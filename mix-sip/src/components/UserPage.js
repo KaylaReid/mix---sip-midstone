@@ -52,7 +52,8 @@ export default class UserPage extends Component {
     render() {
         return (
             <div>
-                <Navbar {...this.props}/>
+                <Navbar {...this.props}
+                    user={this.state.user}/>
                 <DrinkList
                     user={this.state.user}
                     drinks={this.state.drinks}

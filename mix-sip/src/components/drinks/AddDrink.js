@@ -3,7 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Alert
 import DataManager from "../../modules/DataManager"
 import "./drinks.css"
 
-class ModalExample extends React.Component {
+class AddDrink extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -18,7 +18,9 @@ class ModalExample extends React.Component {
             allReadyHave: false,
             amountIsBlank: false,
             selectIng: false,
-            alreadyQueued: false
+            alreadyQueued: false,
+            search: "",
+            showIngs: true
         };
 
         this.toggle = this.toggle.bind(this);
@@ -52,7 +54,8 @@ class ModalExample extends React.Component {
             inputIngredients: [],
             drinkName: "",
             drinkDescription: "",
-            drinkDirections: ""
+            drinkDirections: "",
+            search: ""
         })
     }
 
@@ -90,13 +93,14 @@ class ModalExample extends React.Component {
                 userId: this.props.user.id
             }
             inputIngredients.push(ingAdded)
-            document.querySelector("#ingredient").value = "Select a Ingredient";
             document.querySelector("#amount").value = "";
             this.setState({
                 inputIngredients: inputIngredients,
                 ingredient: "",
                 amount: "",
-                alreadyQueued: false
+                alreadyQueued: false,
+                search: "",
+                showIngs: true
             })
         }
     }
@@ -134,7 +138,25 @@ class ModalExample extends React.Component {
         }
     }
 
+    selcetIngredient = (e) => {
+        this.handleFieldChange(e)
+        this.setState({
+            search: e.target.value,
+            showIngs: false
+        })
+    }
+
+    updateSearch(e) {
+        this.setState({search: e.target.value.substr(0, 20)})
+    }
+
     render() {
+        let filteredIngredients = []
+        if(this.state.search.length > 1){
+            filteredIngredients = this.props.ingredients.filter(ing => {
+                return ing.name.indexOf(this.state.search.toLowerCase()) !== -1;
+            })
+        } 
         return (
         <div>
             <Button color="info" size="sm" onClick={this.toggle}>Add a New Drink!</Button>
@@ -150,13 +172,13 @@ class ModalExample extends React.Component {
                 <Label for="drinkDescription">Description:</Label>
                 <Input id="drinkDescription" type="textarea" defaultValue={this.state.drinkDescription} placeholder="Describe your new drink!" onChange={this.handleFieldChange} />
                 <div>
-                    {
+                    {   
                         this.state.inputIngredients.map(ing => {
                             return <p key={`drink-${ing.name}`}><span className="capitalize">{ing.name}</span> {ing.amount}</p>
                         })
                     }
+                  
                 </div>
-
                 <Label>Add ingredients:</Label>
                     {
                         this.state.alreadyQueued &&
@@ -169,17 +191,14 @@ class ModalExample extends React.Component {
                             <Alert color="danger">
                             Please select a ingredient!
                             </Alert>
-                            // <span className="select-type-error">** Please Select a Ingredient **</span>
                         }
-                        <Input id="ingredient" type="select" className="capitalize" defaultValue="Select Type" onChange={this.handleFieldChange}>
-                            <option id="selectIngredient">Select a Ingredient</option>
-                            {
-                                this.props.ingredients.map(ing => {
-                                    return <option key={ing.id}>{ing.name}</option>
-                                })
-                            }
-                            
-                        </Input>
+                          <Input onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" id="ingredient" placeholder="Search for ingredient by name"></Input>
+                        {
+                            this.state.showIngs &&
+                            filteredIngredients.map(ing => {
+                                return <option id="ingredient" onClick={this.selcetIngredient} key={ing.id}>{ing.name}</option>
+                            })
+                        }
                         {
                             this.state.amountIsBlank && 
                             <Alert color="warning">
@@ -237,4 +256,4 @@ class ModalExample extends React.Component {
     }
 }
 
-export default ModalExample;
+export default AddDrink;

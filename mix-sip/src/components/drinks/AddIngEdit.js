@@ -21,7 +21,9 @@ export default class AddIngEdit extends Component {
             showAddIng: false,
             hideAddIngBtn: false,
             alreadyInDrink: false,
-            alreadyQueued: false
+            alreadyQueued: false,
+            search: "",
+            showIngs: true
         };
 
         this.toggle = this.toggle.bind(this);
@@ -32,7 +34,6 @@ export default class AddIngEdit extends Component {
         this.setState({
         modal: !this.state.modal
         });
-       
     }
 
     toggleNested() {
@@ -103,14 +104,15 @@ export default class AddIngEdit extends Component {
                 userId: this.props.user.id
             }
             inputIngredients.push(ingAdded)
-            document.querySelector("#ingredient").value = "Select a Ingredient";
             document.querySelector("#amount").value = "";
             this.setState({
                 inputIngredients: inputIngredients,
                 ingredient: "",
                 amount: "",
                 alreadyQueued: false,
-                alreadyInDrink: false   
+                alreadyInDrink: false,
+                search: "",
+                showIngs: true
             })
         }
     }
@@ -140,7 +142,25 @@ export default class AddIngEdit extends Component {
         })
     }
 
+    selcetIngredient = (e) => {
+        this.handleFieldChange(e)
+        this.setState({
+            search: e.target.value,
+            showIngs: false
+        })
+    }
+
+    updateSearch(e) {
+        this.setState({search: e.target.value.substr(0, 20)})
+    }
+
     render(){
+        let filteredIngredients = []
+        if(this.state.search.length > 1){
+            filteredIngredients = this.props.ingredients.filter(ing => {
+                return ing.name.indexOf(this.state.search.toLowerCase()) !== -1;
+            })
+        } 
         return(
             <div>
                 <div>
@@ -167,7 +187,6 @@ export default class AddIngEdit extends Component {
                         {
                             this.state.alreadyQueued &&
                             <Alert color="danger">This ingredienet is aleady queued to be added to this drink mix.</Alert>
-
                         }
                         <div className="ingredient-declare">
                             {
@@ -176,14 +195,14 @@ export default class AddIngEdit extends Component {
                                 Please select a ingredient!
                                 </Alert>
                             }
-                            <Input id="ingredient" type="select" className="capitalize" defaultValue="Select Type" onChange={this.handleFieldChange}>
-                                <option id="selectIngredient">Select a Ingredient</option>
-                                {
-                                    this.props.ingredients.map(ing => {
-                                        return <option key={ing.id}>{ing.name}</option>
-                                    })
-                                }
-                            </Input>
+                            <Input onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" placeholder="Search for ingredient by name"></Input>
+                            {
+                                this.state.showIngs &&
+                                filteredIngredients.map(ing => {
+                                    return <option id="ingredient" 
+                                    onClick={this.selcetIngredient} key={ing.id}>{ing.name}</option>
+                                })
+                            }
                             {
                                 this.state.amountIsBlank && 
                                 <Alert color="warning">

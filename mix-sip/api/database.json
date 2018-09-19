@@ -50,7 +50,7 @@
     {
       "name": "apple",
       "description": "dfasd",
-      "directions": "asdfa",
+      "directions": "yolo",
       "userId": 1,
       "id": 6
     },
@@ -67,6 +67,20 @@
       "directions": "asdf",
       "userId": 1,
       "id": 8
+    },
+    {
+      "name": "sdfas",
+      "description": "asdf",
+      "directions": "asdfasd",
+      "userId": 1,
+      "id": 9
+    },
+    {
+      "name": "asdf",
+      "description": "asdf",
+      "directions": "asdfasd",
+      "userId": 1,
+      "id": 10
     }
   ],
   "drinkIngredients": [
@@ -146,6 +160,27 @@
       "amount": "asdf",
       "userId": 1,
       "id": 30
+    },
+    {
+      "drinkId": 9,
+      "ingredientId": 29,
+      "amount": "12",
+      "userId": 1,
+      "id": 31
+    },
+    {
+      "drinkId": 10,
+      "ingredientId": 27,
+      "amount": "12",
+      "userId": 1,
+      "id": 32
+    },
+    {
+      "drinkId": 10,
+      "ingredientId": 21,
+      "amount": "12",
+      "userId": 1,
+      "id": 33
     }
   ],
   "ingredients": [
@@ -264,7 +299,7 @@
       "id": 24
     },
     {
-      "name": "asdfa",
+      "name": "blue",
       "typeId": 3,
       "userId": 1,
       "id": 25
@@ -274,6 +309,24 @@
       "typeId": 3,
       "userId": 1,
       "id": 26
+    },
+    {
+      "name": "limes",
+      "typeId": 3,
+      "userId": 1,
+      "id": 27
+    },
+    {
+      "name": "lime juice",
+      "typeId": 3,
+      "userId": 1,
+      "id": 28
+    },
+    {
+      "name": "lime peel",
+      "typeId": 3,
+      "userId": 1,
+      "id": 29
     }
   ],
   "types": [

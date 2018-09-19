@@ -11,21 +11,6 @@ export default class DrinkCard extends Component {
         editMode: false
     }
 
-    // componentDidMount() {
-    //     let drinkIngredients = []
-    //     this.props.drinkIngredients.filter(drinkIng => drinkIng.drinkId === this.props.drink.id).map(drinkIng => {
-    //         let mainIng = this.props.ingredients.find(ing => ing.id === drinkIng.ingredientId)
-    //         let ingredient = {
-    //             id: mainIng.id,
-    //             name: mainIng.name,
-    //             amount: drinkIng.amount,
-    //             type: this.props.types.find(type => type.id === mainIng.typeId).name
-    //         }
-    //         return drinkIngredients.push(ingredient)
-    //     })
-    //     this.setState({drinkIngredients: drinkIngredients}) 
-    // }
-
     handleFieldChange = evt => {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value

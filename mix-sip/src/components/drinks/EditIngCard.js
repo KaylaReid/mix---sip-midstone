@@ -27,8 +27,6 @@ export default class EditIngCard extends Component {
     }
 
     saveChange = () => {
-        // let filtered = this.ingredients.find
-
        if(this.props.ingredients.find(ing => ing.name === this.state.name.toLowerCase())){
            this.setState({alreadyHave: true})
        } else if(this.state.name === "") {
