@@ -274,6 +274,24 @@
       "typeId": 3,
       "userId": 1,
       "id": 26
+    },
+    {
+      "name": "limes",
+      "typeId": 3,
+      "userId": 1,
+      "id": 27
+    },
+    {
+      "name": "lime juice",
+      "typeId": 3,
+      "userId": 1,
+      "id": 28
+    },
+    {
+      "name": "lime peel",
+      "typeId": 3,
+      "userId": 1,
+      "id": 29
     }
   ],
   "types": [

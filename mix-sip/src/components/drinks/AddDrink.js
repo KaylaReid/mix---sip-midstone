@@ -19,7 +19,8 @@ class ModalExample extends React.Component {
             amountIsBlank: false,
             selectIng: false,
             alreadyQueued: false,
-            search: ""
+            search: "",
+            showIngs: true
         };
 
         this.toggle = this.toggle.bind(this);
@@ -53,7 +54,8 @@ class ModalExample extends React.Component {
             inputIngredients: [],
             drinkName: "",
             drinkDescription: "",
-            drinkDirections: ""
+            drinkDirections: "",
+            search: ""
         })
     }
 
@@ -97,7 +99,9 @@ class ModalExample extends React.Component {
                 inputIngredients: inputIngredients,
                 ingredient: "",
                 amount: "",
-                alreadyQueued: false
+                alreadyQueued: false,
+                search: "",
+                showIngs: true
             })
         }
     }
@@ -135,14 +139,29 @@ class ModalExample extends React.Component {
         }
     }
 
+    selcetIngredient = (e) => {
+        this.handleFieldChange(e)
+        this.setState({
+            search: e.target.value,
+            showIngs: false
+        })
+        
+    }
+
     updateSearch(e) {
         this.setState({search: e.target.value.substr(0, 20)})
     }
 
     render() {
-        let filteredIngredients = this.props.ingredients.filter(ing => {
-            return ing.name.indexOf(this.state.search.toLowerCase()) !== -1;
-        })
+        let filteredIngredients = []
+        if(this.state.search.length > 1){
+            filteredIngredients = this.props.ingredients.filter(ing => {
+                return ing.name.indexOf(this.state.search.toLowerCase()) !== -1;
+            })
+        } 
+        //        let filteredIngredients = this.props.ingredients.filter(ing => {
+        //     return ing.name.indexOf(this.state.search.toLowerCase()) !== -1;
+        // })
         return (
         <div>
             <Button color="info" size="sm" onClick={this.toggle}>Add a New Drink!</Button>
@@ -158,11 +177,12 @@ class ModalExample extends React.Component {
                 <Label for="drinkDescription">Description:</Label>
                 <Input id="drinkDescription" type="textarea" defaultValue={this.state.drinkDescription} placeholder="Describe your new drink!" onChange={this.handleFieldChange} />
                 <div>
-                    {
+                    {   
                         this.state.inputIngredients.map(ing => {
                             return <p key={`drink-${ing.name}`}><span className="capitalize">{ing.name}</span> {ing.amount}</p>
                         })
                     }
+                  
                 </div>
 
                 <Label>Add ingredients:</Label>
@@ -179,16 +199,17 @@ class ModalExample extends React.Component {
                             </Alert>
                             // <span className="select-type-error">** Please Select a Ingredient **</span>
                         }
-                          <Input onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" placeholder="Search for ingredient by name"></Input>
-                        <Input id="ingredient" type="select" className="capitalize" defaultValue="Select Type" onChange={this.handleFieldChange}>
-                            <option id="selectIngredient">Select a Ingredient</option>
+                          <Input onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" id="ingredient" placeholder="Search for ingredient by name"></Input>
+                        {/* <Input id="ingredient" type="select" className="capitalize" defaultValue="Select Type" onChange={this.handleFieldChange}>
+                            <option id="selectIngredient">Select a Ingredient</option> */}
                             {
+                                this.state.showIngs &&
                                 filteredIngredients.map(ing => {
-                                    return <option key={ing.id}>{ing.name}</option>
+                                    return <option id="ingredient" onClick={this.selcetIngredient} key={ing.id}>{ing.name}</option>
                                 })
                             }
                             
-                        </Input>
+                        {/* </Input> */}
                         {
                             this.state.amountIsBlank && 
                             <Alert color="warning">
