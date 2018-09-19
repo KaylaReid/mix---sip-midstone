@@ -98,10 +98,7 @@ export default class Login extends Component {
                 <div className="login-container">
                     <form className="login-form signIn active-dx">
                         <h4 className="login-h4">welcome to</h4>
-                        {/* <h3 className="login-h3">Welcome<br /> to</h3> */}
                         <img src={Logo} alt="mix&amp;siplogo" className="login-logo"/>
-                        {/* <button className="login-button fb" type="button">Logo Here?</button>
-                        <p className="login-p">- space for logo -</p> */}
                         <input className="login-input" type="text" id="loginUsername" placeholder="Username" onChange={this.handleFieldChange} />
                         <input className="login-input" type="password" id="loginPassword" placeholder="Password" onChange={this.handleFieldChange} />
                         <button className="login-button form-btn sx back" type="button"  onClick={this.switchToSignUp}>Sign Up</button>

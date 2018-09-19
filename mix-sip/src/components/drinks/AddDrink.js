@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Alert } from 'reactstrap';
 import DataManager from "../../modules/DataManager"
-import "./drinks.css"
+
 
 class AddDrink extends React.Component {
     constructor(props) {
