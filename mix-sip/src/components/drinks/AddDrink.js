@@ -18,7 +18,8 @@ class ModalExample extends React.Component {
             allReadyHave: false,
             amountIsBlank: false,
             selectIng: false,
-            alreadyQueued: false
+            alreadyQueued: false,
+            search: ""
         };
 
         this.toggle = this.toggle.bind(this);
@@ -134,7 +135,14 @@ class ModalExample extends React.Component {
         }
     }
 
+    updateSearch(e) {
+        this.setState({search: e.target.value.substr(0, 20)})
+    }
+
     render() {
+        let filteredIngredients = this.props.ingredients.filter(ing => {
+            return ing.name.indexOf(this.state.search.toLowerCase()) !== -1;
+        })
         return (
         <div>
             <Button color="info" size="sm" onClick={this.toggle}>Add a New Drink!</Button>
@@ -171,10 +179,11 @@ class ModalExample extends React.Component {
                             </Alert>
                             // <span className="select-type-error">** Please Select a Ingredient **</span>
                         }
+                          <Input onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" placeholder="Search for ingredient by name"></Input>
                         <Input id="ingredient" type="select" className="capitalize" defaultValue="Select Type" onChange={this.handleFieldChange}>
                             <option id="selectIngredient">Select a Ingredient</option>
                             {
-                                this.props.ingredients.map(ing => {
+                                filteredIngredients.map(ing => {
                                     return <option key={ing.id}>{ing.name}</option>
                                 })
                             }
