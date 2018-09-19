@@ -20,9 +20,15 @@ import "./navbar.css";
      render(){
          return(
              <div id="navbar">
-                <h4 id="welcome">Hi, {this.getFirstName()}!</h4>
-                <img src={CupLogo} alt="mix&amp;siplogo" id="navbar-logo"/>
-                <Button id="logout-button" size="sm" onClick={this.handleLogout}>Logout</Button>
+                <div className="nav-left">
+                    <img src={CupLogo} alt="mix&amp;siplogo" id="navbar-logo"/>
+                </div>
+                <div id="nav-middle">
+                    <h4 className="welcome">Hi {this.getFirstName()}, welcome to your drink collection!</h4>
+                </div>
+                <div className="nav-right">
+                    <Button id="logout-button" size="sm" onClick={this.handleLogout}>Logout</Button>
+                </div>
              </div>
          )
      }

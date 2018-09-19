@@ -1,26 +1,48 @@
 #navbar {
-    background-color: #4a7684;
-    height: 11em;
+    background: linear-gradient(to right, rgba(231, 231, 231, 0.219), rgba(231, 231, 231, 0.199)), #FFEEF2;
+    height: 9em;
     position: fixed;
     z-index: 2;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 0 8px 6px -4px #373F47;
+}
+
+.nav-right {
+    width: 30%;
+}
+
+.nav-middle {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-left {
+    width: 30%;
 }
 
 #navbar-logo {
-    width: 130px;
+    width: 100px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -1.8em;
+    margin-left: 1em;
+    margin-top: .5em;
 }
 
 #logout-button {
     position: absolute;
     right: 0px;
-    margin-right: 9px;
-    margin-top: -6.5em;
+    margin-right: 1em;
+    margin-top: 4em;
 }
 
-#welcome {  
-    margin-left: 9px;
+.welcome {  
+    margin: 0;
+    display: block;
+    position: relative;
+    top: 40%;
 }
