@@ -23,6 +23,12 @@
       "password": "123",
       "fullName": "Sam Pope",
       "id": 4
+    },
+    {
+      "username": "asdf",
+      "password": "asdfasdf",
+      "fullName": "asdf",
+      "id": 5
     }
   ],
   "drinks": [

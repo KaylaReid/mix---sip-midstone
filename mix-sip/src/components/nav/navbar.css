@@ -1,20 +1,25 @@
-.navbar {
-    display: flex;
+#navbar {
     background-color: rgb(151, 151, 151);
     height: 11em;
-}
-.navbar-logo {
-    height: 12em;
-    padding: 1em;
-    display: block;
-    justify-content: center;
+    position: fixed;
+    width: 100%;
 }
 
-.logout-button {
+#navbar-logo {
+    width: 130px;
     display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -1.8em;
+}
+
+#logout-button {
     position: absolute;
-    right: 0;
-    /* top: 7px; */
+    right: 0px;
     margin-right: 9px;
-    /* padding: .5em; */
+    margin-top: -6.5em;
+}
+
+#welcome {  
+    margin-left: 9px;
 }
