@@ -22,7 +22,8 @@ export default class AddIngEdit extends Component {
             hideAddIngBtn: false,
             alreadyInDrink: false,
             alreadyQueued: false,
-            search: ""
+            search: "",
+            showIngs: true
         };
 
         this.toggle = this.toggle.bind(this);
@@ -104,14 +105,15 @@ export default class AddIngEdit extends Component {
                 userId: this.props.user.id
             }
             inputIngredients.push(ingAdded)
-            document.querySelector("#ingredient").value = "Select a Ingredient";
             document.querySelector("#amount").value = "";
             this.setState({
                 inputIngredients: inputIngredients,
                 ingredient: "",
                 amount: "",
                 alreadyQueued: false,
-                alreadyInDrink: false   
+                alreadyInDrink: false,
+                search: "",
+                showIngs: true
             })
         }
     }
@@ -141,14 +143,25 @@ export default class AddIngEdit extends Component {
         })
     }
 
+    selcetIngredient = (e) => {
+        this.handleFieldChange(e)
+        this.setState({
+            search: e.target.value,
+            showIngs: false
+        })
+    }
+
     updateSearch(e) {
         this.setState({search: e.target.value.substr(0, 20)})
     }
 
     render(){
-        let filteredIngredients = this.props.ingredients.filter(ing => {
-            return ing.name.indexOf(this.state.search.toLowerCase()) !== -1;
-        })
+        let filteredIngredients = []
+        if(this.state.search.length > 1){
+            filteredIngredients = this.props.ingredients.filter(ing => {
+                return ing.name.indexOf(this.state.search.toLowerCase()) !== -1;
+            })
+        } 
         return(
             <div>
                 <div>
@@ -185,14 +198,16 @@ export default class AddIngEdit extends Component {
                                 </Alert>
                             }
                             <Input onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" placeholder="Search for ingredient by name"></Input>
-                            <Input id="ingredient" type="select" className="capitalize" defaultValue="Select Type" onChange={this.handleFieldChange}>
-                                <option id="selectIngredient">Select a Ingredient</option>
+                            {/* <Input id="ingredient" type="select" className="capitalize" defaultValue="Select Type" onChange={this.handleFieldChange}> */}
+                                {/* <option id="selectIngredient">Select a Ingredient</option> */}
                                 {
+                                    this.state.showIngs &&
                                     filteredIngredients.map(ing => {
-                                        return <option key={ing.id}>{ing.name}</option>
+                                        return <option id="ingredient" 
+                                        onClick={this.selcetIngredient} key={ing.id}>{ing.name}</option>
                                     })
                                 }
-                            </Input>
+                            {/* </Input> */}
                             {
                                 this.state.amountIsBlank && 
                                 <Alert color="warning">
