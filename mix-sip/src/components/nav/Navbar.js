@@ -11,9 +11,16 @@ import "./navbar.css";
         this.props.history.push("/login")
     }
 
+    getFirstName = () => {
+        let user = JSON.parse(sessionStorage.getItem("user"))[0]
+        let firstName = user.fullName.split(" ")
+        return firstName[0]
+    }
+
      render(){
          return(
              <div className="navbar">
+                <h4>Hi, {this.getFirstName()}!</h4>
                 <img src={CupLogo} alt="mix&amp;siplogo" className="navbar-logo"/>
                 <Button className="logout-button" size="sm" onClick={this.handleLogout}>Logout</Button>
              </div>
