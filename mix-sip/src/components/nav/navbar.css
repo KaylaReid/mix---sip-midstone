@@ -1,5 +1,5 @@
 #navbar {
-    background: linear-gradient(to right, rgba(231, 231, 231, 0.219), rgba(231, 231, 231, 0.199)), #FFEEF2;
+    background: linear-gradient(to right, rgba(231, 231, 231, 0.123), rgba(231, 231, 231, 0.137)), #FFEEF2;
     height: 9em;
     position: fixed;
     z-index: 2;
@@ -8,6 +8,7 @@
     flex-direction: row;
     justify-content: space-between;
     box-shadow: 0 8px 6px -4px #373F47;
+    color: #373F47;
 }
 
 .nav-right {

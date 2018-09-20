@@ -7,15 +7,13 @@
 }
 
 .drink-list {
-
-
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
 .wrapper {
-    padding-top: 12em;
+    padding-top: 10em;
     width: 100%;
     background: 
         linear-gradient(to top, rgba(231, 231, 231, 0.185) ,rgba(231, 231, 231, 0.185)),
@@ -25,7 +23,7 @@
 }
 
 .drink-card {
-   width: 30%;
+   width: 45%;
    margin-top: 2em;
    /* z-index: 1; */
    background-color: rgba(231, 231, 231, 0.911);

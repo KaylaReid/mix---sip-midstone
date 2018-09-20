@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Modal, ModalHeader, ModalFooter, Label, Alert, Input } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label, Alert, Input } from 'reactstrap';
 import DataManager from "../../modules/DataManager"
 
 export default class AddIngEdit extends Component {
@@ -221,6 +221,7 @@ export default class AddIngEdit extends Component {
                                 <Button color="success" size="sm" onClick={this.toggleNested}>Add a New Ingredient</Button>
                                 <Modal isOpen={this.state.nestedModal} toggle={this.toggleNested} onClosed={this.state.closeAll ? this.toggle : undefined}>
                                 <ModalHeader>Add your ingredient here, and it will be added to your collection of ingredients to choose from</ModalHeader>
+                                <ModalBody>
                                 {
                                     this.state.alreadyHave &&
                                     <Alert color="danger">This ingredienet is aleady in your collection. Please select it from the drop down</Alert>
@@ -238,6 +239,7 @@ export default class AddIngEdit extends Component {
                                     <Label htmlFor="newIngredientName">Add new ingredient:</Label>
                                     <Input id="newIngredientName" type="text" placeholder="Name of ingredient" onChange={this.handleFieldChange}/>
                                 </div>
+                                </ModalBody>
                                 <ModalFooter>
                                 <Button color="primary" size="sm" onClick={this.saveNewIngredient}>Save</Button>{' '}
                                 <Button corol="info" size="sm" onClick={this.toggleNested}>Cancel</Button>   
