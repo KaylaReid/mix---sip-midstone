@@ -50,3 +50,8 @@
 .manage-ing-button {
   margin-left: 1em; 
 }
+
+.blue-button {
+    background-color: #0D4D60;
+    font-size: .95em;
+}

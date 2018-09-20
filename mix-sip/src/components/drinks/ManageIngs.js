@@ -21,7 +21,7 @@ class EditIngList extends React.Component {
     return (
       <div>
         <div className="manage-ing-button">
-          <Button color="warning" size="sm" onClick={this.toggle}>Manage Ingredients</Button>
+          <Button className="blue-button" size="sm" onClick={this.toggle}>Manage Ingredients</Button>
         </div>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader>Please note making changes to a ingredient here will update it everywhere the ingrednient is used! This feature is recomended for spelling corections only.</ModalHeader>

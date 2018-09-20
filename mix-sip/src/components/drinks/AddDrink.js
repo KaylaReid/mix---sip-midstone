@@ -160,7 +160,7 @@ class AddDrink extends React.Component {
         return (
         <div>
             <div className="add-drink-button">
-                <Button color="info" size="sm" onClick={this.toggle}>Add a New Drink!</Button>
+                <Button className="blue-button" size="sm" onClick={this.toggle}>Add a New Drink!</Button>
             </div>
             <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
             <ModalHeader>Add a new drink to your collection!</ModalHeader>
