@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Alert } from 'reactstrap';
 import DataManager from "../../modules/DataManager"
-import "./drinks.css"
+
 
 class AddDrink extends React.Component {
     constructor(props) {
@@ -159,7 +159,9 @@ class AddDrink extends React.Component {
         } 
         return (
         <div>
-            <Button color="info" size="sm" onClick={this.toggle}>Add a New Drink!</Button>
+            <div className="add-drink-button">
+                <Button className="blue-button" size="sm" onClick={this.toggle}>Add a New Drink!</Button>
+            </div>
             <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
             <ModalHeader>Add a new drink to your collection!</ModalHeader>
             <ModalBody>
@@ -218,6 +220,7 @@ class AddDrink extends React.Component {
                         <Button color="success" size="sm" onClick={this.toggleNested}>Add a New Ingredient</Button>
                         <Modal isOpen={this.state.nestedModal} toggle={this.toggleNested} onClosed={this.state.closeAll ? this.toggle : undefined}>
                             <ModalHeader>Add your ingredient here, and it will be added to your collection of ingredients to choose from</ModalHeader>
+                            <ModalBody>
                             {
                                 this.state.allReadyHave &&
                                 <Alert color="danger">This ingredienet is aleady in your collection. Please select it from the drop down</Alert>
@@ -236,6 +239,7 @@ class AddDrink extends React.Component {
                                 <Label htmlFor="newIngredientName">Add new ingredient:</Label>
                                 <Input id="newIngredientName" type="text" placeholder="Name of ingredient" onChange={this.handleFieldChange}/>
                             </div>
+                            </ModalBody>
                                 <ModalFooter>
                                 <Button color="primary" size="sm" onClick={this.saveNewIngredient}>Save</Button>{' '}
                                 <Button corol="info" size="sm" onClick={this.toggleNested}>Cancel</Button>   

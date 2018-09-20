@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Input } from 'reactstrap';
 import DrinkCard from "./DrinkCard";
 import AddDrink from "./AddDrink";
-import EditIngList from "./EditIngList"
+import ManageIngs from "./ManageIngs.js";
+import "./drinkList.css"
 
 export default class DrinkList extends Component {
     state = {
@@ -19,19 +20,26 @@ export default class DrinkList extends Component {
         })
         return(
             <React.Fragment>
-                <div className="drink-list">
-                    <AddDrink user={this.props.user}
-                            addIngredient={this.props.addIngredient}
-                            drinkIngredients={this.props.drinkIngredients}
-                            ingredients={this.props.ingredients} 
-                            types={this.props.types}
-                            resetData={this.props.resetData} />
-                    <EditIngList ingredients={this.props.ingredients} 
-                            types={this.props.types}
-                            resetData={this.props.resetData}/>
+                <div className="wrapper">
                     <div>
-                        <Input onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" placeholder="Look for drinks"></Input>
+                        <div className="header-middle">
+                            <div className="search-bar">
+                            <Input onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" placeholder="Look for drinks"></Input>
+                            </div>
+                        <div className="header-right">
+                            <AddDrink user={this.props.user}
+                                    addIngredient={this.props.addIngredient}
+                                    drinkIngredients={this.props.drinkIngredients}
+                                    ingredients={this.props.ingredients} 
+                                    types={this.props.types}
+                                    resetData={this.props.resetData} />
+                            <ManageIngs ingredients={this.props.ingredients} 
+                                    types={this.props.types}
+                                    resetData={this.props.resetData}/>
+                        </div>
+                        </div>
                     </div>
+                    <div className="drink-list">
                         {
                             filteredDrinks.map(drink => 
                             <DrinkCard key={drink.id} drink={drink} 
@@ -43,6 +51,7 @@ export default class DrinkList extends Component {
                                 user={this.props.user}
                                 addIngredient={this.props.addIngredient} /> )
                         }
+                    </div>
                 </div>
             </React.Fragment>
         )

@@ -23,6 +23,12 @@
       "password": "123",
       "fullName": "Sam Pope",
       "id": 4
+    },
+    {
+      "username": "asdf",
+      "password": "asdfasdf",
+      "fullName": "asdf",
+      "id": 5
     }
   ],
   "drinks": [
@@ -81,6 +87,13 @@
       "directions": "asdfasd",
       "userId": 1,
       "id": 10
+    },
+    {
+      "name": "safds",
+      "description": "asf",
+      "directions": "dsafds",
+      "userId": 1,
+      "id": 11
     }
   ],
   "drinkIngredients": [
@@ -181,6 +194,20 @@
       "amount": "12",
       "userId": 1,
       "id": 33
+    },
+    {
+      "drinkId": 11,
+      "ingredientId": 28,
+      "amount": "12",
+      "userId": 1,
+      "id": 34
+    },
+    {
+      "drinkId": 11,
+      "ingredientId": 1,
+      "amount": "12",
+      "userId": 1,
+      "id": 35
     }
   ],
   "ingredients": [

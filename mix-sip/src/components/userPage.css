@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Anonymous+Pro|Antic+Slab|Cutive|Cutive+Mono|Glegoo|IBM+Plex+Serif|Istok+Web|Kadwa|Nixie+One|Old+Standard+TT|Oranienbaum|Quattrocento|Tinos|Zilla+Slab');
+
 body {
-font-family: 'Tinos', serif;
-/* font-family: 'Quattrocento', serif; */
-/* font-family: 'Zilla Slab', serif; */
-/* font-family: 'Antic Slab', serif; */
-/* font-family: 'Anonymous Pro', monospace; */
+    font-family: 'Zilla Slab', serif;
 } 

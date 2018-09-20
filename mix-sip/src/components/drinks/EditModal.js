@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import DrinkIngredientCard from './DrinkIngredientCard';
 import DataManager from "../../modules/DataManager";
 import AddIngEdit from "./AddIngEdit";
@@ -56,6 +56,7 @@ class EditModal extends React.Component {
       <div>
         <Button outline color="info" size="sm" onClick={this.toggle} id={this.props.drink.id}>Edit</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+          <ModalBody>
             <div>
                     <label htmlFor="name">Drink Name:</label>
                     <input type="text" className="form-control" onChange={this.handleFieldChange} id="name" defaultValue={this.props.drink.name} />
@@ -89,6 +90,7 @@ class EditModal extends React.Component {
                     })
                 }
             </div>
+            </ModalBody>  
           <ModalFooter>
             <Button color="primary" size="sm" onClick={this.saveChanges}>Save Changes</Button>{' '}
             <Button color="secondary" size="sm" onClick={this.toggle}>Cancel</Button>

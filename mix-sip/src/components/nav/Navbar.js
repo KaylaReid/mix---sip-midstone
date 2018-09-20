@@ -19,10 +19,16 @@ import "./navbar.css";
 
      render(){
          return(
-             <div className="navbar">
-                <h4>Hi, {this.getFirstName()}!</h4>
-                <img src={CupLogo} alt="mix&amp;siplogo" className="navbar-logo"/>
-                <Button className="logout-button" size="sm" onClick={this.handleLogout}>Logout</Button>
+             <div id="navbar">
+                <div className="nav-left">
+                    <img src={CupLogo} alt="mix&amp;siplogo" id="navbar-logo"/>
+                </div>
+                <div id="nav-middle">
+                    <h4 className="welcome capitalize">Hi {this.getFirstName()}, welcome to your drink collection!</h4>
+                </div>
+                <div className="nav-right">
+                    <Button id="logout-button" size="sm" onClick={this.handleLogout}>Logout</Button>
+                </div>
              </div>
          )
      }

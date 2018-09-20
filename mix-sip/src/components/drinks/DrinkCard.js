@@ -1,6 +1,6 @@
 import React, { Component } from "react"; 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'reactstrap';
+import { Button, Card, CardTitle, CardText } from 'reactstrap';
 import DataManager from "../../modules/DataManager";
 import EditModal from "./EditModal"
 
@@ -30,8 +30,9 @@ export default class DrinkCard extends Component {
         const drinkIngredients = this.props.drinkIngredients.filter(drinkIng => drinkIng.drinkId === this.props.drink.id);
         return(
             <React.Fragment>
-                <div>
-                    <h2 className="drink-card capitalize">{this.props.drink.name}</h2>
+                <Card className="drink-card">
+                    <h3 className="capitalize">{this.props.drink.name}</h3><hr/>
+                    <h5>Drink Description:</h5>
                     <p>{this.props.drink.description}</p>
                     <h5>Bases:</h5>
                     {
@@ -45,7 +46,7 @@ export default class DrinkCard extends Component {
                             }
                             if(ingredient.type === "Base"){
                                 return (
-                                    <p key={ingredient.id}><span className="drink-card capitalize">{ingredient.name}</span> {ingredient.amount}</p>
+                                    <p key={ingredient.id}><span className="capitalize">{ingredient.name}</span> {ingredient.amount}</p>
                                 )
                             } else {
                                 return null
@@ -65,7 +66,7 @@ export default class DrinkCard extends Component {
                             }
                             if(ingredient.type === "Mixer"){
                                 return (
-                                    <p key={ingredient.id}><span className="drink-card capitalize">{ingredient.name}</span> {ingredient.amount}</p>
+                                    <p key={ingredient.id}><span className="capitalize">{ingredient.name}</span> {ingredient.amount}</p>
                                 )
                             } else {
                                 return null
@@ -84,7 +85,7 @@ export default class DrinkCard extends Component {
                             }
                             if(ingredient.type === "Garnish"){
                                 return (
-                                    <p key={ingredient.id}><span className="drink-card capitalize">{ingredient.name}</span> {ingredient.amount}</p>
+                                    <p key={ingredient.id}><span className="capitalize">{ingredient.name}</span> {ingredient.amount}</p>
                                 )
                             } else {
                                 return null
@@ -95,6 +96,7 @@ export default class DrinkCard extends Component {
                         <h5>Mixing Directions:</h5>
                         <p>{this.props.drink.directions}</p>
                     </div>
+                    <div>
                     <Button outline color="dark" size="sm" onClick={this.deleteDrink}>Delete</Button>
                     <EditModal drink={this.props.drink} drinks={this.props.drinks}
                             drinkIngredients={this.props.drinkIngredients}
@@ -103,7 +105,8 @@ export default class DrinkCard extends Component {
                             resetData={this.props.resetData}
                             user={this.props.user}
                             addIngredient={this.props.addIngredient} />
-                </div>
+                    </div>
+                </Card>
             </React.Fragment>
         )
     }
