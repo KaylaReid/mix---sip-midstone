@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Card, CardTitle, CardText } from 'reactstrap';
 import DataManager from "../../modules/DataManager";
-import EditModal from "./EditModal"
+import EditModal from "./EditModal";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+library.add(faTrashAlt)
 
 export default class DrinkCard extends Component {
     
@@ -97,7 +101,7 @@ export default class DrinkCard extends Component {
                         <p>{this.props.drink.directions}</p>
                     </div>
                     <div>
-                    <Button outline color="dark" size="sm" onClick={this.deleteDrink}>Delete</Button>
+                    <Button outline className="blue-btn-outline" onClick={this.deleteDrink}><FontAwesomeIcon icon="trash-alt"/></Button>
                     <EditModal drink={this.props.drink} drinks={this.props.drinks}
                             drinkIngredients={this.props.drinkIngredients}
                             ingredients={this.props.ingredients}
