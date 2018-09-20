@@ -63,5 +63,5 @@
 }
 .blue-btn-outline:hover {
     transform: scale(1);
-    background-color: #373F47;
+    background-color: rgba(55, 63, 71, 0.651);
 }
