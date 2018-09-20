@@ -24,7 +24,7 @@ import "./navbar.css";
                     <img src={CupLogo} alt="mix&amp;siplogo" id="navbar-logo"/>
                 </div>
                 <div id="nav-middle">
-                    <h4 className="welcome">Hi {this.getFirstName()}, welcome to your drink collection!</h4>
+                    <h4 className="welcome capitalize">Hi {this.getFirstName()}, welcome to your drink collection!</h4>
                 </div>
                 <div className="nav-right">
                     <Button id="logout-button" size="sm" onClick={this.handleLogout}>Logout</Button>

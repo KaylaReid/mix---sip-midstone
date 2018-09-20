@@ -24,7 +24,29 @@
 
 .drink-card {
    width: 45%;
-   margin-top: 2em;
-   /* z-index: 1; */
+   margin-top: 1em;
    background-color: rgba(231, 231, 231, 0.911);
+}
+
+.search-bar {
+    width: 250px;
+}
+
+.header-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 0px;
+    margin-right: 1em;
+}
+
+.manage-ing-button {
+  margin-left: 1em; 
 }
