@@ -1,8 +1,8 @@
 import React, { Component } from "react"; 
-import { Input } from 'reactstrap';
+import { Input } from 'semantic-ui-react';
 import DrinkCard from "./DrinkCard";
 import AddDrink from "./AddDrink";
-import ManageIngs from "./ManageIngs.js";
+import ManageIngs2 from "./ManageIngs2.js";
 import "./drinkList.css"
 
 export default class DrinkList extends Component {
@@ -33,7 +33,7 @@ export default class DrinkList extends Component {
                                     ingredients={this.props.ingredients} 
                                     types={this.props.types}
                                     resetData={this.props.resetData} />
-                            <ManageIngs ingredients={this.props.ingredients} 
+                            <ManageIngs2 ingredients={this.props.ingredients} 
                                     types={this.props.types}
                                     resetData={this.props.resetData}/>
                         </div>

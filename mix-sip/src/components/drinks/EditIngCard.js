@@ -1,10 +1,6 @@
 import React, { Component } from "react"; 
-import { Button, Input, Alert } from 'reactstrap';
+import { Button, Input, Message, Icon, Divider, Popup } from 'semantic-ui-react';
 import DataManger from "../../modules/DataManager";
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEdit } from '@fortawesome/free-solid-svg-icons'
-library.add(faEdit)
 
 export default class EditIngCard extends Component {
     state = {
@@ -65,27 +61,45 @@ export default class EditIngCard extends Component {
                     !this.state.edit &&
                     <div>
                         <p className="capitalize">{this.state.name}</p> 
-                        <Button outline className="blue-btn-outline" onClick={this.changeToEdit}><FontAwesomeIcon icon="edit" /></Button>
+                        <Button animated onClick={this.changeToEdit}>
+                            <Button.Content visible><Icon name="edit" /></Button.Content>
+                            <Button.Content hidden>Edit</Button.Content>
+                        </Button>
+                        <Divider />
                     </div>
                 }
                 {
                     this.state.alreadyHave &&
-                    <Alert color="danger">
+                    <Message info>
                         This ingredient already exists please pick a difrent name.
-                    </Alert>
+                    </Message>
                 }
                 {
                     this.state.isBank &&
-                    <Alert color="danger">
-                        Please fill out imput!
-                    </Alert>
+                    <Message info>
+                        Please fill out input!
+                    </Message>
                 }
                 {
                     this.state.edit && 
                     <div>
-                        <Input id="name" type="text" defaultValue={this.state.name} onChange=        {this.handleFieldChange}/>
-                        <Button color="success" size="sm" onClick={this.saveChange}>Save</Button>
-                        <Button color="success" size="sm" onClick={this.cancel}>Cancel</Button>
+                        <Popup
+                            trigger={<Input fluid label={{content:"Name", labelPosition: "left"}} id="name" type="text" defaultValue={this.state.name} onChange=        {this.handleFieldChange}/>}
+                            content='Please note making changes to a ingredient here will update it everywhere the ingredient is used! This feature is recomended for spelling corrections only.'
+                            style={{borderRadius: "5px",
+                            opacity: 0.85,
+                            padding: '2em',
+                            color: "#FFEEF2"
+                            }}
+                            inverted
+                            position="bottom right"
+                        />
+                        
+                        <div>
+                            <Button color="blue" size="mini" onClick={this.saveChange}>Save</Button>
+                            <Button color="blue" size="mini" onClick={this.cancel}>Cancel</Button>
+                        </div>
+                        <Divider />
                     </div>
                 }
             </div>)

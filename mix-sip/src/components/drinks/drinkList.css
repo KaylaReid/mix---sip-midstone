@@ -66,3 +66,29 @@
     background-color: rgba(55, 63, 71, 0.651);
     /* border-radius: 50%; */
 }
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .5em;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ui.card > .content, .ui.cards > .card > .content {
+    /* -ms-flex-positive: 1; */
+    flex-grow: 0 !important;
+}
+
+.ui.card:first-child {
+    margin-top: 1em !important;
+}
+
+.ui.card, .ui.cards>.card {
+    width: 40% !important;
+    padding: .5em !important;
+    justify-content: space-evenly;
+}
