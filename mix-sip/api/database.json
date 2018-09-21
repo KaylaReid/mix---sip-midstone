@@ -33,13 +33,6 @@
   ],
   "drinks": [
     {
-      "name": "gin and tonic",
-      "description": "its yummy",
-      "directions": "shake, shake, shake ",
-      "userId": 1,
-      "id": 1
-    },
-    {
       "name": "skittles",
       "description": "soooooo yummy",
       "directions": "stir and pour over ice ",
@@ -54,46 +47,32 @@
       "id": 5
     },
     {
-      "name": "apple",
-      "description": "dfasd",
-      "directions": "yolo",
+      "name": "mojito",
+      "description": "Light and refreshing",
+      "directions": "Muddle mint, lime juice, and simple syrup. Add run, ice, then top with soda, and garnish with lime and mint leaf",
       "userId": 1,
       "id": 6
     },
     {
-      "name": "blue",
-      "description": "asdf",
-      "directions": "asdf",
+      "name": "coconut rum ",
+      "description": "SOOOO tasty",
+      "directions": "Shake ice, lime, simple syrup, and coconut rum together. Pour over ice and then top with tonic and garnish with lime!",
       "userId": 1,
       "id": 7
     },
     {
-      "name": "upper",
-      "description": "sdfd",
-      "directions": "asdf",
+      "name": "midori sour",
+      "description": "A bright green, sweet and sour drink!",
+      "directions": "Add all ingredients except the pop stir in a cup and top with 3 ice cubes, cherry, and pop.",
       "userId": 1,
       "id": 8
     },
     {
-      "name": "sdfas",
-      "description": "asdf",
-      "directions": "asdfasd",
+      "name": "gin and tonic",
+      "description": "A light and refreshing drink with a hit of lime!",
+      "directions": "Shake gin, lime, and ice. Then pour over ice, top with tonic and garnish with lime!",
       "userId": 1,
       "id": 9
-    },
-    {
-      "name": "asdf",
-      "description": "asdf",
-      "directions": "asdfasd",
-      "userId": 1,
-      "id": 10
-    },
-    {
-      "name": "safds",
-      "description": "asf",
-      "directions": "dsafds",
-      "userId": 1,
-      "id": 11
     }
   ],
   "drinkIngredients": [
@@ -133,27 +112,6 @@
       "id": 22
     },
     {
-      "drinkId": 1,
-      "ingredientId": 1,
-      "amount": "2 oz.",
-      "userId": 1,
-      "id": 25
-    },
-    {
-      "drinkId": 1,
-      "ingredientId": 2,
-      "amount": "4 oz.",
-      "userId": 1,
-      "id": 26
-    },
-    {
-      "drinkId": 1,
-      "ingredientId": 3,
-      "amount": "2 slices",
-      "userId": 1,
-      "id": 27
-    },
-    {
       "drinkId": 6,
       "ingredientId": 16,
       "amount": "sf",
@@ -161,53 +119,123 @@
       "id": 28
     },
     {
-      "drinkId": 7,
-      "ingredientId": 21,
-      "amount": "sdf",
+      "drinkId": 6,
+      "ingredientId": 30,
+      "amount": "1 oz",
       "userId": 1,
       "id": 29
     },
     {
-      "drinkId": 8,
-      "ingredientId": 1,
-      "amount": "asdf",
+      "drinkId": 6,
+      "ingredientId": 23,
+      "amount": "5 leaves",
       "userId": 1,
       "id": 30
     },
     {
-      "drinkId": 9,
-      "ingredientId": 29,
-      "amount": "12",
+      "drinkId": 6,
+      "ingredientId": 31,
+      "amount": "2 oz.",
       "userId": 1,
       "id": 31
     },
     {
-      "drinkId": 10,
-      "ingredientId": 27,
-      "amount": "12",
+      "drinkId": 6,
+      "ingredientId": 3,
+      "amount": "2 slices",
       "userId": 1,
       "id": 32
     },
     {
-      "drinkId": 10,
-      "ingredientId": 21,
-      "amount": "12",
+      "drinkId": 7,
+      "ingredientId": 32,
+      "amount": "2 oz.",
       "userId": 1,
       "id": 33
     },
     {
-      "drinkId": 11,
-      "ingredientId": 28,
-      "amount": "12",
+      "drinkId": 7,
+      "ingredientId": 30,
+      "amount": "1 oz.",
       "userId": 1,
       "id": 34
     },
     {
-      "drinkId": 11,
-      "ingredientId": 1,
-      "amount": "12",
+      "drinkId": 7,
+      "ingredientId": 3,
+      "amount": "2 slices",
       "userId": 1,
       "id": 35
+    },
+    {
+      "drinkId": 7,
+      "ingredientId": 2,
+      "amount": "4 oz.",
+      "userId": 1,
+      "id": 36
+    },
+    {
+      "drinkId": 8,
+      "ingredientId": 28,
+      "amount": "1.5 oz.",
+      "userId": 1,
+      "id": 37
+    },
+    {
+      "drinkId": 8,
+      "ingredientId": 33,
+      "amount": "2 oz.",
+      "userId": 1,
+      "id": 38
+    },
+    {
+      "drinkId": 8,
+      "ingredientId": 14,
+      "amount": "1 oz.",
+      "userId": 1,
+      "id": 39
+    },
+    {
+      "drinkId": 8,
+      "ingredientId": 34,
+      "amount": "1.5 oz.",
+      "userId": 1,
+      "id": 40
+    },
+    {
+      "drinkId": 8,
+      "ingredientId": 15,
+      "amount": "3",
+      "userId": 1,
+      "id": 41
+    },
+    {
+      "drinkId": 8,
+      "ingredientId": 35,
+      "amount": "1",
+      "userId": 1,
+      "id": 42
+    },
+    {
+      "drinkId": 9,
+      "ingredientId": 1,
+      "amount": "2 oz.",
+      "userId": 1,
+      "id": 43
+    },
+    {
+      "drinkId": 9,
+      "ingredientId": 2,
+      "amount": "4 oz.",
+      "userId": 1,
+      "id": 44
+    },
+    {
+      "drinkId": 9,
+      "ingredientId": 3,
+      "amount": "2 wedges",
+      "userId": 1,
+      "id": 45
     }
   ],
   "ingredients": [
@@ -326,24 +354,6 @@
       "id": 24
     },
     {
-      "name": "blue",
-      "typeId": 3,
-      "userId": 1,
-      "id": 25
-    },
-    {
-      "name": "green",
-      "typeId": 3,
-      "userId": 1,
-      "id": 26
-    },
-    {
-      "name": "limes",
-      "typeId": 3,
-      "userId": 1,
-      "id": 27
-    },
-    {
       "name": "lime juice",
       "typeId": 3,
       "userId": 1,
@@ -354,6 +364,42 @@
       "typeId": 3,
       "userId": 1,
       "id": 29
+    },
+    {
+      "name": "simple syrup",
+      "typeId": 2,
+      "userId": 1,
+      "id": 30
+    },
+    {
+      "name": "rum",
+      "typeId": 1,
+      "userId": 1,
+      "id": 31
+    },
+    {
+      "name": "coconut rum",
+      "typeId": 1,
+      "userId": 1,
+      "id": 32
+    },
+    {
+      "name": "sour mix",
+      "typeId": 2,
+      "userId": 1,
+      "id": 33
+    },
+    {
+      "name": "midori melon liqueur",
+      "typeId": 1,
+      "userId": 1,
+      "id": 34
+    },
+    {
+      "name": "maraschino cherry",
+      "typeId": 3,
+      "userId": 1,
+      "id": 35
     }
   ],
   "types": [

@@ -43,8 +43,8 @@
     display: flex;
     flex-direction: row;
     position: absolute;
-    right: 0px;
-    margin-right: 1em;
+    left: 0px;
+    margin-left: 2.5em;
 }
 
 .manage-ing-button {
@@ -64,4 +64,5 @@
 .blue-btn-outline:hover {
     transform: scale(1);
     background-color: rgba(55, 63, 71, 0.651);
+    /* border-radius: 50%; */
 }
