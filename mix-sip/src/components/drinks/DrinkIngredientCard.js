@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { Button } from 'reactstrap';
-import DataManager from "../../modules/DataManager"
+import DataManager from "../../modules/DataManager";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
+library.add(faEdit)
+
 
 
 export default class DrinkIngredientCard extends Component {
@@ -41,7 +46,7 @@ export default class DrinkIngredientCard extends Component {
                     !this.state.edit &&
                     <div>
                         <h3 className="capitalize">{this.props.name}</h3>
-                        <Button color="info" size="sm" onClick={this.editIng}>Edit?</Button>
+                        <Button outline className="blue-btn-outline" onClick={this.editIng}><FontAwesomeIcon icon="edit" /></Button>
                     </div>
                 }
                 {

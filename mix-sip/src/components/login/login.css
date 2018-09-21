@@ -137,12 +137,12 @@
 .login-button.form-btn.dx {
     right: 0;
     border-radius: 0 0 5px 0;
-    background-color: rgba(13, 77, 96, 0.712);
+    background-color: rgba(13, 77, 96, 0.849);
     color: #fff;
     transition:all 0.3s linear;
 }
 .login-button.form-btn.dx:hover {
-    background-color: rgba(13, 77, 96, 0.904);
+    background-color: rgb(13, 77, 96);
     color: #fff;
 }
 

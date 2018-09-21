@@ -1,6 +1,10 @@
 import React, { Component } from "react"; 
 import { Button, Input, Alert } from 'reactstrap';
-import DataManger from "../../modules/DataManager"
+import DataManger from "../../modules/DataManager";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
+library.add(faEdit)
 
 export default class EditIngCard extends Component {
     state = {
@@ -61,7 +65,7 @@ export default class EditIngCard extends Component {
                     !this.state.edit &&
                     <div>
                         <p className="capitalize">{this.state.name}</p> 
-                        <Button color="success" size="sm" onClick={this.changeToEdit}>Edit?</Button>
+                        <Button outline className="blue-btn-outline" onClick={this.changeToEdit}><FontAwesomeIcon icon="edit" /></Button>
                     </div>
                 }
                 {
