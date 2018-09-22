@@ -3,44 +3,45 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Alert
 import DataManager from "../../modules/DataManager"
 
 
-class AddDrink extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            modal: false, 
-            nestedModal: false,
-            closeAll: false,
-            selectType: false,
-            ingredient: "",
-            amount: "",
-            inputIngredients: [],
-            isEmpty: false,
-            allReadyHave: false,
-            amountIsBlank: false,
-            selectIng: false,
-            alreadyQueued: false,
-            search: "",
-            showIngs: true
-        };
+class AddDrink2 extends React.Component {
+    state = {
+        open: false, 
+        nestedOpen: false,
+        closeAll: false,
+        selectType: false,
+        ingredient: "",
+        amount: "",
+        inputIngredients: [],
+        isEmpty: false,
+        aleadyHave: false,
+        amountIsBlank: false,
+        selectIng: false,
+        alreadyQueued: false,
+        search: "",
+        showIngs: true
+    };
 
-        this.toggle = this.toggle.bind(this);
-        this.toggleNested = this.toggleNested.bind(this);
-    }
-
-    toggle() {
-        this.setState({
-        modal: !this.state.modal
-        });
+    open = () => this.setState({ open: true })
+    close = () => {
+        this.setState({ open: false}
         this.resetForm()
-    }
+    })
+    nestedOpen = () => this.setState({ nestedOpen: true })
+    nestedClose = () => this.setState({ nestedOpen: false, alreadyHave: false })
+    // toggle() {
+    //     this.setState({
+    //     modal: !this.state.modal
+    //     });
+    //     this.resetForm()
+    // }
 
-    toggleNested() {
-        this.setState({
-          nestedModal: !this.state.nestedModal,
-          closeAll: false,
-          allReadyHave: false
-        });
-      }
+    // toggleNested() {
+    //     this.setState({
+    //       nestedModal: !this.state.nestedModal,
+    //       closeAll: false,
+    //       allReadyHave: false
+    //     });
+    //   }
     
     handleFieldChange = evt => {
         const stateToChange = {}
@@ -61,7 +62,7 @@ class AddDrink extends React.Component {
 
     saveNewIngredient = () => {
         if(this.props.ingredients.find(ing => ing.name.toLowerCase() === this.state.newIngredientName.toLowerCase())){
-            this.setState({allReadyHave: true})
+            this.setState({alreadyHave: true})
         } else {
             let newIngredient = {
                 onHand: false,
@@ -69,7 +70,7 @@ class AddDrink extends React.Component {
                 typeId: this.props.types.find(type => type.name === this.state.newIngredientType).id,
                 userId: this.props.user.id
             }
-            this.toggleNested()
+            this.nestedClose()
             this.props.addIngredient("ingredients", newIngredient)
         }
     }
@@ -134,8 +135,8 @@ class AddDrink extends React.Component {
                 builtIngredients.map(joiner => DataManager.add("drinkIngredients", joiner))
             })
             .then(() => this.props.resetData())
-            .then(() => this.resetForm())
-            .then(() => this.toggle())
+            // .then(() => this.resetForm())
+            .then(() => this.close())
         }
     }
 
@@ -160,20 +161,28 @@ class AddDrink extends React.Component {
         } 
         return (
         <div>
-            <div className="add-drink-button">
-                <Button className="blue-button" size="sm" onClick={this.toggle}>Add a New Drink!</Button>
-            </div>
-            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-            <ModalHeader>Add a new drink to your collection!</ModalHeader>
-            <ModalBody>
+            
+            <Modal open={open} onOpen={this.open} onClose={this.close} size='tiny'
+                trigger={<Button className="blue-button" size="mini">Add a New Drink!</Button>}>
+            <Modal.Header>Add a new drink to your collection!</Modal.Header>
+            <Modal.Content>
                 {
                     this.state.isEmpty &&
-                    <Alert color="danger">Please fill out all the fields</Alert>
+                    <Message info>Please fill out all the fields</Message>
                 }
-                <Label for="drinkName">Name:</Label>
-                <Input id="drinkName" type="text" defaultValue={this.state.drinkName} placeholder="What's it called?" onChange={this.handleFieldChange} />
-                <Label for="drinkDescription">Description:</Label>
-                <Input id="drinkDescription" type="textarea" defaultValue={this.state.drinkDescription} placeholder="Describe your new drink!" onChange={this.handleFieldChange} />
+                <Input label={{ color: "info", labelPosition: 'left', content: 'Name' }} id="drinkName" type="text" defaultValue={this.state.drinkName} placeholder="What's it called?" onChange={this.handleFieldChange} />
+                <Form>
+                    <Form.Field>
+                        <label>First Name</label>
+                        <input placeholder='First Name' />
+                    </Form.Field>
+                    <Form.Field>
+                        <label>Last Name</label>
+                        <input placeholder='Last Name' />
+                    </Form.Field>
+                </Form>
+                <label>Description:</label>
+                <Input label={{ color: "info", labelPosition: 'left', content: 'Description' }}id="drinkDescription" type="textarea" defaultValue={this.state.drinkDescription} placeholder="Describe your new drink!" onChange={this.handleFieldChange} />
                 <div>
                     {   
                         this.state.inputIngredients.map(ing => {
@@ -250,7 +259,7 @@ class AddDrink extends React.Component {
                     </div>
                 <Label for="drinkDirections">Directions:</Label>
                 <Input id="drinkDirections" type="textarea" defaultValue={this.state.drinkDirections} placeholder="Directions to mix the drink!" onChange={this.handleFieldChange} />
-            </ModalBody>
+            </Modal.Content>
             <ModalFooter>
                 <Button color="primary" size="sm" onClick={this.saveDrink}>Save Drink</Button>{' '}
                 <Button color="secondary" size="sm" onClick={this.toggle}>Cancel</Button>
@@ -261,4 +270,4 @@ class AddDrink extends React.Component {
     }
 }
 
-export default AddDrink;
+export default AddDrink2;

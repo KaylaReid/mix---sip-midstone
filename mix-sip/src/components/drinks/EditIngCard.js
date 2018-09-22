@@ -59,24 +59,24 @@ export default class EditIngCard extends Component {
             <div id={this.props.ingredient.id}>
                 {
                     !this.state.edit &&
-                    <div>
+                    <div className="manage-ing-edit-btn">
                         <p className="capitalize">{this.state.name}</p> 
                         <Button animated onClick={this.changeToEdit}>
                             <Button.Content visible><Icon name="edit" /></Button.Content>
                             <Button.Content hidden>Edit</Button.Content>
                         </Button>
-                        <Divider />
                     </div>
                 }
+                <Divider />
                 {
                     this.state.alreadyHave &&
-                    <Message info>
+                    <Message info className="font">
                         This ingredient already exists please pick a difrent name.
                     </Message>
                 }
                 {
                     this.state.isBank &&
-                    <Message info>
+                    <Message info className="font">
                         Please fill out input!
                     </Message>
                 }
@@ -84,6 +84,7 @@ export default class EditIngCard extends Component {
                     this.state.edit && 
                     <div>
                         <Popup
+                            className="font"
                             trigger={<Input fluid label={{content:"Name", labelPosition: "left"}} id="name" type="text" defaultValue={this.state.name} onChange=        {this.handleFieldChange}/>}
                             content='Please note making changes to a ingredient here will update it everywhere the ingredient is used! This feature is recomended for spelling corrections only.'
                             style={{borderRadius: "5px",
@@ -95,14 +96,16 @@ export default class EditIngCard extends Component {
                             position="bottom right"
                         />
                         <div>
-                            <Button animated onClick={this.saveChanges}>
-                                <Button.Content visible><Icon name="checkmark" /></Button.Content>
-                                <Button.Content hidden>Update</Button.Content>
-                            </Button>
-                            <Button animated onClick={this.cancel}>
-                                <Button.Content visible><Icon name="cancel" /></Button.Content>
-                                <Button.Content hidden>Cancel</Button.Content>
-                            </Button>
+                            <Button.Group floated="right">
+                                <Button animated onClick={this.saveChange}>
+                                    <Button.Content visible><Icon name="checkmark" /></Button.Content>
+                                    <Button.Content hidden className="font">Update</Button.Content>
+                                </Button>
+                                <Button animated onClick={this.cancel}>
+                                    <Button.Content visible><Icon name="cancel" /></Button.Content>
+                                    <Button.Content hidden className="font">Cancel</Button.Content>
+                                </Button>
+                            </Button.Group>
                         </div>
                         <Divider />
                     </div>

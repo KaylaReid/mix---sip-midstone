@@ -1,16 +1,26 @@
 import React from 'react';
 // import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import EditIngCard from "./EditIngCard";
-import { Button , Modal } from "semantic-ui-react";
+import { Button , Modal, Divider, Input } from "semantic-ui-react";
 
 
 class EditIngList extends React.Component {
-    state = { open: false }
+    state = { 
+        open: false,
+        search: ""
+    }
 
     show = size => () => this.setState({ size, open: true })
     close = () => this.setState({ open: false })
 
+    updateSearch(e) {
+        this.setState({search: e.target.value.substr(0, 20)})
+    }
+
     render() {
+        let filteredIngredients = this.props.ingredients.filter(ing => {
+            return ing.name.indexOf(this.state.search.toLowerCase()) !== -1;
+        })
         const { open, size } = this.state
         return (
             <div>
@@ -18,12 +28,13 @@ class EditIngList extends React.Component {
                     <Button className="blue-button" onClick={this.show('tiny')}>Manage Ingredients</Button>
                 </div>
                 <Modal size={size} open={open} onClose={this.close}>
-                    
-                    <Modal.Header>Manage Your Drink Ingredients</Modal.Header>
+                    <h2 className="justify-center">Manage Your Drink Ingredients</h2>
+                    <Input onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" placeholder="Search for ingredients"></Input>
                     <Modal.Content>
-                        <h3>Bases:</h3>
+                        <h3 className="justify-center font">Bases</h3>
+                        <Divider/>
                         {
-                            this.props.ingredients.map(ingredient => {
+                            filteredIngredients.map(ingredient => {
                                 if(ingredient.typeId === 1){
                                     return (<EditIngCard key={ingredient.id} 
                                                 ingredient={ingredient}
@@ -34,9 +45,10 @@ class EditIngList extends React.Component {
                                 }
                             })
                         }
-                        <h3>Mixers:</h3>
+                        <h3 className="justify-center font">Mixers</h3>
+                        <Divider/>
                         {
-                            this.props.ingredients.map(ingredient => {
+                            filteredIngredients.map(ingredient => {
                                 if(ingredient.typeId === 2){
                                     return (<EditIngCard key={ingredient.id} 
                                                 ingredient={ingredient}
@@ -47,9 +59,10 @@ class EditIngList extends React.Component {
                                 }
                             })
                         }
-                        <h3>Garnishes:</h3>
+                        <h3 className="justify-center font">Garnishes</h3>
+                        <Divider/>
                         {
-                            this.props.ingredients.map(ingredient => {
+                            filteredIngredients.map(ingredient => {
                                 if(ingredient.typeId === 3){
                                     return (<EditIngCard key={ingredient.id} 
                                                 ingredient={ingredient}
@@ -62,7 +75,7 @@ class EditIngList extends React.Component {
                         }
                     </Modal.Content>
                     <Modal.Actions>
-                        <Button color="blue" size="mini" onClick={this.close}>Exit</Button>
+                        <Button size="tiny" onClick={this.close}>Exit</Button>
                     </Modal.Actions>
                 </Modal>
             </div>

@@ -240,162 +240,189 @@
   ],
   "ingredients": [
     {
+      "onHand": false,
       "name": "gin",
       "typeId": 1,
       "userId": 1,
       "id": 1
     },
     {
+      "onHand": false,
       "name": "tonic",
       "typeId": 2,
       "userId": 1,
       "id": 2
     },
     {
+      "onHand": false,
       "name": "lime",
       "typeId": 3,
       "userId": 1,
       "id": 3
     },
     {
+      "onHand": false,
       "name": "vodka",
       "typeId": 1,
       "userId": 1,
       "id": 4
     },
     {
+      "onHand": false,
       "name": "vodka",
       "typeId": 1,
       "userId": 2,
       "id": 5
     },
     {
+      "onHand": false,
       "name": "orange peal",
       "typeId": 3,
       "userId": 1,
       "id": 8
     },
     {
+      "onHand": false,
       "name": "coke",
       "typeId": 2,
       "userId": 1,
       "id": 9
     },
     {
+      "onHand": false,
       "name": "club soda",
       "typeId": 2,
       "userId": 1,
       "id": 10
     },
     {
+      "onHand": false,
       "name": "pop",
       "typeId": 1,
       "userId": 1,
       "id": 11
     },
     {
+      "onHand": false,
       "name": "sprite",
       "typeId": 2,
       "userId": 1,
       "id": 14
     },
     {
+      "onHand": false,
       "name": "ice cubes",
       "typeId": 3,
       "userId": 1,
       "id": 15
     },
     {
+      "onHand": false,
       "name": "soda water",
       "typeId": 2,
       "userId": 1,
       "id": 16
     },
     {
+      "onHand": false,
       "name": "coke",
       "typeId": 2,
       "userId": 2,
       "id": 17
     },
     {
+      "onHand": false,
       "name": "ice cubes",
       "typeId": 3,
       "userId": 2,
       "id": 18
     },
     {
+      "onHand": false,
       "name": "diet coke",
       "typeId": 2,
       "userId": 2,
       "id": 19
     },
     {
+      "onHand": false,
       "name": "bacardi dragon berry rum",
       "typeId": 1,
       "userId": 1,
       "id": 21
     },
     {
+      "onHand": false,
       "name": "lemon",
       "typeId": 1,
       "userId": 1,
       "id": 22
     },
     {
+      "onHand": false,
       "name": "mint",
       "typeId": 3,
       "userId": 1,
       "id": 23
     },
     {
+      "onHand": false,
       "name": "radish",
       "typeId": 3,
       "userId": 1,
       "id": 24
     },
     {
+      "onHand": false,
       "name": "lime juice",
       "typeId": 3,
       "userId": 1,
       "id": 28
     },
     {
+      "onHand": false,
       "name": "lime peel",
       "typeId": 3,
       "userId": 1,
       "id": 29
     },
     {
+      "onHand": false,
       "name": "simple syrup",
       "typeId": 2,
       "userId": 1,
       "id": 30
     },
     {
+      "onHand": false,
       "name": "rum",
       "typeId": 1,
       "userId": 1,
       "id": 31
     },
     {
+      "onHand": false,
       "name": "coconut rum",
       "typeId": 1,
       "userId": 1,
       "id": 32
     },
     {
+      "onHand": false,
       "name": "sour mix",
       "typeId": 2,
       "userId": 1,
       "id": 33
     },
     {
+      "onHand": false,
       "name": "midori melon liqueur",
       "typeId": 1,
       "userId": 1,
       "id": 34
     },
     {
+      "onHand": false,
       "name": "maraschino cherry",
       "typeId": 3,
       "userId": 1,

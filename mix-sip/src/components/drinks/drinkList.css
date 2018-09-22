@@ -2,6 +2,18 @@
     text-transform: capitalize;
 }
 
+.align-center {
+    display: flex;
+    text-align: center;
+}
+
+.justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+/* drink list syles */
+
 .edit-modal {
     padding: 1em;
 }
@@ -67,6 +79,8 @@
     /* border-radius: 50%; */
 }
 
+/* drink card syles*/
+
 .card-top {
     display: flex;
     justify-content: space-between;
@@ -92,4 +106,56 @@
     padding: .5em !important;
     justify-content: space-evenly;
 }
+
+.type-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.type-list {
+    width: 30%
+}
+
+.type-list p {
+    text-align: center;
+}
+
+.type-divider {
+    width: 1px;
+    /* height: 100%; */
+    background: #E7E7E7;
+    display: block;
+}
+
+/* .margin-top {
+    margin-top: 1em;
+} */
+
+.input-margin {
+    margin: 1em auto;
+}
+
+.modal-input {
+    width: 80%
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ui.label {
+    background: #FFEEF2;
+}
+
+
+/* manage ing syles*/
+
+.manage-ing-edit-btn {
+    display: flex;
+    justify-content: space-between;
+}
+
 

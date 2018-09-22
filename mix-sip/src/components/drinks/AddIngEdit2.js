@@ -1,55 +1,34 @@
 import React, { Component } from 'react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label, Alert, Input } from 'reactstrap';
+import { Button, Modal, Input, Message, Form } from 'semantic-ui-react'
 import DataManager from "../../modules/DataManager"
 
-export default class AddIngEdit extends Component {
- 
-    constructor(props) {
-        super(props);
-        this.state = {
-            modal: false, 
-            nestedModal: false,
-            closeAll: false,
-            selectType: false,
-            ingredient: "",
-            amount: "",
-            inputIngredients: [],
-            isEmpty: false,
-            alreadyHave: false,
-            amountIsBlank: false,
-            selectIng: false,
-            showAddIng: false,
-            hideAddIngBtn: false,
-            alreadyInDrink: false,
-            alreadyQueued: false,
-            search: "",
-            showIngs: true
-        };
-
-        this.toggle = this.toggle.bind(this);
-        this.toggleNested = this.toggleNested.bind(this);
+export default class AddEdit2 extends Component {
+    state = { 
+        open: false,
+        nestedOpen: false, 
+        selectType: false,
+        ingredient: "",
+        amount: "",
+        newIngredientType: "",
+        newIngredientName: "",
+        inputIngredients: [],
+        isEmpty: false,
+        alreadyHave: false,
+        amountIsBlank: false,
+        selectIng: false,
+        showAddIng: false,
+        hideAddIngBtn: false,
+        alreadyInDrink: false,
+        alreadyQueued: false,
+        search: "",
+        showIngs: true
     }
 
-    toggle() {
-        this.setState({
-        modal: !this.state.modal
-        });
-    }
+    open = () => this.setState({ open: true })
+    close = () => this.setState({ open: false, alreadyHave: false, selectType: false })
+    // nestedOpen = () => this.setState({ nestedOpen: true })
+    // nestedClose = () => this.setState({ nestedOpen: false, alreadyHave: false })
 
-    toggleNested() {
-        this.setState({
-          nestedModal: !this.state.nestedModal,
-          closeAll: false,
-          alreadyHave: false
-        });
-    }
-
-    handleFieldChange = evt => {
-        const stateToChange = {}
-        stateToChange[evt.target.id] = evt.target.value
-        this.setState(stateToChange)
-    }
-    
     handleFieldChange = evt => {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value
@@ -57,16 +36,21 @@ export default class AddIngEdit extends Component {
     }
 
     saveNewIngredient = () => {
-        if(this.props.ingredients.find(ing => ing.name.toLowerCase() === this.state.newIngredientName.toLowerCase())){
-            this.setState({alreadyHave: true})
+        if(this.state.newIngredientType.length === 0){
+            console.log("no type")
+            this.setState({selectType: true})
+        } else if(this.props.ingredients.find(ing => ing.name.toLowerCase() === this.state.newIngredientName.toLowerCase())){
+            console.log("already have")
+            this.setState({alreadyHave: true, selectType: false})
         } else {
+            console.log(" got here ")
             let newIngredient = {
                 onHand: false,
                 name: this.state.newIngredientName.toLowerCase(),
                 typeId: this.props.types.find(type => type.name === this.state.newIngredientType).id,
                 userId: this.props.user.id
             }
-            this.toggleNested()
+            this.close()
             this.props.addIngredient("ingredients", newIngredient)
         }
     }
@@ -155,19 +139,23 @@ export default class AddIngEdit extends Component {
         this.setState({search: e.target.value.substr(0, 20)})
     }
 
-    render(){
+    render() {
+        const { open } = this.state
+        let mixTypes = []
+        // mixTypes.push({text: "Select Type", value: "Select Type"})
+        this.props.types.map(type => mixTypes.push({key: type.name, text: type.name, value: type.name}))
         let filteredIngredients = []
         if(this.state.search.length > 1){
             filteredIngredients = this.props.ingredients.filter(ing => {
                 return ing.name.indexOf(this.state.search.toLowerCase()) !== -1;
             })
-        } 
-        return(
+        }
+        return (
             <div>
                 <div>
                     {
                         !this.state.hideAddIngBtn &&
-                        <Button size="sm" onClick={this.changeState}>Add a new ingredient</Button>
+                        <Button size="mini" onClick={this.changeState}>Add a new ingredient</Button>
                     }
                 </div>
                 <div>
@@ -179,22 +167,22 @@ export default class AddIngEdit extends Component {
                                 return <p key={`drink-${ing.ingredientId}`}><span className="capitalize">{ing.name}</span> {ing.amount}</p>
                             })
                         }
-                        <Label>Add ingredients:</Label>
+                        <label>Add ingredients:</label>
                         {
                             this.state.alreadyInDrink &&
-                            <Alert color="danger">This ingredienet is aleady in this drink mix. Try editing the amount instead!</Alert>
+                            <Message info>This ingredienet is aleady in this drink mix. Try editing the amount instead!</Message>
 
                         }
                         {
                             this.state.alreadyQueued &&
-                            <Alert color="danger">This ingredienet is aleady queued to be added to this drink mix.</Alert>
+                            <Message info>This ingredienet is aleady queued to be added to this drink mix.</Message>
                         }
                         <div className="ingredient-declare">
                             {
                                 this.state.selectIng &&
-                                <Alert color="danger">
+                                <Message info>
                                 Please select a ingredient!
-                                </Alert>
+                                </Message>
                             }
                             <Input onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" placeholder="Search for ingredient by name"></Input>
                             {
@@ -206,52 +194,54 @@ export default class AddIngEdit extends Component {
                             }
                             {
                                 this.state.amountIsBlank && 
-                                <Alert color="warning">
+                                <Message info>
                                 Please give this ingredient an amount!
-                                </Alert>
+                                </Message>
                             }
-                            <Label>Amount:</Label>
+                            <label>Amount:</label>
                             <Input id="amount" type="text" placeholder="Ex. 1oz.
                             1/2 wedge, 1 squeeze" defaultValue={this.state.amount} onChange={this.handleFieldChange}/>
                         </div>
                         <div>
-                            <Button color="info" size="sm" onClick={this.addIngredient}>Add Ingredient to Drink</Button>
-                            <Button color="success" size="sm" onClick={this.saveAdded}>Save Added Ingredients</Button>
+                            <Button size="mini" onClick={this.addIngredient}>Add Ingredient to Drink</Button>
+                            <Button size="mini" onClick={this.saveAdded}>Save Added Ingredients</Button>
                             <div>
-                                <Label>Don't see the ingredient your looking for? Add a New one!</Label><br/>
-                                <Button color="success" size="sm" onClick={this.toggleNested}>Add a New Ingredient</Button>
-                                <Modal isOpen={this.state.nestedModal} toggle={this.toggleNested} onClosed={this.state.closeAll ? this.toggle : undefined}>
-                                <ModalHeader>Add your ingredient here, and it will be added to your collection of ingredients to choose from</ModalHeader>
-                                <ModalBody>
-                                {
-                                    this.state.alreadyHave &&
-                                    <Alert color="danger">This ingredienet is aleady in your collection. Please select it from the drop down</Alert>
-                                }
-                                <div>
-                                    <Label htmlFor="newIngredientType">Type of Ingredient:</Label>
-                                    <Input id="newIngredientType" type="select" defaultValue="Select Type" onChange={this.handleFieldChange}>
-                                            <option>Select Type</option>
+                                <label>Don't see the ingredient your looking for? Add a New one!</label><br/>
+                                <Modal open={open} onOpen={this.open} onClose={this.close} size='tiny'
+                                        trigger={<Button size="mini">Add a New Ingredient</Button>}>
+                                    <Modal.Header>Add your ingredient here, and it will be added to your collection of ingredients to choose from</Modal.Header>
+                                    <Modal.Content>
+                                    <div className="column">
                                         {
-                                            this.props.types.map(type => {
-                                                return <option key={type.id}>{type.name}</option>
-                                            })
+                                            this.state.selectType &&
+                                            <Message info>Please select a type for this ingredient.</Message>
                                         }
-                                    </Input>
-                                    <Label htmlFor="newIngredientName">Add new ingredient:</Label>
-                                    <Input id="newIngredientName" type="text" placeholder="Name of ingredient" onChange={this.handleFieldChange}/>
-                                </div>
-                                </ModalBody>
-                                <ModalFooter>
-                                <Button color="primary" size="sm" onClick={this.saveNewIngredient}>Save</Button>{' '}
-                                <Button corol="info" size="sm" onClick={this.toggleNested}>Cancel</Button>   
-                                </ModalFooter>
+                                        {
+                                            this.state.alreadyHave &&
+                                            <Message info>This ingredient is aleady in your collection. Please select it from the drop down</Message>
+                                        }
+                                        
+                                        <Input size="medium" className="modal-input input-margin" label={{ color: "info", labelPosition: 'left', content: 'Type' }}list="types" id="newIngredientType" onChange={this.handleFieldChange} placeholder="Select Type" />
+                                            <datalist id="types">
+                                                {
+                                                    this.props.types.map(type => <option key={type.id} value={type.name}/>)
+                                                }
+                                            </datalist>
+                                        <Input size="medium" className="modal-input input-margin" label={{ color: "info", labelPosition: 'left', content: 'Name' }}id="newIngredientName" type="text" placeholder="Name of ingredient" onChange={this.handleFieldChange}/>
+                                      
+                                    </div>
+                                    </Modal.Content>
+                                    <Modal.Actions>
+                                        <Button size="mini" onClick={this.saveNewIngredient}>Save</Button>{' '}
+                                        <Button size="mini" onClick={this.close}>Cancel</Button>   
+                                    </Modal.Actions>
                                 </Modal>
                             </div>
                         </div>
                     </div>
                 }
                 </div>
-            </div>    
-        )    
+            </div>       
+        )
     }
 }

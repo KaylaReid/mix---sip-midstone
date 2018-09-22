@@ -36,13 +36,13 @@ export default class DrinkCard extends Component {
             <React.Fragment>
                 <Card centered className="drink-card">
                     <Card.Content>
-                        <Card.Header textAlign="center" className="capitalize">{this.props.drink.name}</Card.Header>
+                        <Card.Header textAlign="center" className="capitalize font">{this.props.drink.name}</Card.Header>
                         <Divider />
                         <Card.Meta textAlign="center">{this.props.drink.description}</Card.Meta>
                     </Card.Content>
                     <div className="type-container">
-                        <div>
-                            <h5>Bases</h5>
+                        <div className="type-list">
+                            <h5 className="justify-center font">Bases</h5>
                             {
                                 drinkIngredients.map(drinkIng => {
                                     let mainIng = this.props.ingredients.find(ing => ing.id === drinkIng.ingredientId)
@@ -63,8 +63,9 @@ export default class DrinkCard extends Component {
             
                             }
                         </div>
-                        <div>
-                            <h5>Mixers</h5>
+                        <div className="type-divider"></div>
+                        <div className="type-list">
+                            <h5 className="justify-center font">Mixers</h5>
                             {
                                 drinkIngredients.map(drinkIng => {
                                     let mainIng = this.props.ingredients.find(ing => ing.id === drinkIng.ingredientId)
@@ -84,8 +85,9 @@ export default class DrinkCard extends Component {
                                 })
                             }
                         </div>
-                        <div>
-                            <h5>Garnishes</h5>
+                        <div className="type-divider"></div>
+                        <div className="type-list">
+                            <h5 className="justify-center font">Garnishes</h5>
                             {
                                 drinkIngredients.map(drinkIng => {
                                     let mainIng = this.props.ingredients.find(ing => ing.id === drinkIng.ingredientId)
@@ -106,15 +108,16 @@ export default class DrinkCard extends Component {
                             }
                         </div>
                     </div>
+                    <Divider />
                     <div>
-                        <h5>Mixing Directions</h5>
+                        <h5 className="justify-center font">Mixing Directions</h5>
                         <p>{this.props.drink.directions}</p>
                     </div>
                     <Card.Content>
                         <Button.Group floated="right">
                             <Button animated  onClick={this.deleteDrink}>
                                 <Button.Content visible><Icon name="trash alternate outline"/></Button.Content>
-                                <Button.Content hidden>Remove</Button.Content>
+                                <Button.Content hidden className="font">Remove</Button.Content>
                             </Button>
                             <EditModal drink={this.props.drink} drinks={this.props.drinks}
                             drinkIngredients={this.props.drinkIngredients}

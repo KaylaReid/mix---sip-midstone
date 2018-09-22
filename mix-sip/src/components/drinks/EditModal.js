@@ -1,7 +1,7 @@
 import React from 'react';
 import DrinkIngredientCard from './DrinkIngredientCard';
 import DataManager from "../../modules/DataManager";
-import AddIngEdit from "./AddIngEdit";
+import AddIngEdit2 from "./AddIngEdit2";
 import { Modal, Button, Icon, Form } from "semantic-ui-react";
 
 
@@ -51,7 +51,7 @@ class EditModal extends React.Component {
             <div>     
                 <Button animated onClick={this.show('tiny')}>
                     <Button.Content visible><Icon name="edit" /></Button.Content>
-                    <Button.Content hidden>Edit</Button.Content>
+                    <Button.Content hidden className="font">Edit</Button.Content>
                 </Button>
                 <Modal size={size} open={open} onClose={this.close}>
                     <Modal.Content>
@@ -66,7 +66,7 @@ class EditModal extends React.Component {
                             <input type="text" className="form-control" onChange={this.handleFieldChange} id="directions" defaultValue={this.props.drink.directions} />
                         </Form>
                         <div>
-                            <AddIngEdit ingredients={this.props.ingredients}
+                            <AddIngEdit2 ingredients={this.props.ingredients}
                                 types={this.props.types}
                                 user={this.props.user}
                                 drinkIngredients={this.props.drinkIngredients}
@@ -90,8 +90,8 @@ class EditModal extends React.Component {
                         </div>
                     </Modal.Content>  
                     <Modal.Actions>
-                        <Button size="mini" onClick={this.saveChanges}>Save Changes</Button>{' '}
-                        <Button size="mini" onClick={this.close}>Cancel</Button>
+                        <Button size="mini" className="font" onClick={this.saveChanges}>Save Changes</Button>{' '}
+                        <Button size="mini" className="font" onClick={this.close}>Cancel</Button>
                     </Modal.Actions>
                 </Modal>
             </div>

@@ -66,7 +66,6 @@ export default class DrinkIngredientCard extends Component {
                                 <Button.Content hidden>Remove</Button.Content>
                             </Button>
                         </div>
-                        {/* <Divider /> */}
                         <div className="card-bottom">
                             <Input type="text" className="form-control" onChange={this.handleFieldChange} id="amount" defaultValue={this.props.drinkIngredient.amount} />
                             <Button animated onClick={this.saveChanges}>
