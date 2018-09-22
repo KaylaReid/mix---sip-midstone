@@ -1,7 +1,7 @@
 import React, { Component } from "react"; 
 import { Input } from 'semantic-ui-react';
 import DrinkCard from "./DrinkCard";
-import AddDrink2 from "./AddDrink2";
+import AddDrink from "./AddDrink";
 import ManageIngs from "./ManageIngs.js";
 import "./drinkList.css"
 
@@ -27,7 +27,7 @@ export default class DrinkList extends Component {
                             <Input onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" placeholder="Look for drinks"></Input>
                             </div>
                         <div className="header-right">
-                            <AddDrink2 user={this.props.user}
+                            <AddDrink user={this.props.user}
                                     addIngredient={this.props.addIngredient}
                                     drinkIngredients={this.props.drinkIngredients}
                                     ingredients={this.props.ingredients} 

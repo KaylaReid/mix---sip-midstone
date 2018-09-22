@@ -1,7 +1,7 @@
 import React from 'react';
 import DrinkIngredientCard from './DrinkIngredientCard';
 import DataManager from "../../modules/DataManager";
-import AddIngEdit2 from "./AddIngEdit2";
+import AddIngEdit from "./AddIngEdit";
 import { Modal, Button, Icon, Form } from "semantic-ui-react";
 
 
@@ -66,7 +66,7 @@ class EditModal extends React.Component {
                             <input type="text" className="form-control" onChange={this.handleFieldChange} id="directions" defaultValue={this.props.drink.directions} />
                         </Form>
                         <div>
-                            <AddIngEdit2 ingredients={this.props.ingredients}
+                            <AddIngEdit ingredients={this.props.ingredients}
                                 types={this.props.types}
                                 user={this.props.user}
                                 drinkIngredients={this.props.drinkIngredients}

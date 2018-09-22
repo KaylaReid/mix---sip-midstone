@@ -1,12 +1,8 @@
 import React, { Component } from "react"; 
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Icon, Card, Divider } from 'semantic-ui-react';
 import DataManager from "../../modules/DataManager";
 import EditModal from "./EditModal";
-// import { library } from '@fortawesome/fontawesome-svg-core'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-// library.add(faTrashAlt)
+
 
 export default class DrinkCard extends Component {
     
