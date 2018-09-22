@@ -116,7 +116,6 @@ export default class DrinkCard extends Component {
                                 <Button.Content visible><Icon name="trash alternate outline"/></Button.Content>
                                 <Button.Content hidden>Remove</Button.Content>
                             </Button>
-                            <Button.Or />
                             <EditModal drink={this.props.drink} drinks={this.props.drinks}
                             drinkIngredients={this.props.drinkIngredients}
                             ingredients={this.props.ingredients}

@@ -94,10 +94,15 @@ export default class EditIngCard extends Component {
                             inverted
                             position="bottom right"
                         />
-                        
                         <div>
-                            <Button color="blue" size="mini" onClick={this.saveChange}>Save</Button>
-                            <Button color="blue" size="mini" onClick={this.cancel}>Cancel</Button>
+                            <Button animated onClick={this.saveChanges}>
+                                <Button.Content visible><Icon name="checkmark" /></Button.Content>
+                                <Button.Content hidden>Update</Button.Content>
+                            </Button>
+                            <Button animated onClick={this.cancel}>
+                                <Button.Content visible><Icon name="cancel" /></Button.Content>
+                                <Button.Content hidden>Cancel</Button.Content>
+                            </Button>
                         </div>
                         <Divider />
                     </div>

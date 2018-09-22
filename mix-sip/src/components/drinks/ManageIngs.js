@@ -1,79 +1,73 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+// import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import EditIngCard from "./EditIngCard";
+import { Button , Modal } from "semantic-ui-react";
 
 
 class EditIngList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: false,
-    };
-    this.toggle = this.toggle.bind(this);
-  }
+    state = { open: false }
 
-  toggle() {
-    this.setState({
-      modal: !this.state.modal
-    });
-  }
+    show = size => () => this.setState({ size, open: true })
+    close = () => this.setState({ open: false })
 
-  render() {
-    return (
-      <div>
-        <div className="manage-ing-button">
-          <Button className="blue-button" size="sm" onClick={this.toggle}>Manage Ingredients</Button>
-        </div>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          <ModalHeader>Please note making changes to a ingredient here will update it everywhere the ingrednient is used! This feature is recomended for spelling corections only.</ModalHeader>
-          <ModalBody>
-            <h3>Bases:</h3>
-            {
-                this.props.ingredients.map(ingredient => {
-                    if(ingredient.typeId === 1){
-                        return (<EditIngCard key={ingredient.id} 
-                                    ingredient={ingredient}
-                                    resetData={this.props.resetData}
-                                    ingredients={this.props.ingredients}/>)
-                    } else {
-                        return null
-                    }
-                })
-            }
-            <h3>Mixers:</h3>
-            {
-                this.props.ingredients.map(ingredient => {
-                    if(ingredient.typeId === 2){
-                        return (<EditIngCard key={ingredient.id} 
-                                    ingredient={ingredient}
-                                    resetData={this.props.resetData}
-                                    ingredients={this.props.ingredients}/>)
-                    } else {
-                        return null
-                    }
-                })
-            }
-            <h3>Garnishes:</h3>
-            {
-                this.props.ingredients.map(ingredient => {
-                    if(ingredient.typeId === 3){
-                        return (<EditIngCard key={ingredient.id} 
-                                    ingredient={ingredient}
-                                    resetData={this.props.resetData}
-                                    ingredients={this.props.ingredients}/>)
-                    } else {
-                        return null
-                    }
-                })
-            }
-          </ModalBody>
-          <ModalFooter>
-            <Button color="secondary" size="sm" onClick={this.toggle}>Exit</Button>
-          </ModalFooter>
-        </Modal>
-      </div>
-    );
-  }
+    render() {
+        const { open, size } = this.state
+        return (
+            <div>
+                <div className="manage-ing-button">
+                    <Button className="blue-button" onClick={this.show('tiny')}>Manage Ingredients</Button>
+                </div>
+                <Modal size={size} open={open} onClose={this.close}>
+                    
+                    <Modal.Header>Manage Your Drink Ingredients</Modal.Header>
+                    <Modal.Content>
+                        <h3>Bases:</h3>
+                        {
+                            this.props.ingredients.map(ingredient => {
+                                if(ingredient.typeId === 1){
+                                    return (<EditIngCard key={ingredient.id} 
+                                                ingredient={ingredient}
+                                                resetData={this.props.resetData}
+                                                ingredients={this.props.ingredients}/>)
+                                } else {
+                                    return null
+                                }
+                            })
+                        }
+                        <h3>Mixers:</h3>
+                        {
+                            this.props.ingredients.map(ingredient => {
+                                if(ingredient.typeId === 2){
+                                    return (<EditIngCard key={ingredient.id} 
+                                                ingredient={ingredient}
+                                                resetData={this.props.resetData}
+                                                ingredients={this.props.ingredients}/>)
+                                } else {
+                                    return null
+                                }
+                            })
+                        }
+                        <h3>Garnishes:</h3>
+                        {
+                            this.props.ingredients.map(ingredient => {
+                                if(ingredient.typeId === 3){
+                                    return (<EditIngCard key={ingredient.id} 
+                                                ingredient={ingredient}
+                                                resetData={this.props.resetData}
+                                                ingredients={this.props.ingredients}/>)
+                                } else {
+                                    return null
+                                }
+                            })
+                        }
+                    </Modal.Content>
+                    <Modal.Actions>
+                        <Button color="blue" size="mini" onClick={this.close}>Exit</Button>
+                    </Modal.Actions>
+                </Modal>
+            </div>
+        );
+    }
 }
 
 export default EditIngList;
