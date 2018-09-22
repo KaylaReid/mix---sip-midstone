@@ -427,6 +427,48 @@
       "typeId": 3,
       "userId": 1,
       "id": 35
+    },
+    {
+      "onHand": false,
+      "name": "strawberry",
+      "typeId": 3,
+      "userId": 1,
+      "id": 36
+    },
+    {
+      "onHand": false,
+      "name": "sweet tea",
+      "typeId": 2,
+      "userId": 1,
+      "id": 37
+    },
+    {
+      "onHand": false,
+      "name": "blueberry",
+      "typeId": 3,
+      "userId": 1,
+      "id": 38
+    },
+    {
+      "onHand": false,
+      "name": "whiskey",
+      "typeId": 1,
+      "userId": 1,
+      "id": 39
+    },
+    {
+      "onHand": false,
+      "name": "tennessee fire",
+      "typeId": 1,
+      "userId": 1,
+      "id": 40
+    },
+    {
+      "onHand": false,
+      "name": "tennessee honey",
+      "typeId": 1,
+      "userId": 1,
+      "id": 41
     }
   ],
   "types": [

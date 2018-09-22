@@ -1,7 +1,7 @@
 import React, { Component } from "react"; 
 import { Input } from 'semantic-ui-react';
 import DrinkCard from "./DrinkCard";
-import AddDrink from "./AddDrink";
+import AddDrink2 from "./AddDrink2";
 import ManageIngs from "./ManageIngs.js";
 import "./drinkList.css"
 
@@ -27,13 +27,15 @@ export default class DrinkList extends Component {
                             <Input onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" placeholder="Look for drinks"></Input>
                             </div>
                         <div className="header-right">
-                            <AddDrink user={this.props.user}
+                            <AddDrink2 user={this.props.user}
                                     addIngredient={this.props.addIngredient}
                                     drinkIngredients={this.props.drinkIngredients}
                                     ingredients={this.props.ingredients} 
                                     types={this.props.types}
                                     resetData={this.props.resetData} />
-                            <ManageIngs ingredients={this.props.ingredients} 
+                            <ManageIngs user={this.props.user}
+                                    addIngredient={this.props.addIngredient}
+                                    ingredients={this.props.ingredients} 
                                     types={this.props.types}
                                     resetData={this.props.resetData}/>
                         </div>

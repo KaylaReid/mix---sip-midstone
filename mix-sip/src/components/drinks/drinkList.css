@@ -153,9 +153,50 @@
 
 /* manage ing syles*/
 
+.bg-blue {
+    background: #0D4D60 !important;
+    color: #FFEEF2 !important;
+}
+
+.manage-ing-title {
+    margin: .5em auto !important;
+}
+
 .manage-ing-edit-btn {
     display: flex;
     justify-content: space-between;
+}
+
+.manage-ing-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.manage-ing-top-left {
+    width: 75%;
+}
+
+.edit-ing-card {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-ing-left {
+    width: 70%;
+}
+
+.divider-width {
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.add-ing-button {
+    display: block;
+    width: 40%;
+    margin: 1em auto;
+    display: flex;
+    justify-content: center;
 }
 
 

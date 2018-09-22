@@ -67,7 +67,7 @@ export default class EditIngCard extends Component {
                         </Button>
                     </div>
                 }
-                <Divider />
+                
                 {
                     this.state.alreadyHave &&
                     <Message info className="font">
@@ -82,21 +82,23 @@ export default class EditIngCard extends Component {
                 }
                 {
                     this.state.edit && 
-                    <div>
-                        <Popup
-                            className="font"
-                            trigger={<Input fluid label={{content:"Name", labelPosition: "left"}} id="name" type="text" defaultValue={this.state.name} onChange=        {this.handleFieldChange}/>}
-                            content='Please note making changes to a ingredient here will update it everywhere the ingredient is used! This feature is recomended for spelling corrections only.'
-                            style={{borderRadius: "5px",
-                            opacity: 0.85,
-                            padding: '2em',
-                            color: "#FFEEF2"
-                            }}
-                            inverted
-                            position="bottom right"
-                        />
-                        <div>
-                            <Button.Group floated="right">
+                    <div className="edit-ing-card">
+                        <div className="edit-ing-left">
+                            <Popup
+                                className="font"
+                                trigger={<Input fluid label={{content:"Name"}} labelPosition="left" id="name" type="text" defaultValue={this.state.name} onChange=        {this.handleFieldChange}/>}
+                                content='Please note making changes to a ingredient here will update it everywhere the ingredient is used! This feature is recomended for spelling corrections only.'
+                                style={{borderRadius: "5px",
+                                opacity: 0.85,
+                                padding: '2em',
+                                color: "#FFEEF2"
+                                }}
+                                inverted
+                                position="bottom right"
+                            />
+                        </div>
+                        <div className="edit-ing-right">
+                            <Button.Group>
                                 <Button animated onClick={this.saveChange}>
                                     <Button.Content visible><Icon name="checkmark" /></Button.Content>
                                     <Button.Content hidden className="font">Update</Button.Content>
@@ -107,9 +109,9 @@ export default class EditIngCard extends Component {
                                 </Button>
                             </Button.Group>
                         </div>
-                        <Divider />
                     </div>
                 }
+                <Divider />
             </div>)
     }
 }

@@ -1,19 +1,14 @@
 import React, { Component } from 'react'
-import { Button, Modal, Input, Message, Form } from 'semantic-ui-react'
+import { Button, Input, Message } from 'semantic-ui-react'
 import DataManager from "../../modules/DataManager"
+import AddIngredient from './AddIngredient';
 
 export default class AddEdit2 extends Component {
     state = { 
-        open: false,
-        nestedOpen: false, 
-        selectType: false,
         ingredient: "",
         amount: "",
-        newIngredientType: "",
-        newIngredientName: "",
         inputIngredients: [],
         isEmpty: false,
-        alreadyHave: false,
         amountIsBlank: false,
         selectIng: false,
         showAddIng: false,
@@ -24,35 +19,11 @@ export default class AddEdit2 extends Component {
         showIngs: true
     }
 
-    open = () => this.setState({ open: true })
-    close = () => this.setState({ open: false, alreadyHave: false, selectType: false })
-    // nestedOpen = () => this.setState({ nestedOpen: true })
-    // nestedClose = () => this.setState({ nestedOpen: false, alreadyHave: false })
 
     handleFieldChange = evt => {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value
         this.setState(stateToChange)
-    }
-
-    saveNewIngredient = () => {
-        if(this.state.newIngredientType.length === 0){
-            console.log("no type")
-            this.setState({selectType: true})
-        } else if(this.props.ingredients.find(ing => ing.name.toLowerCase() === this.state.newIngredientName.toLowerCase())){
-            console.log("already have")
-            this.setState({alreadyHave: true, selectType: false})
-        } else {
-            console.log(" got here ")
-            let newIngredient = {
-                onHand: false,
-                name: this.state.newIngredientName.toLowerCase(),
-                typeId: this.props.types.find(type => type.name === this.state.newIngredientType).id,
-                userId: this.props.user.id
-            }
-            this.close()
-            this.props.addIngredient("ingredients", newIngredient)
-        }
     }
 
     addIngredient = () => {
@@ -140,10 +111,6 @@ export default class AddEdit2 extends Component {
     }
 
     render() {
-        const { open } = this.state
-        let mixTypes = []
-        // mixTypes.push({text: "Select Type", value: "Select Type"})
-        this.props.types.map(type => mixTypes.push({key: type.name, text: type.name, value: type.name}))
         let filteredIngredients = []
         if(this.state.search.length > 1){
             filteredIngredients = this.props.ingredients.filter(ing => {
@@ -207,36 +174,8 @@ export default class AddEdit2 extends Component {
                             <Button size="mini" onClick={this.saveAdded}>Save Added Ingredients</Button>
                             <div>
                                 <label>Don't see the ingredient your looking for? Add a New one!</label><br/>
-                                <Modal open={open} onOpen={this.open} onClose={this.close} size='tiny'
-                                        trigger={<Button size="mini">Add a New Ingredient</Button>}>
-                                    <Modal.Header>Add your ingredient here, and it will be added to your collection of ingredients to choose from</Modal.Header>
-                                    <Modal.Content>
-                                    <div className="column">
-                                        {
-                                            this.state.selectType &&
-                                            <Message info>Please select a type for this ingredient.</Message>
-                                        }
-                                        {
-                                            this.state.alreadyHave &&
-                                            <Message info>This ingredient is aleady in your collection. Please select it from the drop down</Message>
-                                        }
-                                        
-                                        <Input size="medium" className="modal-input input-margin" label={{ color: "info", labelPosition: 'left', content: 'Type' }}list="types" id="newIngredientType" onChange={this.handleFieldChange} placeholder="Select Type" />
-                                            <datalist id="types">
-                                                {
-                                                    this.props.types.map(type => <option key={type.id} value={type.name}/>)
-                                                }
-                                            </datalist>
-                                        <Input size="medium" className="modal-input input-margin" label={{ color: "info", labelPosition: 'left', content: 'Name' }}id="newIngredientName" type="text" placeholder="Name of ingredient" onChange={this.handleFieldChange}/>
-                                      
-                                    </div>
-                                    </Modal.Content>
-                                    <Modal.Actions>
-                                        <Button size="mini" onClick={this.saveNewIngredient}>Save</Button>{' '}
-                                        <Button size="mini" onClick={this.close}>Cancel</Button>   
-                                    </Modal.Actions>
-                                </Modal>
-                            </div>
+                                <AddIngredient user={this.props.user} types={this.props.types} ingredients={this.props.ingredients} addIngredient={this.props.addIngredient} />
+                            </div> 
                         </div>
                     </div>
                 }

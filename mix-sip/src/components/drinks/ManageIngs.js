@@ -2,6 +2,7 @@ import React from 'react';
 // import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import EditIngCard from "./EditIngCard";
 import { Button , Modal, Divider, Input } from "semantic-ui-react";
+import AddIngredient from "./AddIngredient";
 
 
 class EditIngList extends React.Component {
@@ -25,11 +26,19 @@ class EditIngList extends React.Component {
         return (
             <div>
                 <div className="manage-ing-button">
-                    <Button className="blue-button" onClick={this.show('tiny')}>Manage Ingredients</Button>
+                    <Button className="blue-button font" size="mini" onClick={this.show('tiny')}>Manage Ingredients</Button>
                 </div>
                 <Modal size={size} open={open} onClose={this.close}>
-                    <h2 className="justify-center">Manage Your Drink Ingredients</h2>
-                    <Input onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" placeholder="Search for ingredients"></Input>
+                    <h2 className="justify-center font manage-ing-title">Manage Your Drink Ingredients</h2>
+                    <div>
+                        <Input fluid onChange={this.updateSearch.bind(this)} className="input-margin manage-ing-top-left" value={this.state.search} type="text" placeholder="Search for ingredients"></Input>
+                        <div className="divider-width">
+                            <Divider horizontal>Or</Divider>
+                        </div>
+                        <div className="add-ing-button">
+                            <AddIngredient user={this.props.user} types={this.props.types} ingredients={this.props.ingredients} addIngredient={this.props.addIngredient} />
+                        </div>
+                    </div>
                     <Modal.Content>
                         <h3 className="justify-center font">Bases</h3>
                         <Divider/>
@@ -75,7 +84,7 @@ class EditIngList extends React.Component {
                         }
                     </Modal.Content>
                     <Modal.Actions>
-                        <Button size="tiny" onClick={this.close}>Exit</Button>
+                        <Button size="tiny" className="bg-blue font" onClick={this.close}>Exit</Button>
                     </Modal.Actions>
                 </Modal>
             </div>
