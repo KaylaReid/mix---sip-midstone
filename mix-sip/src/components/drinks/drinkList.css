@@ -3,8 +3,12 @@
 }
 
 .align-center {
-    display: flex;
+    /* display: flex; */
     text-align: center;
+}
+
+.in-stock {
+    color: rgb(52, 128, 151)
 }
 
 .justify-center {

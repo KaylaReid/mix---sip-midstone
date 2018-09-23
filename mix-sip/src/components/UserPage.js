@@ -5,6 +5,8 @@ import DrinkList from "./drinks/DrinkList";
 import "./userPage.css"
 import OnHandList from "./drinks/OnHandList";
 import { Tab } from "semantic-ui-react";
+import ToGetList from "./drinks/ToGetList";
+import ManageIngs from "./drinks/ManageIngs"
 
 export default class UserPage extends Component {
     state = {
@@ -12,6 +14,7 @@ export default class UserPage extends Component {
         drinks: [],
         drinkIngredients: [],
         ingredients: [],
+        toGets: [],
         types: [],
     }
 
@@ -25,6 +28,8 @@ export default class UserPage extends Component {
         .then(drinkIngredients => newState.drinkIngredients = drinkIngredients)
         .then(() => DataManager.getUserData("ingredients", newState.user.id))
         .then(ingredients => newState.ingredients = ingredients)
+        .then(() => DataManager.getUserData("toGetIngredients", newState.user.id))
+        .then(toGets => newState.toGets = toGets)
         .then(() => DataManager.getUserData("types", newState.user.id))
         .then(types => newState.types = types)
         .then(() => this.setState(newState))
@@ -46,6 +51,8 @@ export default class UserPage extends Component {
         .then(drinkIngredients => newState.drinkIngredients = drinkIngredients)
         .then(() => DataManager.getUserData("ingredients", newState.user.id))
         .then(ingredients => newState.ingredients = ingredients)
+        .then(() => DataManager.getUserData("toGetIngredients", newState.user.id))
+        .then(toGets => newState.toGets = toGets)
         .then(() => DataManager.getUserData("types", newState.user.id))
         .then(types => newState.types = types)
         .then(() => this.setState(newState))
@@ -57,7 +64,12 @@ export default class UserPage extends Component {
                                                     ingredients={this.state.ingredients}
                                                     types={this.state.types}
                                                     resetData={this.resetData} /></Tab.Pane> },
-            { menuItem: 'To Get', render: () => <Tab.Pane attached={false}>Cart goes here!</Tab.Pane> },
+            { menuItem: 'To Get', render: () => <Tab.Pane attached={false}><ToGetList 
+                                                    ingredients={this.state.ingredients}
+                                                    types={this.state.types}
+                                                    resetData={this.resetData}
+                                                    user={this.state.user}
+                                                    toGets={this.state.toGets} /></Tab.Pane> },
           ]
         return (
             <div>
@@ -71,10 +83,17 @@ export default class UserPage extends Component {
                             drinkIngredients={this.state.drinkIngredients}
                             ingredients={this.state.ingredients}
                             types={this.state.types}
+                            toGets={this.state.toGets}
                             addIngredient={this.addIngredient}
                             resetData={this.resetData} />
                     </div>
                     <div className="main-right">
+                        <ManageIngs user={this.state.user}
+                                    toGets={this.state.toGets}
+                                    addIngredient={this.addIngredient}
+                                    ingredients={this.state.ingredients} 
+                                    types={this.state.types}
+                                    resetData={this.resetData}/>
                         <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
                         
                     </div>

@@ -13,15 +13,15 @@ export default class OnHandList extends Component {
     render(){
         return (
             <div className="onhand-list">
-                <h3>Ingredients On Hand!</h3>
+                <h3 className="font align-center">Ingredients On Hand!</h3>
                 <Divider />
                 {
                     this.props.ingredients.filter(i => i.onHand).map(ingredient => {
                         return (
-                            <div>
+                            <div key={`{onHand-${ingredient.id}}`}>
                                 <div className="onHand-contents">
                                     <p className="capitalize">{ingredient.name}</p>
-                                    <Button animated size="mini" onClick={() => this.removeItem(ingredient)}>
+                                    <Button animated size="mini" className="font" onClick={() => this.removeItem(ingredient)}>
                                         <Button.Content visible><Icon name="glass martini"></Icon></Button.Content>
                                         <Button.Content hidden>Drank!</Button.Content>
                                     </Button>

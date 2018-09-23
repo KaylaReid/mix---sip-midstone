@@ -69,6 +69,7 @@ export default class EditIngCard extends Component {
     }
 
     render(){
+        
         return (
             <div id={this.props.ingredient.id}>
                 {
@@ -76,10 +77,21 @@ export default class EditIngCard extends Component {
                     <div className="manage-ing-edit-btn">
                         <p className="capitalize">{this.state.name}</p> 
                         <div>
-                            <Button animated onClick={this.addToGet}>
-                                <Button.Content visible><Icon name="add to cart" /></Button.Content>
-                                <Button.Content hidden>Cart</Button.Content>
-                            </Button>
+                            {
+                                this.props.toGets.find(toGet => toGet.ingredientId === this.props.ingredient.id) &&
+                                <Button animated disabled onClick={this.addToGet}>
+                                    <Button.Content visible><Icon name="add to cart" /></Button.Content>
+                                    <Button.Content hidden>Cart</Button.Content>
+                                </Button>
+                            }
+                            {
+                                !this.props.toGets.find(toGet => toGet.ingredientId === this.props.ingredient.id) &&
+                                <Button animated onClick={this.addToGet}>
+                                    <Button.Content visible><Icon name="add to cart" /></Button.Content>
+                                    <Button.Content hidden>Cart</Button.Content>
+                                </Button>
+
+                            }
                             {
                                 !this.props.ingredient.onHand &&
                                 <Button animated onClick={this.addToOnHand}>

@@ -48,6 +48,7 @@ class EditIngList extends React.Component {
                                                 user={this.props.user}
                                                 ingredient={ingredient}
                                                 resetData={this.props.resetData}
+                                                toGets={this.props.toGets}
                                                 ingredients={this.props.ingredients}/>)
                                 } else {
                                     return null
@@ -60,8 +61,10 @@ class EditIngList extends React.Component {
                             filteredIngredients.map(ingredient => {
                                 if(ingredient.typeId === 2){
                                     return (<EditIngCard key={ingredient.id} 
+                                                user={this.props.user}
                                                 ingredient={ingredient}
                                                 resetData={this.props.resetData}
+                                                toGets={this.props.toGets}
                                                 ingredients={this.props.ingredients}/>)
                                 } else {
                                     return null
@@ -74,8 +77,10 @@ class EditIngList extends React.Component {
                             filteredIngredients.map(ingredient => {
                                 if(ingredient.typeId === 3){
                                     return (<EditIngCard key={ingredient.id} 
+                                                user={this.props.user}
                                                 ingredient={ingredient}
                                                 resetData={this.props.resetData}
+                                                toGets={this.props.toGets}
                                                 ingredients={this.props.ingredients}/>)
                                 } else {
                                     return null

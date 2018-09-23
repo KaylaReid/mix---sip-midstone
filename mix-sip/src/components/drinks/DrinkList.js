@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Input } from 'semantic-ui-react';
 import DrinkCard from "./DrinkCard";
 import AddDrink from "./AddDrink";
-import ManageIngs from "./ManageIngs.js";
 import "./drinkList.css"
 import 'semantic-ui-css/semantic.min.css';
 
@@ -27,19 +26,14 @@ export default class DrinkList extends Component {
                             <div className="search-bar">
                             <Input onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" placeholder="Look for drinks"></Input>
                             </div>
-                        <div className="header-right">
-                            <AddDrink user={this.props.user}
-                                    addIngredient={this.props.addIngredient}
-                                    drinkIngredients={this.props.drinkIngredients}
-                                    ingredients={this.props.ingredients} 
-                                    types={this.props.types}
-                                    resetData={this.props.resetData} />
-                            <ManageIngs user={this.props.user}
-                                    addIngredient={this.props.addIngredient}
-                                    ingredients={this.props.ingredients} 
-                                    types={this.props.types}
-                                    resetData={this.props.resetData}/>
-                        </div>
+                            <div className="header-right">
+                                <AddDrink user={this.props.user}
+                                        addIngredient={this.props.addIngredient}
+                                        drinkIngredients={this.props.drinkIngredients}
+                                        ingredients={this.props.ingredients} 
+                                        types={this.props.types}
+                                        resetData={this.props.resetData} />
+                            </div>
                         </div>
                     </div>
                     <div className="drink-list">

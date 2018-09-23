@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CupLogo from "../images/cupLogo.png";
 import { Button } from "semantic-ui-react";
 import "./navbar.css";
-import 'semantic-ui-css/semantic.min.css';
+
 
 
  export default class Navbar extends Component {
