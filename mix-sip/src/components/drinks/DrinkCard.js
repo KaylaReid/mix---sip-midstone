@@ -1,12 +1,8 @@
 import React, { Component } from "react"; 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Card, CardTitle, CardText } from 'reactstrap';
+import { Button, Icon, Card, Divider } from 'semantic-ui-react';
 import DataManager from "../../modules/DataManager";
 import EditModal from "./EditModal";
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-library.add(faTrashAlt)
+
 
 export default class DrinkCard extends Component {
     
@@ -34,12 +30,15 @@ export default class DrinkCard extends Component {
         const drinkIngredients = this.props.drinkIngredients.filter(drinkIng => drinkIng.drinkId === this.props.drink.id);
         return(
             <React.Fragment>
-                <Card className="drink-card">
-                    <h3 className="capitalize">{this.props.drink.name}</h3><hr/>
-                    <p>{this.props.drink.description}</p>
+                <Card centered className="drink-card">
+                    <Card.Content>
+                        <Card.Header textAlign="center" className="capitalize font">{this.props.drink.name}</Card.Header>
+                        <Divider />
+                        <Card.Meta textAlign="center">{this.props.drink.description}</Card.Meta>
+                    </Card.Content>
                     <div className="type-container">
-                        <div>
-                            <h5>Bases</h5>
+                        <div className="type-list">
+                            <h5 className="justify-center font">Bases</h5>
                             {
                                 drinkIngredients.map(drinkIng => {
                                     let mainIng = this.props.ingredients.find(ing => ing.id === drinkIng.ingredientId)
@@ -60,8 +59,9 @@ export default class DrinkCard extends Component {
             
                             }
                         </div>
-                        <div>
-                            <h5>Mixers</h5>
+                        <div className="type-divider"></div>
+                        <div className="type-list">
+                            <h5 className="justify-center font">Mixers</h5>
                             {
                                 drinkIngredients.map(drinkIng => {
                                     let mainIng = this.props.ingredients.find(ing => ing.id === drinkIng.ingredientId)
@@ -81,8 +81,9 @@ export default class DrinkCard extends Component {
                                 })
                             }
                         </div>
-                        <div>
-                            <h5>Garnishes</h5>
+                        <div className="type-divider"></div>
+                        <div className="type-list">
+                            <h5 className="justify-center font">Garnishes</h5>
                             {
                                 drinkIngredients.map(drinkIng => {
                                     let mainIng = this.props.ingredients.find(ing => ing.id === drinkIng.ingredientId)
@@ -103,20 +104,26 @@ export default class DrinkCard extends Component {
                             }
                         </div>
                     </div>
+                    <Divider />
                     <div>
-                        <h5>Mixing Directions</h5>
+                        <h5 className="justify-center font">Mixing Directions</h5>
                         <p>{this.props.drink.directions}</p>
                     </div>
-                    <div>
-                    <Button outline className="blue-btn-outline" onClick={this.deleteDrink}><FontAwesomeIcon icon="trash-alt"/></Button>
-                    <EditModal drink={this.props.drink} drinks={this.props.drinks}
+                    <Card.Content>
+                        <Button.Group floated="right">
+                            <Button animated  onClick={this.deleteDrink}>
+                                <Button.Content visible><Icon name="trash alternate outline"/></Button.Content>
+                                <Button.Content hidden className="font">Remove</Button.Content>
+                            </Button>
+                            <EditModal drink={this.props.drink} drinks={this.props.drinks}
                             drinkIngredients={this.props.drinkIngredients}
                             ingredients={this.props.ingredients}
                             types={this.props.types}
                             resetData={this.props.resetData}
                             user={this.props.user}
                             addIngredient={this.props.addIngredient} />
-                    </div>
+                        </Button.Group>
+                    </Card.Content>
                 </Card>
             </React.Fragment>
         )

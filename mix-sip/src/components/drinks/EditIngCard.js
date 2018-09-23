@@ -1,10 +1,6 @@
 import React, { Component } from "react"; 
-import { Button, Input, Alert } from 'reactstrap';
+import { Button, Input, Message, Icon, Divider, Popup } from 'semantic-ui-react';
 import DataManger from "../../modules/DataManager";
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEdit } from '@fortawesome/free-solid-svg-icons'
-library.add(faEdit)
 
 export default class EditIngCard extends Component {
     state = {
@@ -63,31 +59,59 @@ export default class EditIngCard extends Component {
             <div id={this.props.ingredient.id}>
                 {
                     !this.state.edit &&
-                    <div>
+                    <div className="manage-ing-edit-btn">
                         <p className="capitalize">{this.state.name}</p> 
-                        <Button outline className="blue-btn-outline" onClick={this.changeToEdit}><FontAwesomeIcon icon="edit" /></Button>
+                        <Button animated onClick={this.changeToEdit}>
+                            <Button.Content visible><Icon name="edit" /></Button.Content>
+                            <Button.Content hidden>Edit</Button.Content>
+                        </Button>
                     </div>
                 }
+                
                 {
                     this.state.alreadyHave &&
-                    <Alert color="danger">
+                    <Message info className="font">
                         This ingredient already exists please pick a difrent name.
-                    </Alert>
+                    </Message>
                 }
                 {
                     this.state.isBank &&
-                    <Alert color="danger">
-                        Please fill out imput!
-                    </Alert>
+                    <Message info className="font">
+                        Please fill out input!
+                    </Message>
                 }
                 {
                     this.state.edit && 
-                    <div>
-                        <Input id="name" type="text" defaultValue={this.state.name} onChange=        {this.handleFieldChange}/>
-                        <Button color="success" size="sm" onClick={this.saveChange}>Save</Button>
-                        <Button color="success" size="sm" onClick={this.cancel}>Cancel</Button>
+                    <div className="edit-ing-card">
+                        <div className="edit-ing-left">
+                            <Popup
+                                className="font"
+                                trigger={<Input fluid label={{content:"Name"}} labelPosition="left" id="name" type="text" defaultValue={this.state.name} onChange=        {this.handleFieldChange}/>}
+                                content='Please note making changes to a ingredient here will update it everywhere the ingredient is used! This feature is recomended for spelling corrections only.'
+                                style={{borderRadius: "5px",
+                                opacity: 0.85,
+                                padding: '2em',
+                                color: "#FFEEF2"
+                                }}
+                                inverted
+                                position="bottom right"
+                            />
+                        </div>
+                        <div className="edit-ing-right">
+                            <Button.Group>
+                                <Button animated onClick={this.saveChange}>
+                                    <Button.Content visible><Icon name="checkmark" /></Button.Content>
+                                    <Button.Content hidden className="font">Update</Button.Content>
+                                </Button>
+                                <Button animated onClick={this.cancel}>
+                                    <Button.Content visible><Icon name="cancel" /></Button.Content>
+                                    <Button.Content hidden className="font">Cancel</Button.Content>
+                                </Button>
+                            </Button.Group>
+                        </div>
                     </div>
                 }
+                <Divider />
             </div>)
     }
 }

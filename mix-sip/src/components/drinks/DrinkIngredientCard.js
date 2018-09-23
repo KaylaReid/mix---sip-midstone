@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import { Button } from 'reactstrap';
+import { Button, Icon, Input, Divider } from 'semantic-ui-react';
 import DataManager from "../../modules/DataManager";
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEdit } from '@fortawesome/free-solid-svg-icons'
-library.add(faEdit)
+
 
 
 
@@ -45,17 +42,35 @@ export default class DrinkIngredientCard extends Component {
                 {
                     !this.state.edit &&
                     <div>
-                        <h3 className="capitalize">{this.props.name}</h3>
-                        <Button outline className="blue-btn-outline" onClick={this.editIng}><FontAwesomeIcon icon="edit" /></Button>
+                        <div className="card-top">
+                            <h3 className="capitalize">{this.props.name}</h3>
+                            <Button animated basic className="blue-btn-outline" onClick={this.editIng}>
+                                <Button.Content visible><Icon name="edit" /></Button.Content>
+                                <Button.Content hidden>Edit</Button.Content>
+                            </Button>
+                        </div>
+                        <Divider />
                     </div>
                 }
                 {
                     this.state.edit && 
                     <div>
-                        <Button color="info" size="sm" onClick={this.removeIngredient}>Remove ingredient</Button>
-                        <h3 className="capitalize">{this.props.name}</h3>
-                        <input type="text" className="form-control" onChange={this.handleFieldChange} id="amount" defaultValue={this.props.drinkIngredient.amount} />
-                        <Button color="success" size="sm" onClick={this.saveChanges}>Update Amount</Button>
+                        <Divider />
+                        <div className="card-top">
+                            <h3 className="capitalize">{this.props.name}</h3>
+                            <Button animated onClick={this.removeIngredient}>
+                                <Button.Content visible><Icon name="trash alternate outline" /></Button.Content>
+                                <Button.Content hidden>Remove</Button.Content>
+                            </Button>
+                        </div>
+                        <div className="card-bottom">
+                            <Input type="text" className="form-control" onChange={this.handleFieldChange} id="amount" defaultValue={this.props.drinkIngredient.amount} />
+                            <Button animated onClick={this.saveChanges}>
+                                <Button.Content visible><Icon name="checkmark" /></Button.Content>
+                                <Button.Content hidden>Update</Button.Content>
+                            </Button>
+                        </div>
+                        <Divider />
                     </div>
                 }
             </div>
