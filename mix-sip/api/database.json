@@ -282,14 +282,14 @@
       "id": 8
     },
     {
-      "onHand": false,
+      "onHand": true,
       "name": "coke",
       "typeId": 2,
       "userId": 1,
       "id": 9
     },
     {
-      "onHand": false,
+      "onHand": true,
       "name": "club soda",
       "typeId": 2,
       "userId": 1,
@@ -310,14 +310,14 @@
       "id": 14
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "ice cubes",
       "typeId": 3,
       "userId": 1,
       "id": 15
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "soda water",
       "typeId": 2,
       "userId": 1,
@@ -359,7 +359,7 @@
       "id": 22
     },
     {
-      "onHand": false,
+      "onHand": true,
       "name": "mint",
       "typeId": 3,
       "userId": 1,
@@ -373,7 +373,7 @@
       "id": 24
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "lime juice",
       "typeId": 3,
       "userId": 1,
@@ -394,7 +394,7 @@
       "id": 30
     },
     {
-      "onHand": false,
+      "onHand": true,
       "name": "rum",
       "typeId": 1,
       "userId": 1,
