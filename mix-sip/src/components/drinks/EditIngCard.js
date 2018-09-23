@@ -1,6 +1,6 @@
 import React, { Component } from "react"; 
 import { Button, Input, Message, Icon, Divider, Popup } from 'semantic-ui-react';
-import DataManger from "../../modules/DataManager";
+import DataManager from "../../modules/DataManager";
 
 export default class EditIngCard extends Component {
     state = {
@@ -35,7 +35,7 @@ export default class EditIngCard extends Component {
            const update = {
                name: this.state.name
            }
-           DataManger.patch("ingredients", update, this.props.ingredient.id)
+           DataManager.patch("ingredients", update, this.props.ingredient.id)
            .then(() => {this.props.resetData()})
            .then(() => this.setState({
                edit: false,
@@ -43,6 +43,20 @@ export default class EditIngCard extends Component {
                alreadyHave:false
             }))
        }
+    }
+
+    addToGet = () => {
+        let toGetItem = {
+            userId: this.props.user.id,
+            ingredientId: this.props.ingredient.id
+        }
+        DataManager.add("toGetIngredients", toGetItem)
+        .then(() => {this.props.resetData()})
+    }
+
+    addToOnHand = () => {
+        DataManager.patch("ingredients", {onHand: true}, this.props.ingredient.id)
+        .then(() => {this.props.resetData()})
     }
 
     cancel = () => {
@@ -61,10 +75,30 @@ export default class EditIngCard extends Component {
                     !this.state.edit &&
                     <div className="manage-ing-edit-btn">
                         <p className="capitalize">{this.state.name}</p> 
-                        <Button animated onClick={this.changeToEdit}>
-                            <Button.Content visible><Icon name="edit" /></Button.Content>
-                            <Button.Content hidden>Edit</Button.Content>
-                        </Button>
+                        <div>
+                            <Button animated onClick={this.addToGet}>
+                                <Button.Content visible><Icon name="add to cart" /></Button.Content>
+                                <Button.Content hidden>Cart</Button.Content>
+                            </Button>
+                            {
+                                !this.props.ingredient.onHand &&
+                                <Button animated onClick={this.addToOnHand}>
+                                    <Button.Content visible><Icon name="add" /></Button.Content>
+                                    <Button.Content hidden>In stock</Button.Content>
+                                </Button>
+                            }
+                            {
+                                this.props.ingredient.onHand &&
+                                <Button animated disabled onClick={this.addToOnHand}>
+                                    <Button.Content visible><Icon name="add" /></Button.Content>
+                                    <Button.Content hidden>In stock</Button.Content>
+                                </Button>
+                            }
+                            <Button animated onClick={this.changeToEdit}>
+                                <Button.Content visible><Icon name="edit" /></Button.Content>
+                                <Button.Content hidden>Edit</Button.Content>
+                            </Button>
+                        </div>
                     </div>
                 }
                 

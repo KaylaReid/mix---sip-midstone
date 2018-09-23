@@ -3,6 +3,8 @@ import Navbar from "./nav/Navbar";
 import DataManager from "../modules/DataManager";
 import DrinkList from "./drinks/DrinkList";
 import "./userPage.css"
+import OnHandList from "./drinks/OnHandList";
+import { Tab } from "semantic-ui-react";
 
 export default class UserPage extends Component {
     state = {
@@ -50,18 +52,33 @@ export default class UserPage extends Component {
     }
 
     render() {
+        const panes = [
+            { menuItem: 'Have', render: () => <Tab.Pane attached={false}><OnHandList 
+                                                    ingredients={this.state.ingredients}
+                                                    types={this.state.types}
+                                                    resetData={this.resetData} /></Tab.Pane> },
+            { menuItem: 'To Get', render: () => <Tab.Pane attached={false}>Cart goes here!</Tab.Pane> },
+          ]
         return (
             <div>
                 <Navbar {...this.props}
                     user={this.state.user}/>
-                <DrinkList
-                    user={this.state.user}
-                    drinks={this.state.drinks}
-                    drinkIngredients={this.state.drinkIngredients}
-                    ingredients={this.state.ingredients}
-                    types={this.state.types}
-                    addIngredient={this.addIngredient}
-                    resetData={this.resetData} />
+                <div className="wrapper main-content">
+                    <div className="main-left">
+                        <DrinkList
+                            user={this.state.user}
+                            drinks={this.state.drinks}
+                            drinkIngredients={this.state.drinkIngredients}
+                            ingredients={this.state.ingredients}
+                            types={this.state.types}
+                            addIngredient={this.addIngredient}
+                            resetData={this.resetData} />
+                    </div>
+                    <div className="main-right">
+                        <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
+                        
+                    </div>
+                </div>
             </div>
         )
     }

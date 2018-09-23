@@ -45,6 +45,7 @@ class EditIngList extends React.Component {
                             filteredIngredients.map(ingredient => {
                                 if(ingredient.typeId === 1){
                                     return (<EditIngCard key={ingredient.id} 
+                                                user={this.props.user}
                                                 ingredient={ingredient}
                                                 resetData={this.props.resetData}
                                                 ingredients={this.props.ingredients}/>)

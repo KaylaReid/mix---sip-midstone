@@ -4,6 +4,7 @@ import DrinkCard from "./DrinkCard";
 import AddDrink from "./AddDrink";
 import ManageIngs from "./ManageIngs.js";
 import "./drinkList.css"
+import 'semantic-ui-css/semantic.min.css';
 
 export default class DrinkList extends Component {
     state = {
@@ -20,7 +21,7 @@ export default class DrinkList extends Component {
         })
         return(
             <React.Fragment>
-                <div className="wrapper">
+                <div>
                     <div>
                         <div className="header-middle">
                             <div className="search-bar">
