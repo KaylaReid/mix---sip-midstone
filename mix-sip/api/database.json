@@ -282,7 +282,7 @@
       "id": 8
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "coke",
       "typeId": 2,
       "userId": 1,
@@ -296,14 +296,14 @@
       "id": 10
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "pop",
       "typeId": 2,
       "userId": 1,
       "id": 11
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "sprite",
       "typeId": 2,
       "userId": 1,
@@ -352,14 +352,14 @@
       "id": 21
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "lemon",
       "typeId": 1,
       "userId": 1,
       "id": 22
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "mint",
       "typeId": 3,
       "userId": 1,
@@ -415,7 +415,7 @@
       "id": 33
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "midori melon liqueur",
       "typeId": 1,
       "userId": 1,
@@ -474,13 +474,8 @@
   "toGetIngredients": [
     {
       "userId": 1,
-      "ingredientId": 21,
-      "id": 1
-    },
-    {
-      "userId": 1,
-      "ingredientId": 32,
-      "id": 2
+      "ingredientId": 22,
+      "id": 3
     }
   ],
   "types": [
