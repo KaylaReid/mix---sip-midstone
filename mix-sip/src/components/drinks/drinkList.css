@@ -3,7 +3,6 @@
 }
 
 .align-center {
-    /* display: flex; */
     text-align: center;
 }
 
@@ -16,8 +15,24 @@
     justify-content: center;
 }
 
-/* drink list syles */
 
+/* style for all filter bars fields */
+.ui.input > input::-webkit-input-placeholder {
+    font-family: 'Zilla Slab', serif !important;
+}
+
+.ui.input > input {
+    font-family: 'Zilla Slab', serif !important;
+}
+
+/* edit form font  */
+.ui.form input:not([type]), .ui.form input[type=date], .ui.form input[type=datetime-local], .ui.form input[type=email], .ui.form input[type=file], .ui.form input[type=number], .ui.form input[type=password], .ui.form input[type=search], .ui.form input[type=tel], .ui.form input[type=text], .ui.form input[type=time], .ui.form input[type=url]{
+    font-family: 'Zilla Slab', serif !important;
+}
+
+
+
+/* drink list syles */
 .edit-modal {
     padding: 1em;
 }

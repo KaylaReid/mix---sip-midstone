@@ -60,7 +60,7 @@ export default class UserPage extends Component {
 
     render() {
         const panes = [
-            { menuItem: 'Have', render: () => <Tab.Pane attached={false}><OnHandList 
+            { menuItem: 'On Hand', render: () => <Tab.Pane attached={false}><OnHandList 
                                                     ingredients={this.state.ingredients}
                                                     types={this.state.types}
                                                     resetData={this.resetData} /></Tab.Pane> },

@@ -29,6 +29,12 @@
       "password": "asdfasdf",
       "fullName": "asdf",
       "id": 5
+    },
+    {
+      "username": "hjones",
+      "password": "123",
+      "fullName": "Heather Jones",
+      "id": 6
     }
   ],
   "drinks": [
@@ -148,13 +154,6 @@
     },
     {
       "drinkId": 7,
-      "ingredientId": 32,
-      "amount": "2 oz.",
-      "userId": 1,
-      "id": 33
-    },
-    {
-      "drinkId": 7,
       "ingredientId": 30,
       "amount": "1 oz.",
       "userId": 1,
@@ -236,6 +235,13 @@
       "amount": "2 wedges",
       "userId": 1,
       "id": 45
+    },
+    {
+      "drinkId": 7,
+      "ingredientId": 32,
+      "amount": "2 oz.",
+      "userId": 1,
+      "id": 46
     }
   ],
   "ingredients": [
@@ -254,7 +260,7 @@
       "id": 2
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "lime",
       "typeId": 3,
       "userId": 1,
@@ -476,6 +482,26 @@
       "userId": 1,
       "ingredientId": 22,
       "id": 3
+    },
+    {
+      "userId": 1,
+      "ingredientId": 3,
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "ingredientId": 9,
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "ingredientId": 31,
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "ingredientId": 39,
+      "id": 7
     }
   ],
   "types": [

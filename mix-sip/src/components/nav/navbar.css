@@ -39,8 +39,8 @@
     right: 0px;
     margin-right: 1em;
     margin-top: 4em;
-    background-color: #0D4D60;
-    color: rgb(201, 201, 201);
+    /* background-color: #0D4D60;
+    color: rgb(201, 201, 201); */
 }
 
 .welcome {  
@@ -48,4 +48,5 @@
     display: block;
     position: relative;
     top: 40%;
+    font-size: 1.65em;
 }

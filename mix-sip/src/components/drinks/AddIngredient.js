@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Modal, Message, Button, Input } from "semantic-ui-react";
 
+
 export default class AddIngredient extends Component {
     state = { 
         open: false,
@@ -52,7 +53,7 @@ export default class AddIngredient extends Component {
         return (
             <div>
                 <Modal open={open} onOpen={this.open} onClose={this.close} size='tiny' trigger={<Button size="mini">Add a New Ingredient</Button>}>
-                    <Modal.Header>Add your ingredient here, and it will be added to your collection of ingredients to choose from</Modal.Header>
+                    <Modal.Header className="font align-center">Add your ingredient here, and it will be added to your collection of ingredients to choose from</Modal.Header>
                     <Modal.Content>
                         <div className="column">
                             {
@@ -69,7 +70,7 @@ export default class AddIngredient extends Component {
                             }
                             
                             <Input size="medium" className="modal-input input-margin" label={{ content: 'Type' }} labelPosition='left' list="types" id="newIngredientType" onChange={this.handleFieldChange} placeholder="Select Type" />
-                                <datalist id="types">
+                                <datalist id="types" className="font">
                                     {
                                         this.props.types.map(type => <option key={type.id} value={type.name}/>)
                                     }
@@ -79,8 +80,8 @@ export default class AddIngredient extends Component {
                         </div>
                     </Modal.Content>
                     <Modal.Actions>
-                        <Button size="mini" onClick={this.saveNewIngredient}>Save</Button>{' '}
-                        <Button size="mini" onClick={this.close}>Cancel</Button>
+                        <Button size="mini" className="font" onClick={this.saveNewIngredient}>Save</Button>{' '}
+                        <Button size="mini" className="font" onClick={this.close}>Cancel</Button>
                     </Modal.Actions>
                 </Modal>
             </div>

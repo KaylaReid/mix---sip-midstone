@@ -38,7 +38,7 @@ class EditModal extends React.Component {
         }
         DataManager.patch("drinks", saveChanges, this.props.drink.id)
         .then(() => this.props.resetData())
-        .then(() => this.toggle())
+        .then(() => this.close())
     }
 
     show = size => () => this.setState({ size, open: true })

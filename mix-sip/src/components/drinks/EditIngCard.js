@@ -86,18 +86,11 @@ export default class EditIngCard extends Component {
                             }
                             {
                                 !this.props.toGets.find(toGet => toGet.ingredientId === this.props.ingredient.id) &&
-                                <Button animated onClick={this.addToGet}>
+                                <Button animated className="font" onClick={this.addToGet}>
                                     <Button.Content visible><Icon name="add to cart" /></Button.Content>
                                     <Button.Content hidden>Cart</Button.Content>
                                 </Button>
 
-                            }
-                            {
-                                !this.props.ingredient.onHand &&
-                                <Button animated onClick={this.addToOnHand}>
-                                    <Button.Content visible><Icon name="add" /></Button.Content>
-                                    <Button.Content hidden>In stock</Button.Content>
-                                </Button>
                             }
                             {
                                 this.props.ingredient.onHand &&
@@ -106,7 +99,14 @@ export default class EditIngCard extends Component {
                                     <Button.Content hidden>In stock</Button.Content>
                                 </Button>
                             }
-                            <Button animated onClick={this.changeToEdit}>
+                            {
+                                !this.props.ingredient.onHand &&
+                                <Button animated className="font" onClick={this.addToOnHand}>
+                                    <Button.Content visible><Icon name="add" /></Button.Content>
+                                    <Button.Content hidden>In stock</Button.Content>
+                                </Button>
+                            }
+                            <Button animated  className="font" onClick={this.changeToEdit}>
                                 <Button.Content visible><Icon name="edit" /></Button.Content>
                                 <Button.Content hidden>Edit</Button.Content>
                             </Button>

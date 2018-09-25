@@ -36,7 +36,7 @@ export default class DrinkList extends Component {
                                     resetData={this.props.resetData} />
                             {
                                 !this.state.canMix &&
-                                <Button size="mini" onClick={() => this.setState({canMix: true})}>Can Mix Now</Button>
+                                <Button className="font" size="mini" onClick={() => this.setState({canMix: true})}>Can Mix Now</Button>
                             }
                             {
                                 this.state.canMix &&
@@ -45,7 +45,7 @@ export default class DrinkList extends Component {
                         </div>
                         <div className="header-right">
                             <div className="search-bar">
-                                <Input fluid onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" placeholder="Look for drinks"></Input>
+                                <Input className="placeholder-text" fluid onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" placeholder="Look for drinks"></Input>
                             </div>
                         </div>
                     </div>

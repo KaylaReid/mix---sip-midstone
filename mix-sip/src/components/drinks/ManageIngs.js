@@ -11,7 +11,10 @@ class EditIngList extends React.Component {
     }
 
     show = size => () => this.setState({ size, open: true })
-    close = () => this.setState({ open: false })
+    close = () => this.setState({ 
+                        open: false,
+                        search: "" 
+                    })
 
     updateSearch(e) {
         this.setState({search: e.target.value.substr(0, 20)})
