@@ -30,7 +30,7 @@ export default class DrinkCard extends Component {
         const drinkIngredients = this.props.drinkIngredients.filter(drinkIng => drinkIng.drinkId === this.props.drink.id);
         return(
             <React.Fragment>
-                <Card centered className="drink-card">
+                <Card centered className="drink-card card-width">
                     <Card.Content>
                         <Card.Header textAlign="center" className="capitalize font">{this.props.drink.name}</Card.Header>
                         <Divider />
@@ -49,9 +49,11 @@ export default class DrinkCard extends Component {
                                         type: this.props.types.find(type => type.id === mainIng.typeId).name
                                     }
                                     if(ingredient.type === "Base"){
-                                        return (
-                                            <p key={ingredient.id}><span className="capitalize">{ingredient.name}</span> {ingredient.amount}</p>
-                                        )
+                                        if(mainIng.onHand){
+                                            return <p key={ingredient.id}><span className="capitalize in-stock">{ingredient.name}</span> {ingredient.amount}</p>
+                                        } else {
+                                            return <p key={ingredient.id}><span className="capitalize">{ingredient.name}</span> {ingredient.amount}</p>
+                                        }
                                     } else {
                                         return null
                                     }
@@ -72,9 +74,11 @@ export default class DrinkCard extends Component {
                                         type: this.props.types.find(type => type.id === mainIng.typeId).name
                                     }
                                     if(ingredient.type === "Mixer"){
-                                        return (
-                                            <p key={ingredient.id}><span className="capitalize">{ingredient.name}</span> {ingredient.amount}</p>
-                                        )
+                                        if(mainIng.onHand){
+                                            return <p key={ingredient.id}><span className="capitalize in-stock">{ingredient.name}</span> {ingredient.amount}</p>
+                                        } else {
+                                            return <p key={ingredient.id}><span className="capitalize">{ingredient.name}</span> {ingredient.amount}</p>
+                                        }
                                     } else {
                                         return null
                                     }
@@ -94,9 +98,11 @@ export default class DrinkCard extends Component {
                                         type: this.props.types.find(type => type.id === mainIng.typeId).name
                                     }
                                     if(ingredient.type === "Garnish"){
-                                        return (
-                                            <p key={ingredient.id}><span className="capitalize">{ingredient.name}</span> {ingredient.amount}</p>
-                                        )
+                                        if(mainIng.onHand){
+                                            return <p key={ingredient.id}><span className="capitalize in-stock">{ingredient.name}</span> {ingredient.amount}</p>
+                                        } else {
+                                            return <p key={ingredient.id}><span className="capitalize">{ingredient.name}</span> {ingredient.amount}</p>
+                                        }
                                     } else {
                                         return null
                                     }

@@ -1,0 +1,10 @@
+
+.onhand-list {
+    background: white;
+    padding: 1em;
+}
+
+.onHand-contents {
+    display: flex;
+    justify-content: space-between;
+}
