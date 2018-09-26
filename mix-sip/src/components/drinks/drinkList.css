@@ -39,47 +39,27 @@
 
 .drink-list {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-around;
 }
 
-.ui.card, .ui.cards > .card {
-    width: 70% !important;
-}
-
 .card-width {
-    min-width: 70% !important;
-}
-
-.drink-card {
-   width: 70% !important;
-   margin-top: 1em;
-   background-color: rgba(231, 231, 231, 0.911);
+    min-width: 80% !important;
 }
 
 .drink-list-header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    margin-left: -7em;
+}
+
+.margin-top {
+    margin-top: .2em;
 }
 
 .search-bar {
-    width: 250px;
-}
-
-.header-left {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.header-right {
-    display: flex;
-    /* flex-direction: row;
-    position: absolute;
-    left: 0px;
-    margin-left: 2.5em; */
+    width: 275px;
 }
 
 .captain-jack img {

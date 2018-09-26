@@ -1,7 +1,8 @@
 import React from 'react';
 import EditIngCard from "./EditIngCard";
-import { Button , Modal, Divider, Input } from "semantic-ui-react";
+import { Button , Modal, Divider, Input, Menu } from "semantic-ui-react";
 import AddIngredient from "./AddIngredient";
+
 
 
 class EditIngList extends React.Component {
@@ -28,7 +29,7 @@ class EditIngList extends React.Component {
         return (
             <div>
                 <div className="manage-ing-button">
-                    <Button className="blue-button font" size="mini" onClick={this.show('tiny')}>Manage Ingredients</Button>
+                    <Menu.Item onClick={this.show('tiny')}>Manage Ingredients</Menu.Item>
                 </div>
                 <Modal size={size} open={open} onClose={this.close}>
                     <h2 className="justify-center font manage-ing-title">Manage Your Drink Ingredients</h2>

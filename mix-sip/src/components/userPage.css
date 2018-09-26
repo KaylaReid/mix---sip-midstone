@@ -22,19 +22,14 @@ body {
 
 .main-content {
     display: flex;
-    justify-content: space-around;
 }
 
 .main-left {
     width: 60%;
-
+    margin-left: 7em;
 }
 
 .main-right {
     width: 35%;
+    margin-right: 7em;
 }
-
-/* .main-view {
-    width: 100%;
-    min-height: 850px;
-} */

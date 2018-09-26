@@ -61,15 +61,22 @@ export default class UserPage extends Component {
     render() {
         const panes = [
             { menuItem: 'On Hand', render: () => <Tab.Pane attached={false}><OnHandList 
-                                                    ingredients={this.state.ingredients}
-                                                    types={this.state.types}
-                                                    resetData={this.resetData} /></Tab.Pane> },
+            ingredients={this.state.ingredients}
+            types={this.state.types}
+            resetData={this.resetData} /></Tab.Pane> },
             { menuItem: 'To Get', render: () => <Tab.Pane attached={false}><ToGetList 
-                                                    ingredients={this.state.ingredients}
-                                                    types={this.state.types}
-                                                    resetData={this.resetData}
-                                                    user={this.state.user}
-                                                    toGets={this.state.toGets} /></Tab.Pane> },
+            ingredients={this.state.ingredients}
+            types={this.state.types}
+            resetData={this.resetData}
+            user={this.state.user}
+            toGets={this.state.toGets} /></Tab.Pane> },
+            { menuItem: ( <ManageIngs 
+                            user={this.state.user}
+                            toGets={this.state.toGets}
+                            addIngredient={this.addIngredient}
+                            ingredients={this.state.ingredients} 
+                            types={this.state.types}
+                            resetData={this.resetData}/> ) }
           ]
         return (
             <div>
@@ -88,14 +95,7 @@ export default class UserPage extends Component {
                             resetData={this.resetData} />
                     </div>
                     <div className="main-right">
-                        <ManageIngs user={this.state.user}
-                                    toGets={this.state.toGets}
-                                    addIngredient={this.addIngredient}
-                                    ingredients={this.state.ingredients} 
-                                    types={this.state.types}
-                                    resetData={this.resetData}/>
                         <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
-                        
                     </div>
                 </div>
             </div>

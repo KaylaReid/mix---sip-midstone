@@ -502,6 +502,11 @@
       "userId": 1,
       "ingredientId": 39,
       "id": 7
+    },
+    {
+      "userId": 1,
+      "ingredientId": 1,
+      "id": 8
     }
   ],
   "types": [
