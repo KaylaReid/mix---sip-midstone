@@ -25,11 +25,13 @@ body {
 }
 
 .main-left {
-    width: 60%;
+    width: 50%;
     margin-left: 7em;
 }
 
 .main-right {
     width: 35%;
     margin-right: 7em;
+    position: fixed;
+    right: 0;
 }

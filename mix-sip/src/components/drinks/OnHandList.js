@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, Icon, Divider } from "semantic-ui-react"
-import "./onHandList.css";
+import "./manageIngs.css";
 import DataManager from "../../modules/DataManager";
 
 export default class OnHandList extends Component {
@@ -21,7 +21,7 @@ export default class OnHandList extends Component {
                             <div key={`{onHand-${ingredient.id}}`}>
                                 <div className="onHand-contents">
                                     <p className="capitalize">{ingredient.name}</p>
-                                    <Button animated size="mini" className="font" onClick={() => this.removeItem(ingredient)}>
+                                    <Button basic color="blue" animated size="mini" className="font" onClick={() => this.removeItem(ingredient)}>
                                         <Button.Content visible><Icon name="glass martini"></Icon></Button.Content>
                                         <Button.Content hidden>Drank!</Button.Content>
                                     </Button>

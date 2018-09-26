@@ -52,7 +52,7 @@ export default class AddIngredient extends Component {
   
         return (
             <div>
-                <Modal open={open} onOpen={this.open} onClose={this.close} size='tiny' trigger={<Button size="mini">Add a New Ingredient</Button>}>
+                <Modal open={open} onOpen={this.open} onClose={this.close} size='tiny' trigger={<Button size="small">Add a New Ingredient</Button>}>
                     <Modal.Header className="font align-center">Add your ingredient here, and it will be added to your collection of ingredients to choose from</Modal.Header>
                     <Modal.Content>
                         <div className="column">

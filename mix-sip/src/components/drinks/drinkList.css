@@ -30,6 +30,21 @@
     font-family: 'Zilla Slab', serif !important;
 }
 
+/* drink card buttons */
+.wrapper .ui.basic.blue.button, .wrapper .ui.basic.blue.buttons .button {
+    -webkit-box-shadow: 0 0 0 1px #0D4D60 inset!important;
+    box-shadow: 0 0 0 1px #0D4D60 inset!important;
+    border-top-right-radius: .28571429rem;
+    border-bottom-right-radius: .28571429rem;
+    margin-right: .2em !important;
+    color: #0D4D60 !important;
+}
+
+.wrapper .ui.basic.blue.button:hover, .wrapper .ui.basic.blue.buttons .button:hover {
+    -webkit-box-shadow: 0 0 0 1px #0D4D60 inset!important;
+    box-shadow: 0 0 0 1px #0D4D60 inset!important;
+    color: #0D4D60 !important;
+}
 
 
 /* drink list syles */
@@ -41,6 +56,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.ui.card, .ui.cards > .card {
+    background-color: #E7E7E7 !important;
 }
 
 .card-width {
@@ -73,7 +92,7 @@
   margin-left: 1em; 
 }
 
-.blue-button {
+/* .blue-button {
     background-color: #0D4D60;
     font-size: .95em;
 }
@@ -82,12 +101,13 @@
     color: #0D4D60;
     border-color: transparent;
     background-color: transparent;
-}
-.blue-btn-outline:hover {
+} */
+
+/* .blue-btn-outline:hover {
     transform: scale(1);
     background-color: rgba(55, 63, 71, 0.651);
-    /* border-radius: 50%; */
-}
+    border-radius: 50%;
+} */
 
 /* drink card syles*/
 
@@ -157,7 +177,7 @@
 }
 
 .ui.label {
-    background: #FFEEF2;
+    background: rgb(250, 237, 240) !important;
 }
 
 

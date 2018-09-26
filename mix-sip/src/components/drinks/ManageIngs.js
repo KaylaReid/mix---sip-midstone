@@ -27,7 +27,7 @@ class EditIngList extends React.Component {
         })
         const { open, size } = this.state
         return (
-            <div>
+            <div className="manage-ing-list">
                 <div className="manage-ing-button">
                     <Menu.Item onClick={this.show('tiny')}>Manage Ingredients</Menu.Item>
                 </div>
@@ -93,7 +93,7 @@ class EditIngList extends React.Component {
                         }
                     </Modal.Content>
                     <Modal.Actions>
-                        <Button size="tiny" className="bg-blue font" onClick={this.close}>Exit</Button>
+                        <Button size="small" className="font" onClick={this.close}>Exit</Button>
                     </Modal.Actions>
                 </Modal>
             </div>

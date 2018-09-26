@@ -246,7 +246,7 @@
   ],
   "ingredients": [
     {
-      "onHand": true,
+      "onHand": false,
       "name": "gin",
       "typeId": 1,
       "userId": 1,
@@ -260,7 +260,7 @@
       "id": 2
     },
     {
-      "onHand": false,
+      "onHand": true,
       "name": "lime",
       "typeId": 3,
       "userId": 1,
@@ -295,7 +295,7 @@
       "id": 9
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "club soda",
       "typeId": 2,
       "userId": 1,
@@ -351,7 +351,7 @@
       "id": 19
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "bacardi dragon berry rum",
       "typeId": 1,
       "userId": 1,
@@ -407,7 +407,7 @@
       "id": 31
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "coconut rum",
       "typeId": 1,
       "userId": 1,
@@ -485,16 +485,6 @@
     },
     {
       "userId": 1,
-      "ingredientId": 3,
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "ingredientId": 9,
-      "id": 5
-    },
-    {
-      "userId": 1,
       "ingredientId": 31,
       "id": 6
     },
@@ -502,11 +492,6 @@
       "userId": 1,
       "ingredientId": 39,
       "id": 7
-    },
-    {
-      "userId": 1,
-      "ingredientId": 1,
-      "id": 8
     }
   ],
   "types": [
