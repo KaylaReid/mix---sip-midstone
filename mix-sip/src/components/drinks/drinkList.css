@@ -58,6 +58,10 @@
     justify-content: space-around;
 }
 
+.drink-card {
+    
+}
+
 .ui.card, .ui.cards > .card {
     background-color: #E7E7E7 !important;
 }

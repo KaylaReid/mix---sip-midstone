@@ -94,7 +94,7 @@ export default class UserPage extends Component {
                             addIngredient={this.addIngredient}
                             resetData={this.resetData} />
                     </div>
-                    <div className="main-right">
+                    <div className="main-right box-shadow">
                         <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
                     </div>
                 </div>

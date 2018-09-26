@@ -142,10 +142,10 @@ export default class AddDrink extends React.Component {
                 }
                 <Form>
                     <Form.Field>
-                        <Input label={{ content: 'Name' }} labelPosition='left' id="drinkName" type="text" defaultValue={this.state.drinkName} placeholder="What's it called?" onChange={this.handleFieldChange} />
+                        <Input className="box-shadow-light" label={{ content: 'Name' }} labelPosition='left' id="drinkName" type="text" defaultValue={this.state.drinkName} placeholder="What's it called?" onChange={this.handleFieldChange} />
                     </Form.Field>
                     <Form>
-                        <Form.Field>
+                        <Form.Field className="box-shadow-light">
                         <Label attached="top" size="large">Description</Label>
                         <TextArea id="drinkDescription" defaultValue={this.state.drinkDescription} placeholder="Describe your new drink!" onChange={this.handleFieldChange} />
                         </Form.Field>
@@ -174,7 +174,7 @@ export default class AddDrink extends React.Component {
                                     Please select a ingredient!
                                     </Message>
                                 }
-                                <Input label={{ content: "Ingredient"}} labelPosition="left" onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" id="ingredient" placeholder="Search for ingredient by name"></Input>
+                                <Input className="box-shadow-light" label={{ content: "Ingredient"}} labelPosition="left" onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" id="ingredient" placeholder="Search for ingredient by name"></Input>
                                 <div className="queued-ings capitalize">
                                     {
                                         this.state.showIngs &&
@@ -191,7 +191,7 @@ export default class AddDrink extends React.Component {
                                     Please give this ingredient an amount!
                                     </Message>
                                 }
-                                <Input className="input-margin" label={{ content: "Amount"}} labelPosition="left" id="amount" type="text" placeholder="Ex. 1oz.
+                                <Input className="input-margin box-shadow-light" label={{ content: "Amount"}} labelPosition="left" id="amount" type="text" placeholder="Ex. 1oz.
                                 1/2 wedge, 1 squeeze" defaultValue={this.state.amount} onChange={this.handleFieldChange}/>
                             </Form.Field>
                         </Form>
@@ -207,7 +207,7 @@ export default class AddDrink extends React.Component {
                         </div>
                         <Divider />
                     </div>
-                    <Form>
+                    <Form className="box-shadow-light">
                         <Label attached="top" size="large">Directions</Label>
                         <TextArea id="drinkDirections" defaultValue={this.state.drinkDirections} placeholder="Directions to mix the drink!" onChange={this.handleFieldChange} />
                     </Form>

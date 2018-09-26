@@ -30,7 +30,7 @@ export default class DrinkCard extends Component {
         const drinkIngredients = this.props.drinkIngredients.filter(drinkIng => drinkIng.drinkId === this.props.drink.id);
         return(
             <React.Fragment>
-                <Card className="drink-card card-width">
+                <Card className="drink-card card-width box-shadow">
                     <Card.Content>
                         <Card.Header textAlign="center" className="capitalize font">{this.props.drink.name}</Card.Header>
                         <Divider />
