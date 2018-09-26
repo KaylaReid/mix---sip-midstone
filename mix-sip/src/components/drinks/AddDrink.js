@@ -132,8 +132,8 @@ export default class AddDrink extends React.Component {
         return (
         <div>
             
-            <Modal open={open} onOpen={this.open} onClose={this.close} size='tiny'
-                trigger={<Button className="blue-button" size="mini">Add a New Drink!</Button>}>
+            <Modal open={open} onOpen={this.open} onClose={this.close} size='small'
+                trigger={<Button color="blue" className="font" size="small">Add a New Drink!</Button>}>
             <Modal.Header>Add a new drink to your collection!</Modal.Header>
             <Modal.Content>
                 {
@@ -192,7 +192,7 @@ export default class AddDrink extends React.Component {
                                 1/2 wedge, 1 squeeze" defaultValue={this.state.amount} onChange={this.handleFieldChange}/>
                             </Form.Field>
                         </Form>
-                        <Button size="mini" onClick={this.addIngredient}>Add Ingredient to Drink</Button>
+                        <Button size="small" className="font" onClick={this.addIngredient}>Add Ingredient to Drink</Button>
                     </div>
                     <div>
                         <Divider />
@@ -206,8 +206,8 @@ export default class AddDrink extends React.Component {
                     </Form>
             </Modal.Content>
             <Modal.Actions>
-                <Button size="mini" onClick={this.saveDrink}>Save Drink</Button>{' '}
-                <Button size="mini" onClick={this.close}>Cancel</Button>
+                <Button size="small" className="font" onClick={this.saveDrink}>Save Drink</Button>{' '}
+                <Button size="small" className="font" onClick={this.close}>Cancel</Button>
             </Modal.Actions>
             </Modal>
         </div>

@@ -44,7 +44,7 @@ export default class DrinkIngredientCard extends Component {
                     <div>
                         <div className="card-top">
                             <h3 className="capitalize font">{this.props.name}</h3>
-                            <Button animated basic className="blue-btn-outline font" onClick={this.editIng}>
+                            <Button animated basic size="small" className="blue-btn-outline font" onClick={this.editIng}>
                                 <Button.Content visible><Icon name="edit" /></Button.Content>
                                 <Button.Content hidden>Edit</Button.Content>
                             </Button>
@@ -58,7 +58,7 @@ export default class DrinkIngredientCard extends Component {
                         <Divider />
                         <div className="card-top">
                             <h3 className="capitalize font">{this.props.name}</h3>
-                            <Button animated className="font" onClick={this.removeIngredient}>
+                            <Button animated size="small" className="font" onClick={this.removeIngredient}>
                                 <Button.Content visible><Icon name="trash alternate outline" /></Button.Content>
                                 <Button.Content hidden>Remove</Button.Content>
                             </Button>

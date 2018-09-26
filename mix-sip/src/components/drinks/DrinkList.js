@@ -41,11 +41,11 @@ export default class DrinkList extends Component {
                         <div className="margin-top">
                             {
                                 !this.state.canMix &&
-                                <Button className="font" size="mini" onClick={() => this.setState({canMix: true})}>Can Mix Now</Button>
+                                <Button className="font" color="blue" size="small" onClick={() => this.setState({canMix: true})}>Can Mix Now</Button>
                             }
                             {
                                 this.state.canMix &&
-                                <Button size="mini" onClick={() => this.setState({canMix: false})}>All Drinks</Button>
+                                <Button className="font" color="blue" size="small" onClick={() => this.setState({canMix: false})}>All Drinks</Button>
                             }
                         </div>
                     </div>
