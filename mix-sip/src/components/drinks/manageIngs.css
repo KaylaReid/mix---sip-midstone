@@ -81,7 +81,7 @@
 
 
 .ui.segment {
-    background-color: #E7E7E7 !important;
+    background: linear-gradient(to bottom, white, #E7E7E7 , #E7E7E7, #E7E7E7) !important;
 }
 
 .ui.menu {
