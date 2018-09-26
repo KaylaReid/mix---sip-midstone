@@ -351,7 +351,7 @@
       "id": 19
     },
     {
-      "onHand": false,
+      "onHand": true,
       "name": "bacardi dragon berry rum",
       "typeId": 1,
       "userId": 1,
@@ -407,7 +407,7 @@
       "id": 31
     },
     {
-      "onHand": false,
+      "onHand": true,
       "name": "coconut rum",
       "typeId": 1,
       "userId": 1,

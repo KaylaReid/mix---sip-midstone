@@ -92,23 +92,6 @@
   margin-left: 1em; 
 }
 
-/* .blue-button {
-    background-color: #0D4D60;
-    font-size: .95em;
-}
-
-.blue-btn-outline {
-    color: #0D4D60;
-    border-color: transparent;
-    background-color: transparent;
-} */
-
-/* .blue-btn-outline:hover {
-    transform: scale(1);
-    background-color: rgba(55, 63, 71, 0.651);
-    border-radius: 50%;
-} */
-
 /* drink card syles*/
 
 .card-top {
@@ -228,6 +211,25 @@
     display: flex;
     justify-content: center;
 }
+
+.add-new-ing-container{
+    display: flex;
+    flex-direction: column;
+}
+.add-new-ing-item {
+    justify-content: center;
+    display: flex;
+}
+
+.add-new-ing-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.queued-ings {
+    padding-top: 1em;
+}
+
 
 /* .ui.button:hover {
     background-color: red !important;

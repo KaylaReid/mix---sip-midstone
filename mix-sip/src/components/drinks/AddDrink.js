@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, Input, Message, Form, TextArea, Divider } from 'semantic-ui-react';
+import { Button, Modal, Input, Message, Form, TextArea, Divider, Label } from 'semantic-ui-react';
 import DataManager from "../../modules/DataManager"
 import AddIngredient from './AddIngredient';
 
@@ -134,7 +134,7 @@ export default class AddDrink extends React.Component {
             
             <Modal open={open} onOpen={this.open} onClose={this.close} size='small'
                 trigger={<Button color="blue" className="font" size="small">Add a New Drink!</Button>}>
-            <Modal.Header>Add a new drink to your collection!</Modal.Header>
+            <Modal.Header className="font align-center">Add a new drink to your collection!</Modal.Header>
             <Modal.Content>
                 {
                     this.state.isEmpty &&
@@ -144,13 +144,15 @@ export default class AddDrink extends React.Component {
                     <Form.Field>
                         <Input label={{ content: 'Name' }} labelPosition='left' id="drinkName" type="text" defaultValue={this.state.drinkName} placeholder="What's it called?" onChange={this.handleFieldChange} />
                     </Form.Field>
-                    <Form.Field>
-                        <label>Description:</label>
+                    <Form>
+                        <Form.Field>
+                        <Label attached="top" size="large">Description</Label>
                         <TextArea id="drinkDescription" defaultValue={this.state.drinkDescription} placeholder="Describe your new drink!" onChange={this.handleFieldChange} />
-                    </Form.Field>
+                        </Form.Field>
+                    </Form>
                 </Form>
-                <Divider />
-                <div>
+                <Divider horizontal>Added Ingredients</Divider>
+                <div className="align-center">
                     {   
                         this.state.inputIngredients.map(ing => {
                             return <p key={`drink-${ing.name}`}><span className="capitalize">{ing.name}</span> {ing.amount}</p>
@@ -158,7 +160,6 @@ export default class AddDrink extends React.Component {
                     }
                   
                 </div>
-                <label>Add ingredients:</label>
                     {
                         this.state.alreadyQueued &&
                         <Message info>This ingredient is aleady queued to be added to this drink mix.</Message>
@@ -173,13 +174,15 @@ export default class AddDrink extends React.Component {
                                     Please select a ingredient!
                                     </Message>
                                 }
-                                <Input label={{ content: "Ingredients"}} labelPosition="left" onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" id="ingredient" placeholder="Search for ingredient by name"></Input>
-                                {
-                                    this.state.showIngs &&
-                                    filteredIngredients.map(ing => {
-                                        return <option id="ingredient" onClick={this.selectIngredient} key={ing.id}>{ing.name}</option>
-                                    })
-                                }
+                                <Input label={{ content: "Ingredient"}} labelPosition="left" onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" id="ingredient" placeholder="Search for ingredient by name"></Input>
+                                <div className="queued-ings capitalize">
+                                    {
+                                        this.state.showIngs &&
+                                        filteredIngredients.map(ing => {
+                                            return <option id="ingredient" onClick={this.selectIngredient} key={ing.id}>{ing.name}</option>
+                                        })
+                                    }
+                                </div>
                             </Form.Field>
                             <Form.Field>
                                 {
@@ -192,16 +195,20 @@ export default class AddDrink extends React.Component {
                                 1/2 wedge, 1 squeeze" defaultValue={this.state.amount} onChange={this.handleFieldChange}/>
                             </Form.Field>
                         </Form>
-                        <Button size="small" className="font" onClick={this.addIngredient}>Add Ingredient to Drink</Button>
+                        <div className="add-new-ing-btn">
+                            <Button size="small" color="blue" className="font" onClick={this.addIngredient}>Add Ingredient to Drink</Button>
+                        </div>
                     </div>
-                    <div>
-                        <Divider />
-                        <p>Don't see the ingredient your looking for? Add a New one!</p>
-                        <AddIngredient user={this.props.user} types={this.props.types} ingredients={this.props.ingredients} addIngredient={this.props.addIngredient} />
+                    <Divider />
+                    <div className="add-new-ing-container">
+                        <h4 className="font add-new-ing-item">Don't see the ingredient your looking for? Add a New one!</h4>
+                        <div className="add-new-ing-item">
+                            <AddIngredient user={this.props.user} types={this.props.types} ingredients={this.props.ingredients} addIngredient={this.props.addIngredient} />
+                        </div>
                         <Divider />
                     </div>
                     <Form>
-                        <label>Directions:</label>
+                        <Label attached="top" size="large">Directions</Label>
                         <TextArea id="drinkDirections" defaultValue={this.state.drinkDirections} placeholder="Directions to mix the drink!" onChange={this.handleFieldChange} />
                     </Form>
             </Modal.Content>

@@ -66,6 +66,11 @@
     background-color: #0D4D60 !important; 
 }
 
+.wrapper .ui.button:focus {
+    color: white !important;
+    background-color: #0D4D60 !important; 
+}
+
 
 .ui.segment {
     background-color: #E7E7E7 !important;
@@ -77,7 +82,7 @@
 
 .ui.secondary.pointing.menu {
     border-bottom: 2px solid rgb(16, 94, 117);
-    /* background-color: black; */
+    /* background-color: #E7E7E7; */
     /* border-radius: 5px; */
     font-family: 'Zilla Slab', serif !important;
 }
