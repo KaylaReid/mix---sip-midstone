@@ -60,7 +60,7 @@
       "id": 6
     },
     {
-      "name": "coconut rum ",
+      "name": "coconut rum",
       "description": "SOOOO tasty",
       "directions": "Shake ice, lime, simple syrup, and coconut rum together. Pour over ice and then top with tonic and garnish with lime!",
       "userId": 1,
@@ -358,8 +358,8 @@
       "id": 21
     },
     {
-      "onHand": false,
-      "name": "lemon",
+      "onHand": true,
+      "name": "white wine",
       "typeId": 1,
       "userId": 1,
       "id": 22
@@ -379,7 +379,7 @@
       "id": 24
     },
     {
-      "onHand": false,
+      "onHand": true,
       "name": "lime juice",
       "typeId": 3,
       "userId": 1,
@@ -471,7 +471,7 @@
     },
     {
       "onHand": false,
-      "name": "tennessee honey",
+      "name": "red wine",
       "typeId": 1,
       "userId": 1,
       "id": 41

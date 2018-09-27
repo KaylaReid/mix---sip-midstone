@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Input, Message } from 'semantic-ui-react'
+import { Button, Input, Message, Divider, Form} from 'semantic-ui-react'
 import DataManager from "../../modules/DataManager"
 import AddIngredient from './AddIngredient';
 
@@ -122,19 +122,19 @@ export default class AddIngEdit extends Component {
                 <div>
                     {
                         !this.state.hideAddIngBtn &&
-                        <Button size="mini" onClick={this.changeState}>Add a new ingredient</Button>
+                        <Button size="small" className="font" onClick={this.changeState}>Add a new ingredient</Button>
                     }
                 </div>
                 <div>
                 {
                     this.state.showAddIng && 
                     <div>
+                        <h4 className="font align-center">Add ingredients</h4>
                         {
                             this.state.inputIngredients.map(ing => {
-                                return <p key={`drink-${ing.ingredientId}`}><span className="capitalize">{ing.name}</span> {ing.amount}</p>
+                                return <p key={`drink-${ing.ingredientId}`}><span className="capitalize font">{ing.name}</span> {ing.amount}</p>
                             })
                         }
-                        <label>Add ingredients:</label>
                         {
                             this.state.alreadyInDrink &&
                             <Message info>This ingredienet is aleady in this drink mix. Try editing the amount instead!</Message>
@@ -151,32 +151,37 @@ export default class AddIngEdit extends Component {
                                 Please select a ingredient!
                                 </Message>
                             }
-                            <Input onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" placeholder="Search for ingredient by name"></Input>
-                            {
-                                this.state.showIngs &&
-                                filteredIngredients.map(ing => {
-                                    return <option id="ingredient" 
-                                    onClick={this.selcetIngredient} key={ing.id}>{ing.name}</option>
-                                })
-                            }
-                            {
-                                this.state.amountIsBlank && 
-                                <Message info>
-                                Please give this ingredient an amount!
-                                </Message>
-                            }
-                            <label>Amount:</label>
-                            <Input id="amount" type="text" placeholder="Ex. 1oz.
-                            1/2 wedge, 1 squeeze" defaultValue={this.state.amount} onChange={this.handleFieldChange}/>
+                            <Form>
+                                <Input fluid className="font" onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" label={{ content: 'Ingredient'}} placeholder="Search for an ingredient by name"></Input>
+                                {
+                                    this.state.showIngs &&
+                                    filteredIngredients.map(ing => {
+                                        return <option className="font" id="ingredient" 
+                                        onClick={this.selcetIngredient} key={ing.id}>{ing.name}</option>
+                                    })
+                                }
+                                {
+                                    this.state.amountIsBlank && 
+                                    <Message info>
+                                    Please give this ingredient an amount!
+                                    </Message>
+                                }
+                            </Form>
+                            <Form>
+                                <Input fluid className="font" id="amount" type="text" label={{ content: 'Amount'}} placeholder="Ex. 1oz.
+                                1/2 wedge, 1 squeeze" defaultValue={this.state.amount} onChange={this.handleFieldChange} />
+                            </Form>
                         </div>
                         <div>
-                            <Button size="mini" onClick={this.addIngredient}>Add Ingredient to Drink</Button>
-                            <Button size="mini" onClick={this.saveAdded}>Save Added Ingredients</Button>
+                            <Button size="small" className="font" onClick={this.addIngredient}>Add to Drink</Button>
+                            <Button size="small" className="font" onClick={this.saveAdded}>Save Added Ingredients</Button>
+                            <Divider />
                             <div>
-                                <label>Don't see the ingredient your looking for? Add a New one!</label><br/>
+                                <h4 className="font align-center">Don't see the ingredient your looking for? Add a New one!</h4>
                                 <AddIngredient user={this.props.user} types={this.props.types} ingredients={this.props.ingredients} addIngredient={this.props.addIngredient} />
                             </div> 
                         </div>
+                        <Divider />
                     </div>
                 }
                 </div>

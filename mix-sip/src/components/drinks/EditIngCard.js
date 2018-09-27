@@ -33,15 +33,15 @@ export default class EditIngCard extends Component {
             this.setState({isBank: true})
        } else {
            const update = {
-               name: this.state.name
+               name: this.state.name.toLowerCase()
            }
            DataManager.patch("ingredients", update, this.props.ingredient.id)
-           .then(() => {this.props.resetData()})
            .then(() => this.setState({
                edit: false,
                isBank: false,
                alreadyHave:false
             }))
+            .then(() => {this.props.resetData()})
        }
     }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import DrinkIngredientCard from './DrinkIngredientCard';
 import DataManager from "../../modules/DataManager";
 import AddIngEdit from "./AddIngEdit";
-import { Modal, Button, Icon, Form } from "semantic-ui-react";
+import { Modal, Button, Icon, Form, Input, Divider } from "semantic-ui-react";
 
 
 class EditModal extends React.Component {
@@ -54,17 +54,16 @@ class EditModal extends React.Component {
                     <Button.Content hidden className="font">Edit</Button.Content>
                 </Button>
                 <Modal size={size} open={open} onClose={this.close}>
+                    <Modal.Header className="font align-center">Edit this drink!</Modal.Header>
                     <Modal.Content>
                         <Form>
-                            <label htmlFor="name">Drink Name:</label>
-                            <input type="text" className="form-control" onChange={this.handleFieldChange} id="name" defaultValue={this.props.drink.name} />
+                            <Input fluid className="form-control" type="text" label={{ content: 'Name'}}  onChange={this.handleFieldChange} id="name" defaultValue={this.props.drink.name} />
 
-                            <label htmlFor="description">Drink Description:</label>
-                            <input type="text" className="form-control" onChange={this.handleFieldChange} id="description" defaultValue={this.props.drink.description} />
-                            
-                            <label htmlFor="directions">Mixing Directions:</label>
-                            <input type="text" className="form-control" onChange={this.handleFieldChange} id="directions" defaultValue={this.props.drink.directions} />
+                            <Input fluid className="form-control" type="text" label={{ content: 'Description'}} onChange={this.handleFieldChange} id="description" defaultValue={this.props.drink.description} />
+
+                            <Input fluid className="form-control" type="text" label={{ content: 'Directions'}} onChange={this.handleFieldChange} id="directions" defaultValue={this.props.drink.directions} />
                         </Form>
+                        <Divider />
                         <div>
                             <AddIngEdit ingredients={this.props.ingredients}
                                 types={this.props.types}
@@ -75,6 +74,7 @@ class EditModal extends React.Component {
                                 resetData={this.props.resetData}
                                 />
                         </div>
+                        <Divider />
                         <div>
                             {
                                 this.props.drinkIngredients.filter(di => di.drinkId === this.props.drink.id).map(di => {

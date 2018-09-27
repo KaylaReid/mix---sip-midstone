@@ -22,7 +22,11 @@ export default class AddDrink extends React.Component {
 
     open = () => this.setState({ open: true })
     close = () => {
-        this.setState({ open: false })
+        this.setState({ 
+                open: false,
+                amountIsBlank: false,
+                selectIng: false
+            })
         this.resetForm()
     }
     
