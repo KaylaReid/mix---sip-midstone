@@ -1,7 +1,8 @@
 import React from 'react';
 import EditIngCard from "./EditIngCard";
-import { Button , Modal, Divider, Input } from "semantic-ui-react";
+import { Button , Modal, Divider, Input, Menu } from "semantic-ui-react";
 import AddIngredient from "./AddIngredient";
+
 
 
 class EditIngList extends React.Component {
@@ -11,7 +12,10 @@ class EditIngList extends React.Component {
     }
 
     show = size => () => this.setState({ size, open: true })
-    close = () => this.setState({ open: false })
+    close = () => this.setState({ 
+                        open: false,
+                        search: "" 
+                    })
 
     updateSearch(e) {
         this.setState({search: e.target.value.substr(0, 20)})
@@ -23,9 +27,9 @@ class EditIngList extends React.Component {
         })
         const { open, size } = this.state
         return (
-            <div>
+            <div className="manage-ing-list">
                 <div className="manage-ing-button">
-                    <Button className="blue-button font" size="mini" onClick={this.show('tiny')}>Manage Ingredients</Button>
+                    <Menu.Item onClick={this.show('tiny')}>Manage Ingredients</Menu.Item>
                 </div>
                 <Modal size={size} open={open} onClose={this.close}>
                     <h2 className="justify-center font manage-ing-title">Manage Your Drink Ingredients</h2>
@@ -89,7 +93,7 @@ class EditIngList extends React.Component {
                         }
                     </Modal.Content>
                     <Modal.Actions>
-                        <Button size="tiny" className="bg-blue font" onClick={this.close}>Exit</Button>
+                        <Button size="small" className="font" onClick={this.close}>Exit</Button>
                     </Modal.Actions>
                 </Modal>
             </div>

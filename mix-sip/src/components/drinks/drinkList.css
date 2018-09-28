@@ -3,7 +3,6 @@
 }
 
 .align-center {
-    /* display: flex; */
     text-align: center;
 }
 
@@ -16,55 +15,82 @@
     justify-content: center;
 }
 
-/* drink list syles */
+.margin-bottom {
+    margin-bottom: 1em;
+}
 
+.margin-t-b {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+/* style for all filter bars fields */
+.ui.input > input::-webkit-input-placeholder {
+    font-family: 'Zilla Slab', serif !important;
+}
+
+.ui.input > input {
+    font-family: 'Zilla Slab', serif !important;
+}
+
+/* edit form font  */
+.ui.form input:not([type]), .ui.form input[type=date], .ui.form input[type=datetime-local], .ui.form input[type=email], .ui.form input[type=file], .ui.form input[type=number], .ui.form input[type=password], .ui.form input[type=search], .ui.form input[type=tel], .ui.form input[type=text], .ui.form input[type=time], .ui.form input[type=url]{
+    font-family: 'Zilla Slab', serif !important;
+}
+
+/* drink card buttons */
+.wrapper .ui.basic.blue.button, .wrapper .ui.basic.blue.buttons .button {
+    -webkit-box-shadow: 0 0 0 1px #0D4D60 inset!important;
+    box-shadow: 0 0 0 1px #0D4D60 inset!important;
+    border-top-right-radius: .28571429rem;
+    border-bottom-right-radius: .28571429rem;
+    margin-right: .2em !important;
+    color: #0D4D60 !important;
+}
+
+.wrapper .ui.basic.blue.button:hover, .wrapper .ui.basic.blue.buttons .button:hover {
+    -webkit-box-shadow: 0 0 0 1px #0D4D60 inset!important;
+    box-shadow: 0 0 0 1px #0D4D60 inset!important;
+    color: #0D4D60 !important;
+}
+
+
+/* drink list syles */
 .edit-modal {
     padding: 1em;
 }
 
 .drink-list {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-around;
 }
 
+.drink-card {
+    
+}
+
 .ui.card, .ui.cards > .card {
-    width: 70% !important;
+    background: linear-gradient(to bottom, white, whitesmoke, #E7E7E7 , #E7E7E7, #E7E7E7) !important;
 }
 
 .card-width {
-    min-width: 70% !important;
-}
-
-.drink-card {
-   width: 70% !important;
-   margin-top: 1em;
-   background-color: rgba(231, 231, 231, 0.911);
+    min-width: 80% !important;
 }
 
 .drink-list-header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    margin-left: -7em;
+}
+
+.margin-top {
+    margin-top: .2em;
 }
 
 .search-bar {
-    width: 250px;
-}
-
-.header-left {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.header-right {
-    display: flex;
-    /* flex-direction: row;
-    position: absolute;
-    left: 0px;
-    margin-left: 2.5em; */
+    width: 275px;
 }
 
 .captain-jack img {
@@ -76,22 +102,6 @@
 
 .manage-ing-button {
   margin-left: 1em; 
-}
-
-.blue-button {
-    background-color: #0D4D60;
-    font-size: .95em;
-}
-
-.blue-btn-outline {
-    color: #0D4D60;
-    border-color: transparent;
-    background-color: transparent;
-}
-.blue-btn-outline:hover {
-    transform: scale(1);
-    background-color: rgba(55, 63, 71, 0.651);
-    /* border-radius: 50%; */
 }
 
 /* drink card syles*/
@@ -162,7 +172,7 @@
 }
 
 .ui.label {
-    background: #FFEEF2;
+    background: rgb(250, 237, 240) !important;
 }
 
 
@@ -214,4 +224,33 @@
     justify-content: center;
 }
 
+.add-new-ing-container{
+    display: flex;
+    flex-direction: column;
+}
+.add-new-ing-item {
+    justify-content: center;
+    display: flex;
+}
 
+.add-new-ing-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.ui.button:focus {
+    color: white !important;
+    background-color: #0D4D60 !important; 
+}
+
+.drink-ing-card .ui.basic.button, .drink-ing-card .ui.basic.buttons .button {
+    color: #0D4D60 !important;
+}
+
+.drink-ing-card .ui.basic.button:hover, .drink-ing-card .ui.basic.buttons .button:hover {
+    color: #0D4D60 !important;
+}
+
+.drink-ing-card .ui.button {
+    border-color: #0D4D60 !important;
+}

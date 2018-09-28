@@ -2,7 +2,7 @@ import React from 'react';
 import DrinkIngredientCard from './DrinkIngredientCard';
 import DataManager from "../../modules/DataManager";
 import AddIngEdit from "./AddIngEdit";
-import { Modal, Button, Icon, Form } from "semantic-ui-react";
+import { Modal, Button, Icon, Form, Input, Divider, TextArea, Label } from "semantic-ui-react";
 
 
 class EditModal extends React.Component {
@@ -38,7 +38,7 @@ class EditModal extends React.Component {
         }
         DataManager.patch("drinks", saveChanges, this.props.drink.id)
         .then(() => this.props.resetData())
-        .then(() => this.toggle())
+        .then(() => this.close())
     }
 
     show = size => () => this.setState({ size, open: true })
@@ -49,22 +49,25 @@ class EditModal extends React.Component {
     const { open, size } = this.state
         return (
             <div>     
-                <Button animated onClick={this.show('tiny')}>
+                <Button basic color="blue" animated onClick={this.show('tiny')}>
                     <Button.Content visible><Icon name="edit" /></Button.Content>
                     <Button.Content hidden className="font">Edit</Button.Content>
                 </Button>
                 <Modal size={size} open={open} onClose={this.close}>
+                    <Modal.Header className="font align-center">Edit this drink!</Modal.Header>
                     <Modal.Content>
-                        <Form>
-                            <label htmlFor="name">Drink Name:</label>
-                            <input type="text" className="form-control" onChange={this.handleFieldChange} id="name" defaultValue={this.props.drink.name} />
-
-                            <label htmlFor="description">Drink Description:</label>
-                            <input type="text" className="form-control" onChange={this.handleFieldChange} id="description" defaultValue={this.props.drink.description} />
-                            
-                            <label htmlFor="directions">Mixing Directions:</label>
-                            <input type="text" className="form-control" onChange={this.handleFieldChange} id="directions" defaultValue={this.props.drink.directions} />
+                        <Form className="margin-bottom box-shadow-light">
+                            <Input fluid className="font" type="text" label={{ content: 'Name'}}  onChange={this.handleFieldChange} id="name" defaultValue={this.props.drink.name} />
                         </Form>
+                        <Form className="margin-bottom box-shadow-light">
+                            <Label attached="top" size="large">Description</Label>
+                            <TextArea className="font" type="text" onChange={this.handleFieldChange} id="description" defaultValue={this.props.drink.description} />
+                        </Form>
+                        <Form className="margin-bottom box-shadow-light">
+                            <Label attached="top" size="large">Directions</Label>  
+                            <TextArea className="font" type="text" label={{ content: 'Directions'}} onChange={this.handleFieldChange} id="directions" defaultValue={this.props.drink.directions} />
+                        </Form>
+                        <Divider />
                         <div>
                             <AddIngEdit ingredients={this.props.ingredients}
                                 types={this.props.types}
@@ -75,6 +78,7 @@ class EditModal extends React.Component {
                                 resetData={this.props.resetData}
                                 />
                         </div>
+                        <Divider />
                         <div>
                             {
                                 this.props.drinkIngredients.filter(di => di.drinkId === this.props.drink.id).map(di => {
@@ -90,8 +94,8 @@ class EditModal extends React.Component {
                         </div>
                     </Modal.Content>  
                     <Modal.Actions>
-                        <Button size="mini" className="font" onClick={this.saveChanges}>Save Changes</Button>{' '}
-                        <Button size="mini" className="font" onClick={this.close}>Cancel</Button>
+                        <Button size="small" className="font" onClick={this.saveChanges}>Save Changes</Button>{' '}
+                        <Button size="small" className="font" onClick={this.close}>Cancel</Button>
                     </Modal.Actions>
                 </Modal>
             </div>

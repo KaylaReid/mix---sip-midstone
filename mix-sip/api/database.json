@@ -29,6 +29,12 @@
       "password": "asdfasdf",
       "fullName": "asdf",
       "id": 5
+    },
+    {
+      "username": "hjones",
+      "password": "123",
+      "fullName": "Heather Jones",
+      "id": 6
     }
   ],
   "drinks": [
@@ -54,7 +60,7 @@
       "id": 6
     },
     {
-      "name": "coconut rum ",
+      "name": "coconut rum",
       "description": "SOOOO tasty",
       "directions": "Shake ice, lime, simple syrup, and coconut rum together. Pour over ice and then top with tonic and garnish with lime!",
       "userId": 1,
@@ -148,13 +154,6 @@
     },
     {
       "drinkId": 7,
-      "ingredientId": 32,
-      "amount": "2 oz.",
-      "userId": 1,
-      "id": 33
-    },
-    {
-      "drinkId": 7,
       "ingredientId": 30,
       "amount": "1 oz.",
       "userId": 1,
@@ -236,6 +235,13 @@
       "amount": "2 wedges",
       "userId": 1,
       "id": 45
+    },
+    {
+      "drinkId": 7,
+      "ingredientId": 32,
+      "amount": "2 oz.",
+      "userId": 1,
+      "id": 46
     }
   ],
   "ingredients": [
@@ -247,7 +253,7 @@
       "id": 1
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "tonic",
       "typeId": 2,
       "userId": 1,
@@ -289,7 +295,7 @@
       "id": 9
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "club soda",
       "typeId": 2,
       "userId": 1,
@@ -352,8 +358,8 @@
       "id": 21
     },
     {
-      "onHand": false,
-      "name": "lemon",
+      "onHand": true,
+      "name": "white wine",
       "typeId": 1,
       "userId": 1,
       "id": 22
@@ -373,7 +379,7 @@
       "id": 24
     },
     {
-      "onHand": false,
+      "onHand": true,
       "name": "lime juice",
       "typeId": 3,
       "userId": 1,
@@ -465,7 +471,7 @@
     },
     {
       "onHand": false,
-      "name": "tennessee honey",
+      "name": "red wine",
       "typeId": 1,
       "userId": 1,
       "id": 41
@@ -476,6 +482,16 @@
       "userId": 1,
       "ingredientId": 22,
       "id": 3
+    },
+    {
+      "userId": 1,
+      "ingredientId": 39,
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "ingredientId": 10,
+      "id": 8
     }
   ],
   "types": [

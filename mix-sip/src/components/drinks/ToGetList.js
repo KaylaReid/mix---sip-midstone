@@ -22,7 +22,7 @@ export default class ToGetList extends Component {
                             <div key={`{toGet-${item.id}}`}>
                                 <div className="onHand-contents">
                                     <p className="capitalize">{ingredient.name}</p>
-                                    <Button animated size="mini" className="font" onClick={() => this.removeFromToGet(item, ingredient)}>
+                                    <Button basic color="blue" animated size="mini" className="font" onClick={() => this.removeFromToGet(item, ingredient)}>
                                         <Button.Content visible><Icon name="credit card" /></Button.Content>
                                         <Button.Content hidden>Bought</Button.Content>
                                     </Button>
