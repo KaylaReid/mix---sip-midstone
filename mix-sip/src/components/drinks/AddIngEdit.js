@@ -44,14 +44,12 @@ export default class AddIngEdit extends Component {
         } else if(betterIngs.find(ing => ing.name === this.state.ingredient)){
             this.setState({
                 alreadyInDrink: true,
-                alreadyQueued: false, 
-                showIngs: true
+                alreadyQueued: false
             })
         } else if(this.state.inputIngredients.find(ing => ing.name.toLowerCase() === this.state.ingredient.toLowerCase())){
             this.setState({
                 alreadyQueued: true,
-                alreadyInDrink: false,
-                showIngs: true
+                alreadyInDrink: false
             })
         } else {
             let inputIngredients = this.state.inputIngredients  
@@ -103,8 +101,7 @@ export default class AddIngEdit extends Component {
     selcetIngredient = (e) => {
         this.handleFieldChange(e)
         this.setState({
-            search: e.target.value,
-            // showIngs: false
+            search: e.target.value
         })
     }
 
@@ -178,12 +175,12 @@ export default class AddIngEdit extends Component {
                                 1/2 wedge, 1 squeeze" defaultValue={this.state.amount} onChange={this.handleFieldChange} />
                             </Form>
                         </div>
-                        <div>
+                        <div className="font align-center">
                             <Button size="small" className="font" onClick={this.addIngredient}>Add to Drink</Button>
                             <Button size="small" className="font" onClick={this.saveAdded}>Save Added Ingredients</Button>
                             <Divider />
                             <div>
-                                <h4 className="font align-center">Don't see the ingredient your looking for? Add a New one!</h4>
+                                <h4 className="font">Don't see the ingredient your looking for? Add a New one!</h4>
                                 <AddIngredient user={this.props.user} types={this.props.types} ingredients={this.props.ingredients} addIngredient={this.props.addIngredient} />
                             </div> 
                         </div>

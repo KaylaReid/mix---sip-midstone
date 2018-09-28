@@ -242,6 +242,13 @@
       "amount": "2 oz.",
       "userId": 1,
       "id": 46
+    },
+    {
+      "drinkId": 7,
+      "ingredientId": 28,
+      "amount": "12",
+      "userId": 1,
+      "id": 47
     }
   ],
   "ingredients": [

@@ -55,17 +55,16 @@ export default class DrinkIngredientCard extends Component {
                 {
                     this.state.edit && 
                     <div>
-                        <Divider />
                         <div className="card-top">
                             <h3 className="capitalize font">{this.props.name}</h3>
-                            <Button animated size="small" className="font" onClick={this.removeIngredient}>
+                            <Button basic blue animated size="small" className="font" onClick={this.removeIngredient}>
                                 <Button.Content visible><Icon name="trash alternate outline" /></Button.Content>
                                 <Button.Content hidden>Remove</Button.Content>
                             </Button>
                         </div>
                         <div className="card-bottom">
-                            <Input type="text" className="form-control" onChange={this.handleFieldChange} id="amount" defaultValue={this.props.drinkIngredient.amount} />
-                            <Button animated className="font" onClick={this.saveChanges}>
+                            <Input type="text" className="font" label={{ content: 'Amount'}} onChange={this.handleFieldChange} id="amount" defaultValue={this.props.drinkIngredient.amount} />
+                            <Button basic blue animated size="small" className="font" onClick={this.saveChanges}>
                                 <Button.Content visible><Icon name="checkmark" /></Button.Content>
                                 <Button.Content hidden>Update</Button.Content>
                             </Button>

@@ -108,7 +108,6 @@ export default class AddDrink extends React.Component {
                 builtIngredients.map(joiner => DataManager.add("drinkIngredients", joiner))
             })
             .then(() => this.props.resetData())
-            // .then(() => this.resetForm())
             .then(() => this.close())
         }
     }
@@ -116,8 +115,7 @@ export default class AddDrink extends React.Component {
     selectIngredient = (e) => {
         this.handleFieldChange(e)
         this.setState({
-            search: e.target.value,
-            showIngs: false
+            search: e.target.value
         })
     }
 
@@ -156,7 +154,7 @@ export default class AddDrink extends React.Component {
                     </Form.Field>
                 </Form>
                 <Divider horizontal>Added Ingredients</Divider>
-                <div className="align-center">
+                <div className="align-center margin-bottom">
                     {   
                         this.state.inputIngredients.map(ing => {
                             return <p key={`drink-${ing.name}`}><span className="capitalize">{ing.name}</span> {ing.amount}</p>
@@ -179,11 +177,11 @@ export default class AddDrink extends React.Component {
                                     </Message>
                                 }
                                 <Input className="box-shadow-light" label={{ content: "Ingredient"}} labelPosition="left" onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" id="ingredient" placeholder="Search for ingredient by name"></Input>
-                                <div className="queued-ings capitalize">
+                                <div className="queued-ings capitalize margin-t-b">
                                     {
                                         this.state.showIngs &&
                                         filteredIngredients.map(ing => {
-                                            return <option id="ingredient" onClick={this.selectIngredient} key={ing.id}>{ing.name}</option>
+                                            return <Message floating key={ing.id} size="mini"><option id="ingredient" onClick={this.selectIngredient}>{ing.name}</option></Message>
                                         })
                                     }
                                 </div>

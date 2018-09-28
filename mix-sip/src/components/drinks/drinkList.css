@@ -19,6 +19,10 @@
     margin-bottom: 1em;
 }
 
+.margin-t-b {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
 
 /* style for all filter bars fields */
 .ui.input > input::-webkit-input-placeholder {
@@ -234,8 +238,7 @@
     justify-content: center;
 }
 
-/* .ui.button:hover {
-    background-color: red !important;
-
-} */
-
+.ui.button:focus {
+    color: white !important;
+    background-color: #0D4D60 !important; 
+}
