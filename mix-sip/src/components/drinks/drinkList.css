@@ -15,6 +15,10 @@
     justify-content: center;
 }
 
+.margin-bottom {
+    margin-bottom: 1em;
+}
+
 
 /* style for all filter bars fields */
 .ui.input > input::-webkit-input-placeholder {
@@ -63,7 +67,7 @@
 }
 
 .ui.card, .ui.cards > .card {
-    background: linear-gradient(to bottom, white, white, whitesmoke, #E7E7E7 , #E7E7E7, #E7E7E7) !important;
+    background: linear-gradient(to bottom, white, whitesmoke, #E7E7E7 , #E7E7E7, #E7E7E7) !important;
 }
 
 .card-width {
@@ -229,11 +233,6 @@
     display: flex;
     justify-content: center;
 }
-
-.queued-ings {
-    padding-top: 1em;
-}
-
 
 /* .ui.button:hover {
     background-color: red !important;

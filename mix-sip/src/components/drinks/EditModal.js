@@ -2,7 +2,7 @@ import React from 'react';
 import DrinkIngredientCard from './DrinkIngredientCard';
 import DataManager from "../../modules/DataManager";
 import AddIngEdit from "./AddIngEdit";
-import { Modal, Button, Icon, Form, Input, Divider } from "semantic-ui-react";
+import { Modal, Button, Icon, Form, Input, Divider, TextArea, Label } from "semantic-ui-react";
 
 
 class EditModal extends React.Component {
@@ -56,12 +56,16 @@ class EditModal extends React.Component {
                 <Modal size={size} open={open} onClose={this.close}>
                     <Modal.Header className="font align-center">Edit this drink!</Modal.Header>
                     <Modal.Content>
-                        <Form>
-                            <Input fluid className="form-control" type="text" label={{ content: 'Name'}}  onChange={this.handleFieldChange} id="name" defaultValue={this.props.drink.name} />
-
-                            <Input fluid className="form-control" type="text" label={{ content: 'Description'}} onChange={this.handleFieldChange} id="description" defaultValue={this.props.drink.description} />
-
-                            <Input fluid className="form-control" type="text" label={{ content: 'Directions'}} onChange={this.handleFieldChange} id="directions" defaultValue={this.props.drink.directions} />
+                        <Form className="margin-bottom box-shadow-light">
+                            <Input fluid className="font" type="text" label={{ content: 'Name'}}  onChange={this.handleFieldChange} id="name" defaultValue={this.props.drink.name} />
+                        </Form>
+                        <Form className="margin-bottom box-shadow-light">
+                            <Label attached="top" size="large">Description</Label>
+                            <TextArea className="font" type="text" onChange={this.handleFieldChange} id="description" defaultValue={this.props.drink.description} />
+                        </Form>
+                        <Form className="margin-bottom box-shadow-light">
+                            <Label attached="top" size="large">Directions</Label>  
+                            <TextArea className="font" type="text" label={{ content: 'Directions'}} onChange={this.handleFieldChange} id="directions" defaultValue={this.props.drink.directions} />
                         </Form>
                         <Divider />
                         <div>

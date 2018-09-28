@@ -44,12 +44,14 @@ export default class AddIngEdit extends Component {
         } else if(betterIngs.find(ing => ing.name === this.state.ingredient)){
             this.setState({
                 alreadyInDrink: true,
-                alreadyQueued: false
+                alreadyQueued: false, 
+                showIngs: true
             })
         } else if(this.state.inputIngredients.find(ing => ing.name.toLowerCase() === this.state.ingredient.toLowerCase())){
             this.setState({
                 alreadyQueued: true,
-                alreadyInDrink: false
+                alreadyInDrink: false,
+                showIngs: true
             })
         } else {
             let inputIngredients = this.state.inputIngredients  
@@ -102,7 +104,7 @@ export default class AddIngEdit extends Component {
         this.handleFieldChange(e)
         this.setState({
             search: e.target.value,
-            showIngs: false
+            // showIngs: false
         })
     }
 
@@ -119,7 +121,7 @@ export default class AddIngEdit extends Component {
         }
         return (
             <div>
-                <div>
+                <div className="justify-center">
                     {
                         !this.state.hideAddIngBtn &&
                         <Button size="small" className="font" onClick={this.changeState}>Add a new ingredient</Button>
@@ -130,19 +132,21 @@ export default class AddIngEdit extends Component {
                     this.state.showAddIng && 
                     <div>
                         <h4 className="font align-center">Add ingredients</h4>
-                        {
-                            this.state.inputIngredients.map(ing => {
-                                return <p key={`drink-${ing.ingredientId}`}><span className="capitalize font">{ing.name}</span> {ing.amount}</p>
-                            })
-                        }
+                        <div className="font align-center margin-bottom">
+                            {
+                                this.state.inputIngredients.map(ing => {
+                                    return <p key={`drink-${ing.ingredientId}`}><span className="capitalize font">{ing.name}</span> {ing.amount}</p>
+                                })
+                            }
+                        </div>
                         {
                             this.state.alreadyInDrink &&
-                            <Message info>This ingredienet is aleady in this drink mix. Try editing the amount instead!</Message>
+                            <Message info>This ingredient is aleady in this drink mix. Try editing the amount instead!</Message>
 
                         }
                         {
                             this.state.alreadyQueued &&
-                            <Message info>This ingredienet is aleady queued to be added to this drink mix.</Message>
+                            <Message info>This ingredient is aleady queued to be added to this drink mix.</Message>
                         }
                         <div className="ingredient-declare">
                             {
@@ -152,14 +156,16 @@ export default class AddIngEdit extends Component {
                                 </Message>
                             }
                             <Form>
-                                <Input fluid className="font" onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" label={{ content: 'Ingredient'}} placeholder="Search for an ingredient by name"></Input>
-                                {
-                                    this.state.showIngs &&
-                                    filteredIngredients.map(ing => {
-                                        return <option className="font" id="ingredient" 
-                                        onClick={this.selcetIngredient} key={ing.id}>{ing.name}</option>
-                                    })
-                                }
+                                <Input fluid className="font margin-bottom" onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" label={{ content: 'Ingredient'}} placeholder="Search for an ingredient by name"></Input>
+                                <div className="margin-bottom">
+                                    {
+                                        this.state.showIngs &&
+                                        filteredIngredients.map(ing => {
+                                            return <Message floating key={ing.id} size="mini"><option className="font" id="ingredient" 
+                                            onClick={this.selcetIngredient}>{ing.name}</option></Message>
+                                        })
+                                    }
+                                </div>
                                 {
                                     this.state.amountIsBlank && 
                                     <Message info>
@@ -168,7 +174,7 @@ export default class AddIngEdit extends Component {
                                 }
                             </Form>
                             <Form>
-                                <Input fluid className="font" id="amount" type="text" label={{ content: 'Amount'}} placeholder="Ex. 1oz.
+                                <Input fluid className="font margin-bottom" id="amount" type="text" label={{ content: 'Amount'}} placeholder="Ex. 1oz.
                                 1/2 wedge, 1 squeeze" defaultValue={this.state.amount} onChange={this.handleFieldChange} />
                             </Form>
                         </div>

@@ -246,14 +246,14 @@
   ],
   "ingredients": [
     {
-      "onHand": false,
+      "onHand": true,
       "name": "gin",
       "typeId": 1,
       "userId": 1,
       "id": 1
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "tonic",
       "typeId": 2,
       "userId": 1,
@@ -485,13 +485,13 @@
     },
     {
       "userId": 1,
-      "ingredientId": 31,
-      "id": 6
+      "ingredientId": 39,
+      "id": 7
     },
     {
       "userId": 1,
-      "ingredientId": 39,
-      "id": 7
+      "ingredientId": 10,
+      "id": 8
     }
   ],
   "types": [

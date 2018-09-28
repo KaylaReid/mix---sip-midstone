@@ -144,16 +144,16 @@ export default class AddDrink extends React.Component {
                     this.state.isEmpty &&
                     <Message info>Please fill out all the fields</Message>
                 }
-                <Form>
+                <Form className="margin-bottom">
                     <Form.Field>
-                        <Input className="box-shadow-light" label={{ content: 'Name' }} labelPosition='left' id="drinkName" type="text" defaultValue={this.state.drinkName} placeholder="What's it called?" onChange={this.handleFieldChange} />
+                        <Input className="box-shadow-light font" label={{ content: 'Name' }} labelPosition='left' id="drinkName" type="text" defaultValue={this.state.drinkName} placeholder="What's it called?" onChange={this.handleFieldChange} />
                     </Form.Field>
-                    <Form>
-                        <Form.Field className="box-shadow-light">
-                        <Label attached="top" size="large">Description</Label>
-                        <TextArea id="drinkDescription" defaultValue={this.state.drinkDescription} placeholder="Describe your new drink!" onChange={this.handleFieldChange} />
-                        </Form.Field>
-                    </Form>
+                </Form>
+                <Form>
+                    <Form.Field className="box-shadow-light">
+                    <Label attached="top" size="large">Description</Label>
+                    <TextArea className="font" id="drinkDescription" defaultValue={this.state.drinkDescription} placeholder="Describe your new drink!" onChange={this.handleFieldChange} />
+                    </Form.Field>
                 </Form>
                 <Divider horizontal>Added Ingredients</Divider>
                 <div className="align-center">
@@ -213,7 +213,7 @@ export default class AddDrink extends React.Component {
                     </div>
                     <Form className="box-shadow-light">
                         <Label attached="top" size="large">Directions</Label>
-                        <TextArea id="drinkDirections" defaultValue={this.state.drinkDirections} placeholder="Directions to mix the drink!" onChange={this.handleFieldChange} />
+                        <TextArea className="font" id="drinkDirections" defaultValue={this.state.drinkDirections} placeholder="Directions to mix the drink!" onChange={this.handleFieldChange} />
                     </Form>
             </Modal.Content>
             <Modal.Actions>
