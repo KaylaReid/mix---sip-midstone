@@ -78,7 +78,6 @@ class EditModal extends React.Component {
                                 resetData={this.props.resetData}
                                 />
                         </div>
-                        <Divider />
                         <div>
                             {
                                 this.props.drinkIngredients.filter(di => di.drinkId === this.props.drink.id).map(di => {

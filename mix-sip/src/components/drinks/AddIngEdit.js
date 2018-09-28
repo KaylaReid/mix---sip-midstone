@@ -153,7 +153,7 @@ export default class AddIngEdit extends Component {
                                 </Message>
                             }
                             <Form>
-                                <Input fluid className="font margin-bottom" onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" label={{ content: 'Ingredient'}} placeholder="Search for an ingredient by name"></Input>
+                                <Input fluid className="font margin-bottom" onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" label={{ icon: "search", content: 'Ingredient'}} placeholder="Search for an ingredient by name"></Input>
                                 <div className="margin-bottom">
                                     {
                                         this.state.showIngs &&

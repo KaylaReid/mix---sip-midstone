@@ -34,7 +34,7 @@ class EditIngList extends React.Component {
                 <Modal size={size} open={open} onClose={this.close}>
                     <h2 className="justify-center font manage-ing-title">Manage Your Drink Ingredients</h2>
                     <div>
-                        <Input fluid onChange={this.updateSearch.bind(this)} className="input-margin manage-ing-top-left" value={this.state.search} type="text" placeholder="Search for ingredients"></Input>
+                        <Input fluid onChange={this.updateSearch.bind(this)}  icon="search" iconPosition="left" className="input-margin manage-ing-top-left" value={this.state.search} type="text" placeholder="Search for ingredients"></Input>
                         <div className="divider-width">
                             <Divider horizontal>Or</Divider>
                         </div>

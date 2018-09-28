@@ -6,7 +6,8 @@ import "./userPage.css"
 import OnHandList from "./drinks/OnHandList";
 import { Tab } from "semantic-ui-react";
 import ToGetList from "./drinks/ToGetList";
-import ManageIngs from "./drinks/ManageIngs"
+import ManageIngs from "./drinks/ManageIngs";
+import Footer from "./footer/Footer.js"
 
 export default class UserPage extends Component {
     state = {
@@ -98,6 +99,7 @@ export default class UserPage extends Component {
                         <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
                     </div>
                 </div>
+                    {/* <Footer /> */}
             </div>
         )
     }

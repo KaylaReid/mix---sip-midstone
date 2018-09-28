@@ -39,6 +39,7 @@ export default class DrinkIngredientCard extends Component {
     render(){
         return (
             <div className="drink-ing-card">
+            <Divider />
                 {
                     !this.state.edit &&
                     <div>
@@ -49,7 +50,6 @@ export default class DrinkIngredientCard extends Component {
                                 <Button.Content hidden>Edit</Button.Content>
                             </Button>
                         </div>
-                        <Divider />
                     </div>
                 }
                 {
@@ -69,7 +69,6 @@ export default class DrinkIngredientCard extends Component {
                                 <Button.Content hidden>Update</Button.Content>
                             </Button>
                         </div>
-                        <Divider />
                     </div>
                 }
             </div>
