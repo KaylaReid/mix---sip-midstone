@@ -114,3 +114,7 @@
     border-color: #FFEEF2 !important;
     color: #FFEEF2 !important;
 } 
+
+.ui.segment {
+    padding-top: 0 !important;
+}

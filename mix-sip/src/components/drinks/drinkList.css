@@ -242,3 +242,15 @@
     color: white !important;
     background-color: #0D4D60 !important; 
 }
+
+.drink-ing-card .ui.basic.button, .drink-ing-card .ui.basic.buttons .button {
+    color: #0D4D60 !important;
+}
+
+.drink-ing-card .ui.basic.button:hover, .drink-ing-card .ui.basic.buttons .button:hover {
+    color: #0D4D60 !important;
+}
+
+.drink-ing-card .ui.button {
+    border-color: #0D4D60 !important;
+}

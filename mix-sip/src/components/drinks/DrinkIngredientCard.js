@@ -38,7 +38,7 @@ export default class DrinkIngredientCard extends Component {
 
     render(){
         return (
-            <div>
+            <div className="drink-ing-card">
                 {
                     !this.state.edit &&
                     <div>
