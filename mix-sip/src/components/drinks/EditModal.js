@@ -49,7 +49,7 @@ class EditModal extends React.Component {
     const { open, size } = this.state
         return (
             <div>     
-                <Button basic color="blue" animated onClick={this.show('tiny')}>
+                <Button basic color="blue" animated size="tiny" onClick={this.show('tiny')}>
                     <Button.Content visible><Icon name="edit" /></Button.Content>
                     <Button.Content hidden className="font">Edit</Button.Content>
                 </Button>

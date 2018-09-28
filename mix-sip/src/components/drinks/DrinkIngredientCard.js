@@ -44,7 +44,7 @@ export default class DrinkIngredientCard extends Component {
                     <div>
                         <div className="card-top">
                             <h3 className="capitalize font">{this.props.name}</h3>
-                            <Button animated basic size="small" className="blue-btn-outline font" onClick={this.editIng}>
+                            <Button animated basic size="tiny" className="blue-btn-outline font" onClick={this.editIng}>
                                 <Button.Content visible><Icon name="edit" /></Button.Content>
                                 <Button.Content hidden>Edit</Button.Content>
                             </Button>
@@ -57,14 +57,14 @@ export default class DrinkIngredientCard extends Component {
                     <div>
                         <div className="card-top">
                             <h3 className="capitalize font">{this.props.name}</h3>
-                            <Button basic blue animated size="small" className="font" onClick={this.removeIngredient}>
+                            <Button basic blue animated size="tiny" className="font" onClick={this.removeIngredient}>
                                 <Button.Content visible><Icon name="trash alternate outline" /></Button.Content>
                                 <Button.Content hidden>Remove</Button.Content>
                             </Button>
                         </div>
                         <div className="card-bottom">
                             <Input type="text" className="font" label={{ content: 'Amount'}} onChange={this.handleFieldChange} id="amount" defaultValue={this.props.drinkIngredient.amount} />
-                            <Button basic blue animated size="small" className="font" onClick={this.saveChanges}>
+                            <Button basic blue animated size="tiny" className="font" onClick={this.saveChanges}>
                                 <Button.Content visible><Icon name="checkmark" /></Button.Content>
                                 <Button.Content hidden>Update</Button.Content>
                             </Button>

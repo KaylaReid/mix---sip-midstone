@@ -407,7 +407,7 @@
       "id": 31
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "coconut rum",
       "typeId": 1,
       "userId": 1,
