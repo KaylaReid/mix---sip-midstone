@@ -50,3 +50,9 @@
     top: 40%;
     font-size: 1.65em;
 }
+
+.name-font {
+    font-family: 'Charmonman', cursive !important;
+    font-size: 1.4em !important;
+    font-weight: 10 !important;
+}
