@@ -132,7 +132,7 @@ export default class EditIngCard extends Component {
                         <div className="edit-ing-left">
                             <Popup
                                 className="font"
-                                trigger={<Input fluid label={{content:"Name"}} labelPosition="left" id="name" type="text" defaultValue={this.state.name} onChange=        {this.handleFieldChange}/>}
+                                trigger={<Input fluid className="box-shadow-light" label={{content:"Name"}} labelPosition="left" id="name" type="text" defaultValue={this.state.name} onChange=        {this.handleFieldChange}/>}
                                 content='Please note making changes to a ingredient here will update it everywhere the ingredient is used! This feature is recomended for spelling corrections only.'
                                 style={{borderRadius: "5px",
                                 opacity: 0.85,
@@ -144,12 +144,12 @@ export default class EditIngCard extends Component {
                             />
                         </div>
                         <div className="edit-ing-right">
-                            <Button.Group>
+                            <Button.Group size="tiny">
                                 <Button basic color="blue" animated size="tiny" onClick={this.saveChange}>
                                     <Button.Content visible><Icon name="checkmark" /></Button.Content>
                                     <Button.Content hidden className="font">Update</Button.Content>
                                 </Button>
-                                <Button basic color="blue" animated size="tiny" onClick={this.cancel}>
+                                <Button basic color="blue" animated size="mini" onClick={this.cancel}>
                                     <Button.Content visible><Icon name="cancel" /></Button.Content>
                                     <Button.Content hidden className="font">Cancel</Button.Content>
                                 </Button>

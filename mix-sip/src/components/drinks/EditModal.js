@@ -93,8 +93,8 @@ class EditModal extends React.Component {
                         </div>
                     </Modal.Content>  
                     <Modal.Actions>
-                        <Button size="small" className="font" onClick={this.saveChanges}>Save Changes</Button>{' '}
-                        <Button size="small" className="font" onClick={this.close}>Cancel</Button>
+                        <Button size="small" className="font text-shadow box-shadow-m" onClick={this.saveChanges}>Save Changes</Button>{' '}
+                        <Button size="small" className="font text-shadow box-shadow-m" onClick={this.close}>Cancel</Button>
                     </Modal.Actions>
                 </Modal>
             </div>

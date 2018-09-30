@@ -28,7 +28,7 @@ import "./navbar.css";
                     <h4 className="welcome capitalize font">Hi {this.getFirstName()}, welcome to your drink collection!</h4>
                 </div>
                 <div className="nav-right">
-                    <Button id="logout-button" size="tiny" className="font" onClick={this.handleLogout}>Logout</Button>
+                    <Button id="logout-button" size="tiny" className="font text-shadow box-shadow-m" onClick={this.handleLogout}>Logout</Button>
                 </div>
              </div>
          )

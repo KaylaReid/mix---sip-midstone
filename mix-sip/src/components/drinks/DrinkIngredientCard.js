@@ -63,7 +63,7 @@ export default class DrinkIngredientCard extends Component {
                             </Button>
                         </div>
                         <div className="card-bottom">
-                            <Input type="text" className="font" label={{ content: 'Amount'}} onChange={this.handleFieldChange} id="amount" defaultValue={this.props.drinkIngredient.amount} />
+                            <Input type="text" className="font box-shadow-light" label={{ content: 'Amount'}} onChange={this.handleFieldChange} id="amount" defaultValue={this.props.drinkIngredient.amount} />
                             <Button basic blue animated size="tiny" className="font" onClick={this.saveChanges}>
                                 <Button.Content visible><Icon name="checkmark" /></Button.Content>
                                 <Button.Content hidden>Update</Button.Content>

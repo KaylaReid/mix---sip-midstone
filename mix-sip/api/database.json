@@ -246,7 +246,7 @@
   ],
   "ingredients": [
     {
-      "onHand": true,
+      "onHand": false,
       "name": "gin",
       "typeId": 1,
       "userId": 1,
@@ -351,14 +351,14 @@
       "id": 19
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "bacardi dragon berry rum",
       "typeId": 1,
       "userId": 1,
       "id": 21
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "white wine",
       "typeId": 1,
       "userId": 1,

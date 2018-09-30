@@ -52,7 +52,7 @@ export default class AddIngredient extends Component {
   
         return (
             <div>
-                <Modal open={open} onOpen={this.open} onClose={this.close} size='small' trigger={<Button size="small" className="font">Add a New Ingredient</Button>}>
+                <Modal open={open} onOpen={this.open} onClose={this.close} size='small' trigger={<Button size="small" className="font text-shadow box-shadow-m">Add a New Ingredient</Button>}>
                     <Modal.Header className="font align-center">Add your ingredient here, and it will be added to your collection of ingredients to choose from</Modal.Header>
                     <Modal.Content>
                         <div className="column">
@@ -69,19 +69,19 @@ export default class AddIngredient extends Component {
                                 <Message info>Please enter a name for your Ingredient.</Message>
                             }
                             
-                            <Input size="medium" className="modal-input input-margin" label={{ content: 'Type' }} labelPosition='left' list="types" id="newIngredientType" onChange={this.handleFieldChange} placeholder="Select Type" />
+                            <Input size="medium" className="modal-input input-margin box-shadow-light" label={{ content: 'Type' }} labelPosition='left' list="types" id="newIngredientType" onChange={this.handleFieldChange} placeholder="Select Type" />
                                 <datalist id="types" className="font">
                                     {
                                         this.props.types.map(type => <option key={type.id} value={type.name}/>)
                                     }
                                 </datalist>
-                            <Input size="medium" className="modal-input input-margin" label={{ content: 'Name' }} labelPosition='left' id="newIngredientName" type="text" placeholder="Name of ingredient" onChange={this.handleFieldChange}/>
+                            <Input size="medium" className="modal-input input-margin box-shadow-light" label={{ content: 'Name' }} labelPosition='left' id="newIngredientName" type="text" placeholder="Name of ingredient" onChange={this.handleFieldChange}/>
                             
                         </div>
                     </Modal.Content>
                     <Modal.Actions>
-                        <Button size="small" className="font" onClick={this.saveNewIngredient}>Save</Button>{' '}
-                        <Button size="small" className="font" onClick={this.close}>Cancel</Button>
+                        <Button size="small" className="font text-shadow box-shadow-m" onClick={this.saveNewIngredient}>Save</Button>{' '}
+                        <Button size="small" className="font text-shadow box-shadow-m" onClick={this.close}>Cancel</Button>
                     </Modal.Actions>
                 </Modal>
             </div>
