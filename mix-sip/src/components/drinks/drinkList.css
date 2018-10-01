@@ -160,10 +160,6 @@
     display: block;
 }
 
-/* .margin-top {
-    margin-top: 1em;
-} */
-
 .input-margin {
     margin: 1em auto;
 }
@@ -181,7 +177,6 @@
 .ui.label {
     background: rgb(241, 225, 224) !important;
 }
-
 
 /* manage ing syles*/
 
