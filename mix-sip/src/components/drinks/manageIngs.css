@@ -56,16 +56,16 @@
 
 .manage-ing-edit-btn .ui.basic.pink.button, .manage-ing-edit-btn .ui.basic.pink.buttons .button {
     -webkit-box-shadow: 0 0 0 1px rgb(189, 156, 154)inset!important;
-    box-shadow: 0 0 0 1px rgb(189, 156, 154) inset!important;
+    box-shadow: 0 0 0 1px rgb(207, 170, 167) inset!important;
     border-top-right-radius: .28571429rem;
     border-bottom-right-radius: .28571429rem;
-    color: rgb(189, 156, 154) !important;
+    color: rgb(207, 170, 167) !important;
 }
 
 .manage-ing-edit-btn .ui.basic.pink.button:hover, .manage-ing-edit-btn .ui.basic.pink.buttons .button:hover {
-    -webkit-box-shadow: 0 0 0 1px rgb(189, 156, 154) inset!important;
-    box-shadow: 0 0 0 1px rgb(189, 156, 154) inset!important;
-    color: rgb(189, 156, 154) !important;
+    -webkit-box-shadow: 0 0 0 1px rgb(207, 170, 167) inset!important;
+    box-shadow: 0 0 0 1px rgb(207, 170, 167) inset!important;
+    color: rgb(207, 170, 167) !important;
 }
 
 .ui.button {
@@ -101,7 +101,7 @@
 }
 
 .ui.secondary.pointing.menu .active.item {
-    border-color: rgb(228, 200, 198)  !important;
+    border-color: rgb(216, 196, 195) !important;
     color: rgb(241, 225, 224) !important;
 } 
 
