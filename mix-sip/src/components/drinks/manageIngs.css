@@ -55,17 +55,17 @@
 }
 
 .manage-ing-edit-btn .ui.basic.pink.button, .manage-ing-edit-btn .ui.basic.pink.buttons .button {
-    -webkit-box-shadow: 0 0 0 1px rgb(201, 162, 169) inset!important;
-    box-shadow: 0 0 0 1px rgb(201, 162, 169) inset!important;
+    -webkit-box-shadow: 0 0 0 1px rgb(241, 225, 224) inset!important;
+    box-shadow: 0 0 0 1px rgb(241, 225, 224) inset!important;
     border-top-right-radius: .28571429rem;
     border-bottom-right-radius: .28571429rem;
-    color: rgb(201, 162, 169) !important;
+    color: rgb(241, 225, 224) !important;
 }
 
 .manage-ing-edit-btn .ui.basic.pink.button:hover, .manage-ing-edit-btn .ui.basic.pink.buttons .button:hover {
-    -webkit-box-shadow: 0 0 0 1px rgb(201, 162, 169) inset!important;
-    box-shadow: 0 0 0 1px rgb(201, 162, 169) inset!important;
-    color: rgb(201, 162, 169) !important;
+    -webkit-box-shadow: 0 0 0 1px rgb(241, 225, 224) inset!important;
+    box-shadow: 0 0 0 1px rgb(241, 225, 224) inset!important;
+    color: rgb(241, 225, 224) !important;
 }
 
 .ui.button {
@@ -101,23 +101,23 @@
 }
 
 .ui.secondary.pointing.menu .active.item {
-    border-color: #FFEEF2  !important;
-    color: #FFEEF2 !important;
+    border-color: rgb(226, 206, 205)  !important;
+    color: rgb(226, 206, 205) !important;
 } 
 
 .ui.secondary.pointing.menu .item {
-    /* border-color: #FFEEF2 !important; */
-    color: #FFEEF2 !important;
+    /* border-color: rgb(226, 206, 205) !important; */
+    color: rgb(226, 206, 205) !important;
 }
 
 .ui.secondary.pointing.menu .item:hover {
-    border-color: #FFEEF2 !important;
-    color: #FFEEF2 !important;
+    border-color: rgb(226, 206, 205) !important;
+    color: rgb(226, 206, 205) !important;
 }
 
 .ui.secondary.pointing.menu .active.item:hover {
-    border-color: #FFEEF2 !important;
-    color: #FFEEF2 !important;
+    border-color: rgb(226, 206, 205) !important;
+    color: rgb(226, 206, 205) !important;
 } 
 
 .ui.segment {
