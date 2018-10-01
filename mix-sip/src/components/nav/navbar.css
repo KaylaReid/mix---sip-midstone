@@ -56,3 +56,7 @@
     font-size: 1.4em !important;
     font-weight: 10 !important;
 }
+
+.box-shadow-logout {
+    box-shadow: 0 8px 6px -8.5px #373F47 !important;
+}

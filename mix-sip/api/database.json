@@ -246,14 +246,14 @@
   ],
   "ingredients": [
     {
-      "onHand": false,
+      "onHand": true,
       "name": "gin",
       "typeId": 1,
       "userId": 1,
       "id": 1
     },
     {
-      "onHand": false,
+      "onHand": true,
       "name": "tonic",
       "typeId": 2,
       "userId": 1,
@@ -407,7 +407,7 @@
       "id": 31
     },
     {
-      "onHand": false,
+      "onHand": true,
       "name": "coconut rum",
       "typeId": 1,
       "userId": 1,
