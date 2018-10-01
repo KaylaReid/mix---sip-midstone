@@ -1,8 +1,12 @@
 #navbar {
-    background: linear-gradient(to right, rgba(231, 231, 231, 0.123), rgba(231, 231, 231, 0.137)), #FFEEF2;
+    /* background: linear-gradient(to right, rgba(231, 231, 231, 0.123), rgba(231, 231, 231, 0.137)), #FFEEF2; */
+    background: 
+        radial-gradient(rgba(231, 210, 210, 0.658) ,rgba(228, 222, 222, 0.63), rgba(223, 219, 219, 0.63)),
+        url("https://images.unsplash.com/photo-1533899114961-3aa0579cd5b8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ed13a35c36647d262fdb9bfdb761068d&auto=format&fit=crop&w=1520&q=80") no-repeat fixed;
     height: 9em;
     position: fixed;
     z-index: 2;
+    /* background-position-y: 3em; */
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -32,6 +36,7 @@
     display: block;
     margin-left: 1em;
     margin-top: .5em;
+    background: radial-gradient(rgba(194, 190, 190, 0.466) ,rgba(154, 158, 161, 0.185), rgba(55, 63, 71, 0.027), rgba(107, 116, 122, 0.021))
 }
 
 #logout-button {
