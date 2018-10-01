@@ -74,9 +74,9 @@
       "id": 8
     },
     {
-      "name": "gin and tonic",
-      "description": "A light and refreshing drink with a hit of lime!",
-      "directions": "Shake gin, lime, and ice. Then pour over ice, top with tonic and garnish with lime!",
+      "name": "sangria",
+      "description": "a delicious mixed drink with apples, oranges, and lemons!",
+      "directions": "Add red wine, brandy and orange juice and stir all the ingredients together.\nRefrigerate sangria for 3 to 4 hours, up to overnight, before serving.",
       "userId": 1,
       "id": 9
     }
@@ -216,32 +216,53 @@
       "id": 42
     },
     {
-      "drinkId": 9,
-      "ingredientId": 1,
-      "amount": "2 oz.",
-      "userId": 1,
-      "id": 43
-    },
-    {
-      "drinkId": 9,
-      "ingredientId": 2,
-      "amount": "4 oz.",
-      "userId": 1,
-      "id": 44
-    },
-    {
-      "drinkId": 9,
-      "ingredientId": 3,
-      "amount": "2 wedges",
-      "userId": 1,
-      "id": 45
-    },
-    {
       "drinkId": 7,
       "ingredientId": 32,
       "amount": "2 oz.",
       "userId": 1,
       "id": 46
+    },
+    {
+      "drinkId": 9,
+      "ingredientId": 41,
+      "amount": "1 bottle ",
+      "userId": 1,
+      "id": 47
+    },
+    {
+      "drinkId": 9,
+      "ingredientId": 43,
+      "amount": "1",
+      "userId": 1,
+      "id": 48
+    },
+    {
+      "drinkId": 9,
+      "ingredientId": 42,
+      "amount": "1 ",
+      "userId": 1,
+      "id": 49
+    },
+    {
+      "drinkId": 9,
+      "ingredientId": 44,
+      "amount": "5 oz",
+      "userId": 1,
+      "id": 50
+    },
+    {
+      "drinkId": 9,
+      "ingredientId": 14,
+      "amount": "4 oz",
+      "userId": 1,
+      "id": 51
+    },
+    {
+      "drinkId": 9,
+      "ingredientId": 45,
+      "amount": "2",
+      "userId": 1,
+      "id": 52
     }
   ],
   "ingredients": [
@@ -253,7 +274,7 @@
       "id": 1
     },
     {
-      "onHand": false,
+      "onHand": true,
       "name": "tonic",
       "typeId": 2,
       "userId": 1,
@@ -351,14 +372,14 @@
       "id": 19
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "bacardi dragon berry rum",
       "typeId": 1,
       "userId": 1,
       "id": 21
     },
     {
-      "onHand": true,
+      "onHand": false,
       "name": "white wine",
       "typeId": 1,
       "userId": 1,
@@ -372,7 +393,7 @@
       "id": 23
     },
     {
-      "onHand": false,
+      "onHand": true,
       "name": "radish",
       "typeId": 3,
       "userId": 1,
@@ -414,7 +435,7 @@
       "id": 32
     },
     {
-      "onHand": false,
+      "onHand": true,
       "name": "sour mix",
       "typeId": 2,
       "userId": 1,
@@ -475,6 +496,34 @@
       "typeId": 1,
       "userId": 1,
       "id": 41
+    },
+    {
+      "onHand": false,
+      "name": "lemon",
+      "typeId": 3,
+      "userId": 1,
+      "id": 42
+    },
+    {
+      "onHand": false,
+      "name": "orange",
+      "typeId": 3,
+      "userId": 1,
+      "id": 43
+    },
+    {
+      "onHand": false,
+      "name": "brandy",
+      "typeId": 1,
+      "userId": 1,
+      "id": 44
+    },
+    {
+      "onHand": false,
+      "name": "apple",
+      "typeId": 3,
+      "userId": 1,
+      "id": 45
     }
   ],
   "toGetIngredients": [

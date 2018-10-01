@@ -49,7 +49,7 @@ class EditModal extends React.Component {
     const { open, size } = this.state
         return (
             <div>     
-                <Button basic color="blue" animated onClick={this.show('tiny')}>
+                <Button basic color="blue" animated size="tiny" onClick={this.show('tiny')}>
                     <Button.Content visible><Icon name="edit" /></Button.Content>
                     <Button.Content hidden className="font">Edit</Button.Content>
                 </Button>
@@ -78,7 +78,6 @@ class EditModal extends React.Component {
                                 resetData={this.props.resetData}
                                 />
                         </div>
-                        <Divider />
                         <div>
                             {
                                 this.props.drinkIngredients.filter(di => di.drinkId === this.props.drink.id).map(di => {
@@ -94,8 +93,8 @@ class EditModal extends React.Component {
                         </div>
                     </Modal.Content>  
                     <Modal.Actions>
-                        <Button size="small" className="font" onClick={this.saveChanges}>Save Changes</Button>{' '}
-                        <Button size="small" className="font" onClick={this.close}>Cancel</Button>
+                        <Button size="small" className="font text-shadow box-shadow-m" onClick={this.saveChanges}>Save Changes</Button>{' '}
+                        <Button size="small" className="font text-shadow box-shadow-m" onClick={this.close}>Cancel</Button>
                     </Modal.Actions>
                 </Modal>
             </div>

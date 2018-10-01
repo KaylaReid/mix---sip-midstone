@@ -116,8 +116,8 @@ export default class DrinkCard extends Component {
                         <p>{this.props.drink.directions}</p>
                     </div>
                     <Card.Content>
-                        <Button.Group floated="right">
-                            <Button animated basic color="blue" onClick={this.deleteDrink}>
+                        <Button.Group floated="right" size="small">
+                            <Button animated basic color="blue" size="tiny" onClick={this.deleteDrink}>
                                 <Button.Content visible><Icon name="trash alternate outline"/></Button.Content>
                                 <Button.Content hidden className="font">Remove</Button.Content>
                             </Button>

@@ -17,7 +17,6 @@ export default class DrinkList extends Component {
         this.setState({search: e.target.value.substr(0, 20)})
     }
 
-    
     render(){
         let filteredDrinks = this.props.drinks.filter(ing => {
             return ing.name.indexOf(this.state.search.toLowerCase()) !== -1;
@@ -35,17 +34,17 @@ export default class DrinkList extends Component {
                                     types={this.props.types}
                                     resetData={this.props.resetData} />
                         </div>
-                        <div className="search-bar">
-                            <Input className="placeholder-text" fluid onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" placeholder="Look for drinks"></Input>
+                        <div className="search-bar box-shadow">
+                            <Input className="placeholder-text" icon="search" iconPosition="left" fluid onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" placeholder="Look for drinks"></Input>
                         </div>
                         <div className="margin-top">
                             {
                                 !this.state.canMix &&
-                                <Button className="font" color="blue" size="small" onClick={() => this.setState({canMix: true})}>Mix It Now?</Button>
+                                <Button className="font box-shadow text-shadow" color="blue" size="small" onClick={() => this.setState({canMix: true})}>Mix It Now?</Button>
                             }
                             {
                                 this.state.canMix &&
-                                <Button className="font" color="blue" size="small" onClick={() => this.setState({canMix: false})}>All Drinks</Button>
+                                <Button className="font box-shadow text-shadow" color="blue" size="small" onClick={() => this.setState({canMix: false})}>All Drinks</Button>
                             }
                         </div>
                     </div>

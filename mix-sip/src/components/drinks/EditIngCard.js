@@ -79,14 +79,14 @@ export default class EditIngCard extends Component {
                         <div>
                             {
                                 this.props.toGets.find(toGet => toGet.ingredientId === this.props.ingredient.id) &&
-                                <Button basic color="pink" animated disabled onClick={this.addToGet}>
+                                <Button basic color="pink" animated disabled size="tiny" onClick={this.addToGet}>
                                     <Button.Content visible><Icon name="add to cart" /></Button.Content>
                                     <Button.Content hidden>Cart</Button.Content>
                                 </Button>
                             }
                             {
                                 !this.props.toGets.find(toGet => toGet.ingredientId === this.props.ingredient.id) &&
-                                <Button basic color="blue" animated className="font" onClick={this.addToGet}>
+                                <Button basic color="blue" animated className="font" size="tiny" onClick={this.addToGet}>
                                     <Button.Content visible><Icon name="add to cart" /></Button.Content>
                                     <Button.Content hidden>Cart</Button.Content>
                                 </Button>
@@ -94,19 +94,19 @@ export default class EditIngCard extends Component {
                             }
                             {
                                 this.props.ingredient.onHand &&
-                                <Button basic color="pink" animated disabled onClick={this.addToOnHand}>
+                                <Button basic color="pink" animated disabled size="tiny" onClick={this.addToOnHand}>
                                     <Button.Content visible><Icon name="add" /></Button.Content>
                                     <Button.Content hidden>In stock</Button.Content>
                                 </Button>
                             }
                             {
                                 !this.props.ingredient.onHand &&
-                                <Button basic color="blue" animated className="font" onClick={this.addToOnHand}>
+                                <Button basic color="blue" animated className="font" size="tiny" onClick={this.addToOnHand}>
                                     <Button.Content visible><Icon name="add" /></Button.Content>
                                     <Button.Content hidden>In stock</Button.Content>
                                 </Button>
                             }
-                            <Button basic color="blue" animated className="font" onClick={this.changeToEdit}>
+                            <Button basic color="blue" animated className="font" size="tiny" onClick={this.changeToEdit}>
                                 <Button.Content visible><Icon name="edit" /></Button.Content>
                                 <Button.Content hidden>Edit</Button.Content>
                             </Button>
@@ -132,7 +132,7 @@ export default class EditIngCard extends Component {
                         <div className="edit-ing-left">
                             <Popup
                                 className="font"
-                                trigger={<Input fluid label={{content:"Name"}} labelPosition="left" id="name" type="text" defaultValue={this.state.name} onChange=        {this.handleFieldChange}/>}
+                                trigger={<Input fluid className="box-shadow-light" label={{content:"Name"}} labelPosition="left" id="name" type="text" defaultValue={this.state.name} onChange=        {this.handleFieldChange}/>}
                                 content='Please note making changes to a ingredient here will update it everywhere the ingredient is used! This feature is recomended for spelling corrections only.'
                                 style={{borderRadius: "5px",
                                 opacity: 0.85,
@@ -144,12 +144,12 @@ export default class EditIngCard extends Component {
                             />
                         </div>
                         <div className="edit-ing-right">
-                            <Button.Group>
-                                <Button basic color="blue" animated onClick={this.saveChange}>
+                            <Button.Group size="tiny">
+                                <Button basic color="blue" animated size="tiny" onClick={this.saveChange}>
                                     <Button.Content visible><Icon name="checkmark" /></Button.Content>
                                     <Button.Content hidden className="font">Update</Button.Content>
                                 </Button>
-                                <Button basic color="blue" animated onClick={this.cancel}>
+                                <Button basic color="blue" animated size="mini" onClick={this.cancel}>
                                     <Button.Content visible><Icon name="cancel" /></Button.Content>
                                     <Button.Content hidden className="font">Cancel</Button.Content>
                                 </Button>

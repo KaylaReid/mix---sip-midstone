@@ -135,7 +135,7 @@ export default class AddDrink extends React.Component {
         <div>
             
             <Modal open={open} onOpen={this.open} onClose={this.close} size='small'
-                trigger={<Button color="blue" className="font" size="small">Add a New Drink!</Button>}>
+                trigger={<Button color="blue" className="font box-shadow text-shadow" size="small">Add a New Drink!</Button>}>
             <Modal.Header className="font align-center">Add a new drink to your collection!</Modal.Header>
             <Modal.Content>
                 {
@@ -176,7 +176,7 @@ export default class AddDrink extends React.Component {
                                     Please select a ingredient!
                                     </Message>
                                 }
-                                <Input className="box-shadow-light" label={{ content: "Ingredient"}} labelPosition="left" onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" id="ingredient" placeholder="Search for ingredient by name"></Input>
+                                <Input className="box-shadow-light" label={{ icon: "search", content: "Ingredient"}} labelPosition="left" onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" id="ingredient" placeholder="Search for ingredient by name"></Input>
                                 <div className="queued-ings capitalize margin-t-b">
                                     {
                                         this.state.showIngs &&
@@ -198,7 +198,7 @@ export default class AddDrink extends React.Component {
                             </Form.Field>
                         </Form>
                         <div className="add-new-ing-btn">
-                            <Button size="small" color="blue" className="font" onClick={this.addIngredient}>Add Ingredient to Drink</Button>
+                            <Button size="small" color="blue" className="font text-shadow box-shadow-m" onClick={this.addIngredient}>Add Ingredient to Drink</Button>
                         </div>
                     </div>
                     <Divider />
@@ -215,8 +215,8 @@ export default class AddDrink extends React.Component {
                     </Form>
             </Modal.Content>
             <Modal.Actions>
-                <Button size="small" className="font" onClick={this.saveDrink}>Save Drink</Button>{' '}
-                <Button size="small" className="font" onClick={this.close}>Cancel</Button>
+                <Button size="small" className="font text-shadow box-shadow-m" onClick={this.saveDrink}>Save Drink</Button>{' '}
+                <Button size="small" className="font text-shadow box-shadow-m" onClick={this.close}>Cancel</Button>
             </Modal.Actions>
             </Modal>
         </div>

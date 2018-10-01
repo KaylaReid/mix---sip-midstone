@@ -121,7 +121,7 @@ export default class AddIngEdit extends Component {
                 <div className="justify-center">
                     {
                         !this.state.hideAddIngBtn &&
-                        <Button size="small" className="font" onClick={this.changeState}>Add a new ingredient</Button>
+                        <Button size="small" className="font text-shadow box-shadow-m" onClick={this.changeState}>Add a new ingredient</Button>
                     }
                 </div>
                 <div>
@@ -153,7 +153,7 @@ export default class AddIngEdit extends Component {
                                 </Message>
                             }
                             <Form>
-                                <Input fluid className="font margin-bottom" onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" label={{ content: 'Ingredient'}} placeholder="Search for an ingredient by name"></Input>
+                                <Input fluid className="font margin-bottom box-shadow-light" onChange={this.updateSearch.bind(this)} value={this.state.search} type="text" label={{ icon: "search", content: 'Ingredient'}} placeholder="Search for an ingredient by name"></Input>
                                 <div className="margin-bottom">
                                     {
                                         this.state.showIngs &&
@@ -171,13 +171,13 @@ export default class AddIngEdit extends Component {
                                 }
                             </Form>
                             <Form>
-                                <Input fluid className="font margin-bottom" id="amount" type="text" label={{ content: 'Amount'}} placeholder="Ex. 1oz.
+                                <Input fluid className="font margin-bottom box-shadow-light" id="amount" type="text" label={{ content: 'Amount'}} placeholder="Ex. 1oz.
                                 1/2 wedge, 1 squeeze" defaultValue={this.state.amount} onChange={this.handleFieldChange} />
                             </Form>
                         </div>
                         <div className="font align-center">
-                            <Button size="small" className="font" onClick={this.addIngredient}>Add to Drink</Button>
-                            <Button size="small" className="font" onClick={this.saveAdded}>Save Added Ingredients</Button>
+                            <Button size="small" className="font text-shadow box-shadow-m" onClick={this.addIngredient}>Add to Drink</Button>
+                            <Button size="small" className="font text-shadow box-shadow-m" onClick={this.saveAdded}>Save Added Ingredients</Button>
                             <Divider />
                             <div>
                                 <h4 className="font">Don't see the ingredient your looking for? Add a New one!</h4>

@@ -151,7 +151,7 @@
     border-bottom: 1px solid rgba(55, 63, 71, 0.336);
     width: 85%;
     font-family: 'Roboto';
-    color: rgb(201, 162, 171);
+    color: rgb(218, 191, 190);
     text-align: center;
     font-size: 21px;
     font-weight:100;
@@ -159,11 +159,11 @@
 }
 .login-input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px white inset;
-    -webkit-text-fill-color: rgb(201, 162, 171) !important;
+    -webkit-text-fill-color: rgb(218, 191, 190) !important;
 }
 
 ::-webkit-input-placeholder {
-   color: rgb(201, 162, 171);
+   color: rgb(218, 191, 190);
     font-family: 'Roboto';
     font-weight:100;
 }

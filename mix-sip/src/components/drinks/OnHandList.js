@@ -21,7 +21,7 @@ export default class OnHandList extends Component {
                             <div key={`{onHand-${ingredient.id}}`}>
                                 <div className="onHand-contents">
                                     <p className="capitalize">{ingredient.name}</p>
-                                    <Button basic color="blue" animated size="mini" className="font" onClick={() => this.removeItem(ingredient)}>
+                                    <Button basic color="blue" animated size="tiny" className="font" onClick={() => this.removeItem(ingredient)}>
                                         <Button.Content visible><Icon name="glass martini"></Icon></Button.Content>
                                         <Button.Content hidden>Drank!</Button.Content>
                                     </Button>

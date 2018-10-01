@@ -18,8 +18,12 @@
     box-shadow: 0 8px 6px -4px #373F47 !important;
 }
 
+.box-shadow-m {
+    box-shadow: 0 8px 6px -6px #373F47 !important;
+}
+
 .box-shadow-light {
-    box-shadow: 0 8px 6px -10px #373F47;
+    box-shadow: 0 8px 6px -10px #373F47 !important;
 }
 
 .manage-ing-edit-btn .ui.basic.blue.button, .manage-ing-edit-btn .ui.basic.blue.buttons .button {
@@ -51,17 +55,17 @@
 }
 
 .manage-ing-edit-btn .ui.basic.pink.button, .manage-ing-edit-btn .ui.basic.pink.buttons .button {
-    -webkit-box-shadow: 0 0 0 1px rgb(201, 162, 169) inset!important;
-    box-shadow: 0 0 0 1px rgb(201, 162, 169) inset!important;
+    -webkit-box-shadow: 0 0 0 1px rgb(189, 156, 154)inset!important;
+    box-shadow: 0 0 0 1px rgb(207, 170, 167) inset!important;
     border-top-right-radius: .28571429rem;
     border-bottom-right-radius: .28571429rem;
-    color: rgb(201, 162, 169) !important;
+    color: rgb(207, 170, 167) !important;
 }
 
 .manage-ing-edit-btn .ui.basic.pink.button:hover, .manage-ing-edit-btn .ui.basic.pink.buttons .button:hover {
-    -webkit-box-shadow: 0 0 0 1px rgb(201, 162, 169) inset!important;
-    box-shadow: 0 0 0 1px rgb(201, 162, 169) inset!important;
-    color: rgb(201, 162, 169) !important;
+    -webkit-box-shadow: 0 0 0 1px rgb(207, 170, 167) inset!important;
+    box-shadow: 0 0 0 1px rgb(207, 170, 167) inset!important;
+    color: rgb(207, 170, 167) !important;
 }
 
 .ui.button {
@@ -90,31 +94,43 @@
 
 .ui.secondary.pointing.menu {
     border-bottom: 2px solid rgb(16, 94, 117);
-    /* background-color: #E7E7E7; */
-    /* border-radius: 5px; */
     font-family: 'Zilla Slab', serif !important;
+    text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.95) !important;
+    font-weight: 10 !important;
+    font-size: 1.04em !important;
 }
 
 .ui.secondary.pointing.menu .active.item {
-    border-color: #FFEEF2  !important;
-    color: #FFEEF2 !important;
+    border-color: rgb(216, 196, 195) !important;
+    color: rgb(241, 225, 224) !important;
 } 
 
 .ui.secondary.pointing.menu .item {
-    /* border-color: #FFEEF2 !important; */
-    color: #FFEEF2 !important;
+    /* border-color: rgb(241, 225, 224) !important; */
+    color: rgb(241, 225, 224) !important;
 }
 
 .ui.secondary.pointing.menu .item:hover {
-    border-color: #FFEEF2 !important;
-    color: #FFEEF2 !important;
+    border-color: rgb(241, 225, 224) !important;
+    color: rgb(241, 225, 224) !important;
 }
 
 .ui.secondary.pointing.menu .active.item:hover {
-    border-color: #FFEEF2 !important;
-    color: #FFEEF2 !important;
+    border-color: rgb(241, 225, 224) !important;
+    color: rgb(241, 225, 224) !important;
 } 
 
 .ui.segment {
     padding-top: 0 !important;
+}
+
+.edit-ing-right .ui.basic.blue.button, .edit-ing-right .ui.basic.blue.buttons .button {
+    border-top-right-radius: .28571429rem;
+    border-bottom-right-radius: .28571429rem;
+    margin-right: .3em !important;
+}
+
+.edit-ing-right .ui.basic.blue.button, .edit-ing-right .ui.basic.blue.buttons .button {
+    border-top-left-radius: .28571429rem;
+    border-bottom-left-radius: .28571429rem;
 }
