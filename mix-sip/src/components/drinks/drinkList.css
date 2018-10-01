@@ -11,10 +11,9 @@
 .align-center {
     text-align: center;
 }
-#C1ACAA
 
 .in-stock {
-    color: rgb(52, 128, 151)
+    color: rgb(44, 114, 136) !important;
 }
 
 .justify-center {
